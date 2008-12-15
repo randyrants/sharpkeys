@@ -1,0 +1,27 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKeys", "SharpKeys.csproj", "{8C3DB929-51B7-4B74-BBB9-69560732A834}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs07.codeplex.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = SharpKeys.csproj
+		SccLocalPath1 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C3DB929-51B7-4B74-BBB9-69560732A834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C3DB929-51B7-4B74-BBB9-69560732A834}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C3DB929-51B7-4B74-BBB9-69560732A834}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C3DB929-51B7-4B74-BBB9-69560732A834}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
