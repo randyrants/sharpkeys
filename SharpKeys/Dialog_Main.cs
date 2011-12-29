@@ -85,8 +85,8 @@ namespace SharpKeys
 		{
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dialog_Main));
       this.lvKeys = new System.Windows.Forms.ListView();
-      this.lvcFrom = new System.Windows.Forms.ColumnHeader();
-      this.lvcTo = new System.Windows.Forms.ColumnHeader();
+      this.lvcFrom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.lvcTo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.mnuPop = new System.Windows.Forms.ContextMenu();
       this.mniAdd = new System.Windows.Forms.MenuItem();
       this.mniEdit = new System.Windows.Forms.MenuItem();
@@ -113,9 +113,9 @@ namespace SharpKeys
       // 
       // lvKeys
       // 
-      this.lvKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                  | System.Windows.Forms.AnchorStyles.Left)
-                  | System.Windows.Forms.AnchorStyles.Right)));
+      this.lvKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
       this.lvKeys.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.lvcFrom,
             this.lvcTo});
@@ -244,8 +244,8 @@ namespace SharpKeys
       // 
       // label11
       // 
-      this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                  | System.Windows.Forms.AnchorStyles.Right)));
+      this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
       this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
       this.label11.FlatStyle = System.Windows.Forms.FlatStyle.System;
       this.label11.Location = new System.Drawing.Point(9, 373);
@@ -260,9 +260,9 @@ namespace SharpKeys
       this.label1.Enabled = false;
       this.label1.Location = new System.Drawing.Point(15, 385);
       this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(271, 13);
+      this.label1.Size = new System.Drawing.Size(274, 13);
       this.label1.TabIndex = 8;
-      this.label1.Text = "SharpKeys v3 - Copyright 2004 - 2009 RandyRants.com";
+      this.label1.Text = "SharpKeys 3.5 - Copyright 2004 - 2012 RandyRants.com";
       // 
       // label2
       // 
@@ -290,9 +290,9 @@ namespace SharpKeys
       // 
       // mainPanel
       // 
-      this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                  | System.Windows.Forms.AnchorStyles.Left)
-                  | System.Windows.Forms.AnchorStyles.Right)));
+      this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
       this.mainPanel.BackColor = System.Drawing.Color.Transparent;
       this.mainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.mainPanel.Controls.Add(this.headerPanel);
@@ -316,8 +316,8 @@ namespace SharpKeys
       // 
       // headerPanel
       // 
-      this.headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                  | System.Windows.Forms.AnchorStyles.Right)));
+      this.headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
       this.headerPanel.BackColor = System.Drawing.Color.Transparent;
       this.headerPanel.Controls.Add(this.displayProduct);
       this.headerPanel.Location = new System.Drawing.Point(0, 0);
@@ -328,8 +328,8 @@ namespace SharpKeys
       // 
       // displayProduct
       // 
-      this.displayProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                  | System.Windows.Forms.AnchorStyles.Right)));
+      this.displayProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
       this.displayProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.displayProduct.ForeColor = System.Drawing.Color.White;
       this.displayProduct.Location = new System.Drawing.Point(10, 2);
@@ -363,9 +363,9 @@ namespace SharpKeys
       this.MinimumSize = new System.Drawing.Size(640, 480);
       this.Name = "Dialog_Main";
       this.Text = "SharpKeys";
+      this.Closing += new System.ComponentModel.CancelEventHandler(this.Dialog_Main_Closing);
       this.Load += new System.EventHandler(this.Dialog_Main_Load);
       this.Paint += new System.Windows.Forms.PaintEventHandler(this.Dialog_Main_Paint);
-      this.Closing += new System.ComponentModel.CancelEventHandler(this.Dialog_Main_Closing);
       this.Resize += new System.EventHandler(this.Dialog_Main_Resize);
       this.mainPanel.ResumeLayout(false);
       this.mainPanel.PerformLayout();
@@ -404,7 +404,7 @@ namespace SharpKeys
       }
 
       if (nWarning == 0) {
-        MessageBox.Show("Welcome to SharpKeys!\n\nThis application will add one key to your registry that allows you\nto change how certain keys on your keyboard will work.\n\nYou must be running Windows 2000, XP or 2003 for this to be supported and\nyou'll be using SharpKeys at your own risk!\n\nEnjoy!\nRandyRants.com", "SharpKeys");
+        MessageBox.Show("Welcome to SharpKeys!\n\nThis application will add one key to your registry that allows you\nto change how certain keys on your keyboard will work.\n\nYou must be running Windows 2000, XP, 2003, Vista, 2008, or 7 for this to be supported and\nyou'll be using SharpKeys at your own risk!\n\nEnjoy!\nRandyRants.com", "SharpKeys");
       }
 
       // Set the WinPos
