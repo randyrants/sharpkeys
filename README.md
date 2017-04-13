@@ -8,6 +8,9 @@ The more I started working with other keyboard, the more I wanted to have this a
 
 SharpKeys is not responsible for any of the keyboard remapping functionality - it simply exposes a Registry key that controls how Windows remaps keys and has been available to us since Windows 2000.  The list of keys that are included in the application are from most of the US-based keyboards that I've used over the years and is not guaranteed to be 100% complete for world keyboards.
 
+## Where can I get the compiled version?
+Click the Releases button in the header above or go to https://github.com/randyrants/sharpkeys/releases directly
+
 ## How do I use it?  Getting Started
 * Launch SharpKeys, by selecting it's icon from the Start menu. If there are any errors reported, please check the Troubleshooting section below 
 * Add a new key mapping or edit an existing one 
@@ -26,7 +29,7 @@ SharpKeys is not responsible for any of the keyboard remapping functionality - i
 * Support multiple mappings for different users - the Windows key being tweaked is for an entire machine
 * Protect you from yourself - if you disable your DEL key and can’t login because Ctrl+Alt+Del doesn’t work now, you’ll have to reformat
 
-## Hope for Codeplex contributions:
+## Hope for Github contributions:
 * A more complete list to support more international keyboards
 * An import/export functionality that allows people to swap keymappings easier
 * Continued support for new .NET Frameworks
