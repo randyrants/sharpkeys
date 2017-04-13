@@ -29,7 +29,7 @@ Click the Releases button in the header above or go to https://github.com/randyr
 * Support multiple mappings for different users - the Windows key being tweaked is for an entire machine
 * Protect you from yourself - if you disable your DEL key and can’t login because Ctrl+Alt+Del doesn’t work now, you’ll have to reformat
 
-## Hope for Github contributions:
+## Hope for GitHub contributions:
 * A more complete list to support more international keyboards
 * An import/export functionality that allows people to swap keymappings easier
 * Continued support for new .NET Frameworks
