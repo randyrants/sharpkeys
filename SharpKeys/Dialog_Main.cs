@@ -404,7 +404,7 @@ namespace SharpKeys
       }
 
       if (nWarning == 0) {
-        MessageBox.Show("Welcome to SharpKeys!\n\nThis application will add one key to your registry that allows you\nto change how certain keys on your keyboard will work.\n\nYou must be running Windows 2000, XP, 2003, Vista, 2008, or 7 for this to be supported and\nyou'll be using SharpKeys at your own risk!\n\nEnjoy!\nRandyRants.com", "SharpKeys");
+        MessageBox.Show("Welcome to SharpKeys!\n\nThis application will add one key to your registry that allows you\nto change how certain keys on your keyboard will work.\n\nYou must be running Windows 2000, XP or anything more recent for this to be supported and\nyou'll be using SharpKeys at your own risk!\n\nEnjoy!\nRandyRants.com", "SharpKeys");
       }
 
       // Set the WinPos
@@ -784,7 +784,7 @@ namespace SharpKeys
       m_hashKeys.Add("00_7A", "Unknown: 0x007A");
       m_hashKeys.Add("00_7B", "Unknown: 0x007B");
       m_hashKeys.Add("00_7C", "Unknown: 0x007C");
-      m_hashKeys.Add("00_7D", "Special: ¥ -");
+      m_hashKeys.Add("00_7D", "Special: Â¥ -");
       m_hashKeys.Add("00_7E", "Unknown: 0x007E");
       m_hashKeys.Add("00_7F", "Unknown: 0x007F");
 
@@ -860,7 +860,7 @@ namespace SharpKeys
       m_hashKeys.Add("E0_42", "F-Lock: Fwd");         //   F8
       m_hashKeys.Add("E0_43", "F-Lock: Send");        //   F9
       m_hashKeys.Add("E0_44", "Unknown: 0xE044");
-      m_hashKeys.Add("E0_45", "Special: €");        //   Euro
+      m_hashKeys.Add("E0_45", "Special: Â€");        //   Euro
       m_hashKeys.Add("E0_46", "Unknown: 0xE046");
       m_hashKeys.Add("E0_47", "Special: Home");
       m_hashKeys.Add("E0_48", "Arrow: Up");
