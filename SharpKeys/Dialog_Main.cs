@@ -262,7 +262,7 @@ namespace SharpKeys
       this.label1.Name = "label1";
       this.label1.Size = new System.Drawing.Size(274, 13);
       this.label1.TabIndex = 8;
-      this.label1.Text = "SharpKeys 3.5 - Copyright 2004 - 2012 RandyRants.com";
+      this.label1.Text = "SharpKeys 3.5 - Copyright 2004 - 2017 RandyRants.com";
       // 
       // label2
       // 
@@ -348,7 +348,7 @@ namespace SharpKeys
       this.urlCode.Size = new System.Drawing.Size(184, 13);
       this.urlCode.TabIndex = 11;
       this.urlCode.TabStop = true;
-      this.urlCode.Text = "http://www.codeplex.com/sharpkeys";
+      this.urlCode.Text = "https://github.com/randyrants/sharpkeys/";
       this.urlCode.TextAlign = System.Drawing.ContentAlignment.TopRight;
       this.urlCode.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.urlMain_LinkClicked);
       // 
