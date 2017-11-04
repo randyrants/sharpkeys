@@ -20,6 +20,7 @@ Click the Releases button in the header above or go to https://github.com/randyr
 ## Things that SharpKeys _will_ do:
 * Map an entire key to any other key - e.g. you could remap Caps Lock to a Shift key
 * Remap more than one key to one single key - e.g. you could remap every key on a keyboard to the letter Q
+* Force you to look for the Left or Right ALT key in the list of available keys because Type Key cannot scan for ALT
 
 ## Things that SharpKeys **_will not_** do:
 * Allow you to swap two keys with each other - e.g. you can’t have Q and Z swap places because the remapping code would get confused
