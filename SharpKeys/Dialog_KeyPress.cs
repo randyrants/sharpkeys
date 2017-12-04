@@ -193,6 +193,9 @@ namespace SharpKeys
         lblPressed.Text = "You pressed: ";
 
       nCode = nCode >> 16;
+      // zeroed bit 30 from documentation 
+      // https://msdn.microsoft.com/en-us/library/windows/desktop/ms646280%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396   
+      nCode = nCode & 0xBFFF;
       if (nCode == 0) {
         lblKey.Text = DISABLED_KEY;
         btnOK.Enabled = false;
