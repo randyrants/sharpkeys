@@ -761,10 +761,10 @@ namespace SharpKeys
       m_hashKeys.Add("00_64", "Function: F13");
       m_hashKeys.Add("00_65", "Function: F14");
       m_hashKeys.Add("00_66", "Function: F15");
-      m_hashKeys.Add("00_67", "Unknown: 0x0067");
-      m_hashKeys.Add("00_68", "Unknown: 0x0068");
-      m_hashKeys.Add("00_69", "Unknown: 0x0069");
-      m_hashKeys.Add("00_6A", "Unknown: 0x006A");
+      m_hashKeys.Add("00_67", "Function: F16"); // Mac keyboard
+      m_hashKeys.Add("00_68", "Function: F17"); // Mac keyboard
+      m_hashKeys.Add("00_69", "Function: F18"); // Mac keyboard
+      m_hashKeys.Add("00_6A", "Function: F19"); // Mac keyboard
       m_hashKeys.Add("00_6B", "Unknown: 0x006B");
       m_hashKeys.Add("00_6C", "Unknown: 0x006C");
       m_hashKeys.Add("00_6D", "Unknown: 0x006D");
