@@ -878,7 +878,7 @@ namespace SharpKeys
       m_hashKeys.Add("E0_53", "Special: Delete");
       m_hashKeys.Add("E0_54", "Unknown: 0xE054");
       m_hashKeys.Add("E0_55", "Unknown: 0xE055");
-      m_hashKeys.Add("E0_56", "Unknown: 0xE056");
+      m_hashKeys.Add("E0_56", "Key: < > |"); 
       m_hashKeys.Add("E0_57", "F-Lock: Save");        //   F11
       m_hashKeys.Add("E0_58", "F-Lock: Print");       //   F12
       m_hashKeys.Add("E0_59", "Unknown: 0xE059");
