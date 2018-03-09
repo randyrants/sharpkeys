@@ -743,7 +743,7 @@ namespace SharpKeys
       m_hashKeys.Add("00_53", "Num: .");
       m_hashKeys.Add("00_54", "Unknown: 0x0054");
       m_hashKeys.Add("00_55", "Unknown: 0x0055");
-      m_hashKeys.Add("00_56", "Unknown: 0x0056");
+      m_hashKeys.Add("00_56", "Special: ISO extra key");
       m_hashKeys.Add("00_57", "Function: F11");
       m_hashKeys.Add("00_58", "Function: F12");
       m_hashKeys.Add("00_59", "Unknown: 0x0059");
@@ -878,7 +878,7 @@ namespace SharpKeys
       m_hashKeys.Add("E0_53", "Special: Delete");
       m_hashKeys.Add("E0_54", "Unknown: 0xE054");
       m_hashKeys.Add("E0_55", "Unknown: 0xE055");
-      m_hashKeys.Add("E0_56", "Special: ISO extra key"); 
+      m_hashKeys.Add("E0_56", "Special: < > |"); 
       m_hashKeys.Add("E0_57", "F-Lock: Save");        //   F11
       m_hashKeys.Add("E0_58", "F-Lock: Print");       //   F12
       m_hashKeys.Add("E0_59", "Unknown: 0xE059");
