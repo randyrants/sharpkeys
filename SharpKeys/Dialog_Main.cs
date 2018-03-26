@@ -765,11 +765,11 @@ namespace SharpKeys
       m_hashKeys.Add("00_68", "Function: F17"); // Mac keyboard
       m_hashKeys.Add("00_69", "Function: F18"); // Mac keyboard
       m_hashKeys.Add("00_6A", "Function: F19"); // Mac keyboard
-      m_hashKeys.Add("00_6B", "Unknown: 0x006B");
-      m_hashKeys.Add("00_6C", "Unknown: 0x006C");
-      m_hashKeys.Add("00_6D", "Unknown: 0x006D");
-      m_hashKeys.Add("00_6E", "Unknown: 0x006E");
-      m_hashKeys.Add("00_6F", "Unknown: 0x006F");
+      m_hashKeys.Add("00_6B", "Function: F20"); // IBM Model F 122-keys
+      m_hashKeys.Add("00_6C", "Function: F21"); // IBM Model F 122-keys
+      m_hashKeys.Add("00_6D", "Function: F22"); // IBM Model F 122-keys
+      m_hashKeys.Add("00_6E", "Function: F23"); // IBM Model F 122-keys
+      m_hashKeys.Add("00_6F", "Function: F24"); // IBM Model F 122-keys
 
       m_hashKeys.Add("00_70", "Unknown: 0x0070");
       m_hashKeys.Add("00_71", "Unknown: 0x0071");
