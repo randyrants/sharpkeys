@@ -485,14 +485,33 @@ namespace SharpKeys
           // skip 9, 10, 11
 
           // add up the list
-          for (int i=0; i < nCount; i++) {
-            String str = lvKeys.Items[i].SubItems[1].Text;
-            bytes[(i*4)+12+0] = Convert.ToByte(str.Substring(str.LastIndexOf("_")+1, 2), 16);
-            bytes[(i*4)+12+1] = Convert.ToByte(str.Substring(str.LastIndexOf("(")+1, 2), 16);
+          for (int i = 0; i < nCount; i++)
+          {
+            String str = lvKeys.Items[i].SubItems[1].Text; //Example: (E0_0020)
+            int BinaryStartIndex = str.LastIndexOf("_") + 1;
+            int BinaryLength = str.LastIndexOf(")") - str.LastIndexOf("_") - 1;
+            String Binary = str.Substring(BinaryStartIndex, BinaryLength); //Example: 0020
+            String Reg = str.Substring(str.LastIndexOf("(") + 1, 2); //Example: E0
+            if (Binary.Length > 2)
+            {
+              Binary = Binary.Substring(2);
+            }
 
-            str = lvKeys.Items[i].Text;
-            bytes[(i*4)+12+2] = Convert.ToByte(str.Substring(str.LastIndexOf("_")+1, 2), 16);
-            bytes[(i*4)+12+3] = Convert.ToByte(str.Substring(str.LastIndexOf("(")+1, 2), 16);
+            bytes[(i * 4) + 12 + 0] = Convert.ToByte(Binary, 16);
+            bytes[(i * 4) + 12 + 1] = Convert.ToByte(Reg, 16);
+
+            str = lvKeys.Items[i].Text; //Example: (E0_0020)
+            BinaryStartIndex = str.LastIndexOf("_") + 1;
+            BinaryLength = str.LastIndexOf(")") - str.LastIndexOf("_") - 1;
+            Binary = str.Substring(BinaryStartIndex, BinaryLength); //Example: 0020
+            Reg = str.Substring(str.LastIndexOf("(") + 1, 2); //Example: E0
+            if (Binary.Length > 2)
+            {
+              Binary = Binary.Substring(2);
+            }
+
+            bytes[(i * 4) + 12 + 2] = Convert.ToByte(Binary, 16);
+            bytes[(i * 4) + 12 + 3] = Convert.ToByte(Reg, 16);
           }
 
           // last 4 are 0's
@@ -847,6 +866,7 @@ namespace SharpKeys
       m_hashKeys.Add("E0_36", "Unknown: 0xE036");
       m_hashKeys.Add("E0_37", "Special: PrtSc"); 
       m_hashKeys.Add("E0_38", "Special: Right Alt");
+      m_hashKeys.Add("E0_2038", "Special: Alt Gr");
       m_hashKeys.Add("E0_39", "Unknown: 0xE039");
       m_hashKeys.Add("E0_3A", "Unknown: 0xE03A");
       m_hashKeys.Add("E0_3B", "F-Lock: Help");        //   F1
