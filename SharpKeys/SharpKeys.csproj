@@ -132,6 +132,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="StringKey.cs" />
     <Compile Include="StringKeys.cs" />
     <Compile Include="StringMapping.cs" />

@@ -19,52 +19,46 @@ namespace SharpKeys
         FormWindowState m_FormWindowState = FormWindowState.Normal;
 
         // Field for saving window position
-        private Rectangle m_DesktopBounds = new Rectangle(10, 10, 750, 750);
+        Rectangle m_DesktopBounds = new Rectangle(10, 10, 750, 750);
 
         // Field for registy storage
-        private string m_strRegKey = "Software\\RandyRants\\SharpKeys";
+        readonly string m_strRegKey = "Software\\RandyRants\\SharpKeys";
 
         // Dirty flag (to see track if mappings have been saved)
-        private bool m_bDirty = false;
+        bool m_bDirty;
 
         int nWarning;
 
-        private System.Windows.Forms.ListView lvKeys;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.ColumnHeader lvcFrom;
-        private System.Windows.Forms.ColumnHeader lvcTo;
-        private System.Windows.Forms.Button btnDeleteAll;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel urlMain;
-        private System.Windows.Forms.MenuItem menuItem5;
-        private System.Windows.Forms.MenuItem mniAdd;
-        private System.Windows.Forms.MenuItem mniEdit;
-        private System.Windows.Forms.MenuItem mniDelete;
-        private System.Windows.Forms.MenuItem mniDeleteAll;
-        private System.Windows.Forms.ContextMenu mnuPop;
-        private Panel mainPanel;
-        private Panel headerPanel;
-        private Label displayProduct;
-        private LinkLabel urlCode;
+        System.Windows.Forms.ListView lvKeys;
+        Button btnSave;
+        Button btnClose;
+        Button btnAdd;
+        Button btnDelete;
+        Button btnEdit;
+        System.Windows.Forms.ColumnHeader lvcFrom;
+        System.Windows.Forms.ColumnHeader lvcTo;
+        Button btnDeleteAll;
+        System.Windows.Forms.Label label11;
+        System.Windows.Forms.Label label1;
+        System.Windows.Forms.Label label2;
+        System.Windows.Forms.LinkLabel urlMain;
+        System.Windows.Forms.MenuItem menuItem5;
+        System.Windows.Forms.MenuItem mniAdd;
+        System.Windows.Forms.MenuItem mniEdit;
+        System.Windows.Forms.MenuItem mniDelete;
+        System.Windows.Forms.MenuItem mniDeleteAll;
+        System.Windows.Forms.ContextMenu mnuPop;
+        Panel mainPanel;
+        Panel headerPanel;
+        Label displayProduct;
+        LinkLabel urlCode;
 
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.Container components = null;
+        Container components;
 
-        public Dialog_Main()
-        {
-            //
-            // Required for Windows Form Designer support
-            //
-            InitializeComponent();
-        }
+        public Dialog_Main() => InitializeComponent();
 
         /// <summary>
         /// Clean up any resources being used.
@@ -87,296 +81,296 @@ namespace SharpKeys
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dialog_Main));
-            this.lvKeys = new System.Windows.Forms.ListView();
-            this.lvcFrom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvcTo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.mnuPop = new System.Windows.Forms.ContextMenu();
-            this.mniAdd = new System.Windows.Forms.MenuItem();
-            this.mniEdit = new System.Windows.Forms.MenuItem();
-            this.mniDelete = new System.Windows.Forms.MenuItem();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
-            this.mniDeleteAll = new System.Windows.Forms.MenuItem();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDeleteAll = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.urlMain = new System.Windows.Forms.LinkLabel();
-            this.mainPanel = new System.Windows.Forms.Panel();
-            this.headerPanel = new System.Windows.Forms.Panel();
-            this.displayProduct = new System.Windows.Forms.Label();
-            this.urlCode = new System.Windows.Forms.LinkLabel();
-            this.mainPanel.SuspendLayout();
-            this.headerPanel.SuspendLayout();
-            this.SuspendLayout();
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(Dialog_Main));
+            lvKeys = new System.Windows.Forms.ListView();
+            lvcFrom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            lvcTo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            mnuPop = new System.Windows.Forms.ContextMenu();
+            mniAdd = new System.Windows.Forms.MenuItem();
+            mniEdit = new System.Windows.Forms.MenuItem();
+            mniDelete = new System.Windows.Forms.MenuItem();
+            menuItem5 = new System.Windows.Forms.MenuItem();
+            mniDeleteAll = new System.Windows.Forms.MenuItem();
+            btnSave = new Button();
+            btnClose = new Button();
+            btnAdd = new Button();
+            btnDelete = new Button();
+            btnEdit = new Button();
+            btnDeleteAll = new Button();
+            label11 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            urlMain = new System.Windows.Forms.LinkLabel();
+            mainPanel = new System.Windows.Forms.Panel();
+            headerPanel = new System.Windows.Forms.Panel();
+            displayProduct = new System.Windows.Forms.Label();
+            urlCode = new System.Windows.Forms.LinkLabel();
+            mainPanel.SuspendLayout();
+            headerPanel.SuspendLayout();
+            SuspendLayout();
             //
             // lvKeys
             //
-            this.lvKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            lvKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvKeys.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.lvcFrom,
-            this.lvcTo});
-            this.lvKeys.ContextMenu = this.mnuPop;
-            this.lvKeys.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lvKeys.FullRowSelect = true;
-            this.lvKeys.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lvKeys.HideSelection = false;
-            this.lvKeys.Location = new System.Drawing.Point(14, 45);
-            this.lvKeys.MultiSelect = false;
-            this.lvKeys.Name = "lvKeys";
-            this.lvKeys.Size = new System.Drawing.Size(579, 282);
-            this.lvKeys.Sorting = System.Windows.Forms.SortOrder.Ascending;
-            this.lvKeys.TabIndex = 0;
-            this.lvKeys.UseCompatibleStateImageBehavior = false;
-            this.lvKeys.View = System.Windows.Forms.View.Details;
-            this.lvKeys.SelectedIndexChanged += new System.EventHandler(this.lvKeys_SelectedIndexChanged);
-            this.lvKeys.DoubleClick += new System.EventHandler(this.lvKeys_DoubleClick);
+            lvKeys.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            lvcFrom,
+            lvcTo});
+            lvKeys.ContextMenu = mnuPop;
+            lvKeys.ForeColor = System.Drawing.SystemColors.WindowText;
+            lvKeys.FullRowSelect = true;
+            lvKeys.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            lvKeys.HideSelection = false;
+            lvKeys.Location = new System.Drawing.Point(14, 45);
+            lvKeys.MultiSelect = false;
+            lvKeys.Name = "lvKeys";
+            lvKeys.Size = new System.Drawing.Size(579, 282);
+            lvKeys.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            lvKeys.TabIndex = 0;
+            lvKeys.UseCompatibleStateImageBehavior = false;
+            lvKeys.View = System.Windows.Forms.View.Details;
+            lvKeys.SelectedIndexChanged += new System.EventHandler(lvKeys_SelectedIndexChanged);
+            lvKeys.DoubleClick += new System.EventHandler(lvKeys_DoubleClick);
             //
             // lvcFrom
             //
-            this.lvcFrom.Text = "From:";
+            lvcFrom.Text = "From:";
             //
             // lvcTo
             //
-            this.lvcTo.Text = "To:";
+            lvcTo.Text = "To:";
             //
             // mnuPop
             //
-            this.mnuPop.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.mniAdd,
-            this.mniEdit,
-            this.mniDelete,
-            this.menuItem5,
-            this.mniDeleteAll});
-            this.mnuPop.Popup += new System.EventHandler(this.mnuPop_Popup);
+            mnuPop.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            mniAdd,
+            mniEdit,
+            mniDelete,
+            menuItem5,
+            mniDeleteAll});
+            mnuPop.Popup += new System.EventHandler(mnuPop_Popup);
             //
             // mniAdd
             //
-            this.mniAdd.Index = 0;
-            this.mniAdd.Text = "Add";
-            this.mniAdd.Click += new System.EventHandler(this.mniAdd_Click);
+            mniAdd.Index = 0;
+            mniAdd.Text = "Add";
+            mniAdd.Click += new System.EventHandler(mniAdd_Click);
             //
             // mniEdit
             //
-            this.mniEdit.Index = 1;
-            this.mniEdit.Text = "Edit";
-            this.mniEdit.Click += new System.EventHandler(this.mniEdit_Click);
+            mniEdit.Index = 1;
+            mniEdit.Text = "Edit";
+            mniEdit.Click += new System.EventHandler(mniEdit_Click);
             //
             // mniDelete
             //
-            this.mniDelete.Index = 2;
-            this.mniDelete.Text = "Delete";
-            this.mniDelete.Click += new System.EventHandler(this.mniDelete_Click);
+            mniDelete.Index = 2;
+            mniDelete.Text = "Delete";
+            mniDelete.Click += new System.EventHandler(mniDelete_Click);
             //
             // menuItem5
             //
-            this.menuItem5.Index = 3;
-            this.menuItem5.Text = "-";
+            menuItem5.Index = 3;
+            menuItem5.Text = "-";
             //
             // mniDeleteAll
             //
-            this.mniDeleteAll.Index = 4;
-            this.mniDeleteAll.Text = "Delete All";
-            this.mniDeleteAll.Click += new System.EventHandler(this.mniDeleteAll_Click);
+            mniDeleteAll.Index = 4;
+            mniDeleteAll.Text = "Delete All";
+            mniDeleteAll.Click += new System.EventHandler(mniDeleteAll_Click);
             //
             // btnSave
             //
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(409, 339);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(106, 23);
-            this.btnSave.TabIndex = 5;
-            this.btnSave.Text = "&Write to Registry";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            btnSave.Location = new System.Drawing.Point(409, 339);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new System.Drawing.Size(106, 23);
+            btnSave.TabIndex = 5;
+            btnSave.Text = "&Write to Registry";
+            btnSave.Click += new System.EventHandler(btnSave_Click);
             //
             // btnClose
             //
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(521, 339);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(72, 23);
-            this.btnClose.TabIndex = 6;
-            this.btnClose.Text = "&Close";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            btnClose.Location = new System.Drawing.Point(521, 339);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new System.Drawing.Size(72, 23);
+            btnClose.TabIndex = 6;
+            btnClose.Text = "&Close";
+            btnClose.Click += new System.EventHandler(btnClose_Click);
             //
             // btnAdd
             //
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAdd.Location = new System.Drawing.Point(14, 339);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(72, 23);
-            this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "&Add";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            btnAdd.Location = new System.Drawing.Point(14, 339);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new System.Drawing.Size(72, 23);
+            btnAdd.TabIndex = 1;
+            btnAdd.Text = "&Add";
+            btnAdd.Click += new System.EventHandler(btnAdd_Click);
             //
             // btnDelete
             //
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDelete.Location = new System.Drawing.Point(170, 339);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(72, 23);
-            this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "&Delete";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            btnDelete.Location = new System.Drawing.Point(170, 339);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new System.Drawing.Size(72, 23);
+            btnDelete.TabIndex = 3;
+            btnDelete.Text = "&Delete";
+            btnDelete.Click += new System.EventHandler(btnDelete_Click);
             //
             // btnEdit
             //
-            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEdit.Location = new System.Drawing.Point(92, 339);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(72, 23);
-            this.btnEdit.TabIndex = 2;
-            this.btnEdit.Text = "&Edit";
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            btnEdit.Location = new System.Drawing.Point(92, 339);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new System.Drawing.Size(72, 23);
+            btnEdit.TabIndex = 2;
+            btnEdit.Text = "&Edit";
+            btnEdit.Click += new System.EventHandler(btnEdit_Click);
             //
             // btnDeleteAll
             //
-            this.btnDeleteAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDeleteAll.Location = new System.Drawing.Point(248, 339);
-            this.btnDeleteAll.Name = "btnDeleteAll";
-            this.btnDeleteAll.Size = new System.Drawing.Size(72, 23);
-            this.btnDeleteAll.TabIndex = 4;
-            this.btnDeleteAll.Text = "De&lete All";
-            this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
+            btnDeleteAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            btnDeleteAll.Location = new System.Drawing.Point(248, 339);
+            btnDeleteAll.Name = "btnDeleteAll";
+            btnDeleteAll.Size = new System.Drawing.Size(72, 23);
+            btnDeleteAll.TabIndex = 4;
+            btnDeleteAll.Text = "De&lete All";
+            btnDeleteAll.Click += new System.EventHandler(btnDeleteAll_Click);
             //
             // label11
             //
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label11.Location = new System.Drawing.Point(9, 373);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(588, 3);
-            this.label11.TabIndex = 7;
+            label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            label11.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            label11.Location = new System.Drawing.Point(9, 373);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(588, 3);
+            label11.TabIndex = 7;
             //
             // label1
             //
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Enabled = false;
-            this.label1.Location = new System.Drawing.Point(15, 385);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(283, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "SharpKeys 3.6.0 - Copyright 2004 - 2018 RandyRants.com";
+            label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            label1.AutoSize = true;
+            label1.Enabled = false;
+            label1.Location = new System.Drawing.Point(15, 385);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(283, 13);
+            label1.TabIndex = 8;
+            label1.Text = "SharpKeys 3.6.0 - Copyright 2004 - 2018 RandyRants.com";
             //
             // label2
             //
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Enabled = false;
-            this.label2.Location = new System.Drawing.Point(15, 403);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(226, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Registry hack for remapping keys for Windows";
+            label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            label2.AutoSize = true;
+            label2.Enabled = false;
+            label2.Location = new System.Drawing.Point(15, 403);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(226, 13);
+            label2.TabIndex = 10;
+            label2.Text = "Registry hack for remapping keys for Windows";
             //
             // urlMain
             //
-            this.urlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.urlMain.AutoSize = true;
-            this.urlMain.Location = new System.Drawing.Point(451, 403);
-            this.urlMain.Name = "urlMain";
-            this.urlMain.Size = new System.Drawing.Size(142, 13);
-            this.urlMain.TabIndex = 11;
-            this.urlMain.TabStop = true;
-            this.urlMain.Text = "http://www.randyrants.com/";
-            this.urlMain.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.urlMain.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.urlMain_LinkClicked);
+            urlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            urlMain.AutoSize = true;
+            urlMain.Location = new System.Drawing.Point(451, 403);
+            urlMain.Name = "urlMain";
+            urlMain.Size = new System.Drawing.Size(142, 13);
+            urlMain.TabIndex = 11;
+            urlMain.TabStop = true;
+            urlMain.Text = "http://www.randyrants.com/";
+            urlMain.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            urlMain.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(urlMain_LinkClicked);
             //
             // mainPanel
             //
-            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.mainPanel.BackColor = System.Drawing.Color.Transparent;
-            this.mainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mainPanel.Controls.Add(this.headerPanel);
-            this.mainPanel.Controls.Add(this.urlCode);
-            this.mainPanel.Controls.Add(this.urlMain);
-            this.mainPanel.Controls.Add(this.label2);
-            this.mainPanel.Controls.Add(this.lvKeys);
-            this.mainPanel.Controls.Add(this.btnAdd);
-            this.mainPanel.Controls.Add(this.label1);
-            this.mainPanel.Controls.Add(this.btnEdit);
-            this.mainPanel.Controls.Add(this.btnDelete);
-            this.mainPanel.Controls.Add(this.label11);
-            this.mainPanel.Controls.Add(this.btnDeleteAll);
-            this.mainPanel.Controls.Add(this.btnSave);
-            this.mainPanel.Controls.Add(this.btnClose);
-            this.mainPanel.Location = new System.Drawing.Point(12, 12);
-            this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(608, 430);
-            this.mainPanel.TabIndex = 12;
-            this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainPanel_Paint);
+            mainPanel.BackColor = System.Drawing.Color.Transparent;
+            mainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            mainPanel.Controls.Add(headerPanel);
+            mainPanel.Controls.Add(urlCode);
+            mainPanel.Controls.Add(urlMain);
+            mainPanel.Controls.Add(label2);
+            mainPanel.Controls.Add(lvKeys);
+            mainPanel.Controls.Add(btnAdd);
+            mainPanel.Controls.Add(label1);
+            mainPanel.Controls.Add(btnEdit);
+            mainPanel.Controls.Add(btnDelete);
+            mainPanel.Controls.Add(label11);
+            mainPanel.Controls.Add(btnDeleteAll);
+            mainPanel.Controls.Add(btnSave);
+            mainPanel.Controls.Add(btnClose);
+            mainPanel.Location = new System.Drawing.Point(12, 12);
+            mainPanel.Name = "mainPanel";
+            mainPanel.Size = new System.Drawing.Size(608, 430);
+            mainPanel.TabIndex = 12;
+            mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(mainPanel_Paint);
             //
             // headerPanel
             //
-            this.headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.headerPanel.BackColor = System.Drawing.Color.Transparent;
-            this.headerPanel.Controls.Add(this.displayProduct);
-            this.headerPanel.Location = new System.Drawing.Point(0, 0);
-            this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(606, 29);
-            this.headerPanel.TabIndex = 7;
-            this.headerPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.headerPanel_Paint);
+            headerPanel.BackColor = System.Drawing.Color.Transparent;
+            headerPanel.Controls.Add(displayProduct);
+            headerPanel.Location = new System.Drawing.Point(0, 0);
+            headerPanel.Name = "headerPanel";
+            headerPanel.Size = new System.Drawing.Size(606, 29);
+            headerPanel.TabIndex = 7;
+            headerPanel.Paint += new System.Windows.Forms.PaintEventHandler(headerPanel_Paint);
             //
             // displayProduct
             //
-            this.displayProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            displayProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.displayProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayProduct.ForeColor = System.Drawing.Color.White;
-            this.displayProduct.Location = new System.Drawing.Point(10, 2);
-            this.displayProduct.Name = "displayProduct";
-            this.displayProduct.Size = new System.Drawing.Size(586, 23);
-            this.displayProduct.TabIndex = 1;
-            this.displayProduct.Text = "SharpKeys";
-            this.displayProduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            displayProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            displayProduct.ForeColor = System.Drawing.Color.White;
+            displayProduct.Location = new System.Drawing.Point(10, 2);
+            displayProduct.Name = "displayProduct";
+            displayProduct.Size = new System.Drawing.Size(586, 23);
+            displayProduct.TabIndex = 1;
+            displayProduct.Text = "SharpKeys";
+            displayProduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             //
             // urlCode
             //
-            this.urlCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.urlCode.AutoSize = true;
-            this.urlCode.Location = new System.Drawing.Point(386, 385);
-            this.urlCode.Name = "urlCode";
-            this.urlCode.Size = new System.Drawing.Size(207, 13);
-            this.urlCode.TabIndex = 11;
-            this.urlCode.TabStop = true;
-            this.urlCode.Text = "https://github.com/randyrants/sharpkeys/";
-            this.urlCode.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.urlCode.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.urlMain_LinkClicked);
+            urlCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            urlCode.AutoSize = true;
+            urlCode.Location = new System.Drawing.Point(386, 385);
+            urlCode.Name = "urlCode";
+            urlCode.Size = new System.Drawing.Size(207, 13);
+            urlCode.TabIndex = 11;
+            urlCode.TabStop = true;
+            urlCode.Text = "https://github.com/randyrants/sharpkeys/";
+            urlCode.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            urlCode.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(urlMain_LinkClicked);
             //
             // Dialog_Main
             //
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 454);
-            this.Controls.Add(this.mainPanel);
-            this.DoubleBuffered = true;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(640, 480);
-            this.Name = "Dialog_Main";
-            this.Text = "SharpKeys";
-            this.Closing += new System.ComponentModel.CancelEventHandler(this.Dialog_Main_Closing);
-            this.Load += new System.EventHandler(this.Dialog_Main_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Dialog_Main_Paint);
-            this.Resize += new System.EventHandler(this.Dialog_Main_Resize);
-            this.mainPanel.ResumeLayout(false);
-            this.mainPanel.PerformLayout();
-            this.headerPanel.ResumeLayout(false);
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(632, 454);
+            Controls.Add(mainPanel);
+            DoubleBuffered = true;
+            Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            MinimumSize = new System.Drawing.Size(640, 480);
+            Name = "Dialog_Main";
+            Text = "SharpKeys";
+            Closing += new System.ComponentModel.CancelEventHandler(Dialog_Main_Closing);
+            Load += new System.EventHandler(Dialog_Main_Load);
+            Paint += new System.Windows.Forms.PaintEventHandler(Dialog_Main_Paint);
+            Resize += new System.EventHandler(Dialog_Main_Resize);
+            mainPanel.ResumeLayout(false);
+            mainPanel.PerformLayout();
+            headerPanel.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion Windows Form Designer generated code
@@ -391,28 +385,28 @@ namespace SharpKeys
             Application.Run(new Dialog_Main());
         }
 
-        private void LoadRegistrySettings()
+        static void LoadRegistrySettings(Dialog_Main instance)
         {
             // now load the scan code map
-            RegistryKey regScanMapKey = Registry.LocalMachine.OpenSubKey("System\\CurrentControlSet\\Control\\Keyboard Layout");
+            var regScanMapKey = Registry.LocalMachine.OpenSubKey("System\\CurrentControlSet\\Control\\Keyboard Layout");
             if (regScanMapKey != null)
             {
-                byte[] bytes = (byte[])regScanMapKey.GetValue("Scancode Map");
+                var bytes = (byte[])regScanMapKey.GetValue("Scancode Map");
                 if (bytes == null)
                 {
                     regScanMapKey.Close();
                     return;
                 }
 
-                StringMappings.Instance.ReadRegistryBytes(bytes);
+                StringMappings.ReadRegistryBytes(bytes);
 
                 regScanMapKey.Close();
             }
         }
 
-        private void GetWindowState()
+        void GetWindowState()
         {
-            RegistryKey regKey = Registry.CurrentUser.OpenSubKey(m_strRegKey);
+            var regKey = Registry.CurrentUser.OpenSubKey(m_strRegKey);
             if (regKey != null)
             {
                 // Load Window Pos
@@ -426,9 +420,9 @@ namespace SharpKeys
             }
         }
 
-        private void SetWindowState()
+        void SetWindowState()
         {
-            RegistryKey regKey = Registry.CurrentUser.CreateSubKey(m_strRegKey);
+            var regKey = Registry.CurrentUser.CreateSubKey(m_strRegKey);
             if (regKey != null)
             {
                 // Save Window Pos
@@ -442,15 +436,15 @@ namespace SharpKeys
             }
         }
 
-        private void SaveMappingsToRegistry()
+        void SaveMappingsToRegistry()
         {
             Cursor = Cursors.WaitCursor;
 
             // Open the key to save the scancodes
-            RegistryKey regScanMapKey = Registry.LocalMachine.CreateSubKey("System\\CurrentControlSet\\Control\\Keyboard Layout");
+            var regScanMapKey = Registry.LocalMachine.CreateSubKey("System\\CurrentControlSet\\Control\\Keyboard Layout");
             if (regScanMapKey != null)
             {
-                byte[] registryScanCodes = StringMappings.Instance.WriteRegistryBytes();
+                var registryScanCodes = StringMappings.WriteRegistryBytes();
                 if (registryScanCodes.Length == 0)
                 {
                     // the second param is required; this will throw an exception if the value isn't found,
@@ -470,7 +464,7 @@ namespace SharpKeys
             MessageBox.Show("Key Mappings have been successfully stored to the registry.\n\nPlease logout or reboot for these changes to take effect!", "SharpKeys");
         }
 
-        private void AddMapping()
+        void AddMapping()
         {
             // max out the mapping at 104
             if (lvKeys.Items.Count >= 104)
@@ -480,7 +474,7 @@ namespace SharpKeys
             }
 
             // adding a new mapping, so prep the add dialog with all of the scancodes
-            Dialog_KeyItem dlg = new Dialog_KeyItem();
+            var dlg = new Dialog_KeyItem();
 
             foreach (var item in StringKeys.Default.Keys)
             {
@@ -516,14 +510,14 @@ namespace SharpKeys
                 m_bDirty = true;
 
                 // Add the list, as it's past inspection.
-                ListViewItem lvI = lvKeys.Items.Add(dlg.lbFrom.Text);
+                var lvI = lvKeys.Items.Add(dlg.lbFrom.Text);
                 lvI.SubItems.Add(dlg.lbTo.Text);
                 lvI.Selected = true;
             }
             lvKeys.Focus();
         }
 
-        private void EditMapping()
+        void EditMapping()
         {
             // make sure something was selecting
             if (lvKeys.SelectedItems.Count <= 0)
@@ -533,7 +527,7 @@ namespace SharpKeys
             }
 
             // built the drop down lists no matter what
-            Dialog_KeyItem dlg = new Dialog_KeyItem();
+            var dlg = new Dialog_KeyItem();
             foreach (var item in StringKeys.Default.Keys)
             {
                 string str = item.Value.Text;
@@ -588,7 +582,7 @@ namespace SharpKeys
             lvKeys.Focus();
         }
 
-        private void DeleteMapping()
+        void DeleteMapping()
         {
             // Pop a mapping out of the list view
             if (lvKeys.SelectedItems.Count <= 0)
@@ -602,10 +596,10 @@ namespace SharpKeys
             m_bDirty = true;
         }
 
-        private void DeleteAllMapping()
+        void DeleteAllMapping()
         {
             // Since removing all is a big step, get a confirmation
-            DialogResult dlgRes = MessageBox.Show("Deleting all will clear this list of key mapping but your registry will not be updated until you click \"Write to Registry\".\n\nDo you want to clear this list of key mappings?", "SharpKeys", MessageBoxButtons.YesNo, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button2);
+            var dlgRes = MessageBox.Show("Deleting all will clear this list of key mapping but your registry will not be updated until you click \"Write to Registry\".\n\nDo you want to clear this list of key mappings?", "SharpKeys", MessageBoxButtons.YesNo, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button2);
             if (dlgRes == DialogResult.No)
             {
                 return;
@@ -619,7 +613,7 @@ namespace SharpKeys
         }
 
         // Dialog related events and overrides
-        private void Dialog_Main_Load(object sender, System.EventArgs e)
+        void Dialog_Main_Load(object sender, EventArgs e)
         {
             // First load the window positions from registry
             GetWindowState();
@@ -636,11 +630,11 @@ namespace SharpKeys
             WindowState = m_FormWindowState;
 
             // Set up the hashtable and load the registy settings
-            LoadRegistrySettings();
+            Dialog_Main.LoadRegistrySettings(this);
 
             foreach (var keymap in StringMappings.Instance.Default)
             {
-                ListViewItem lvI = lvKeys.Items.Add(keymap.TextFrom);
+                var lvI = lvKeys.Items.Add(keymap.TextFrom);
                 lvI.SubItems.Add(keymap.TextTo);
             }
             // UI tweaking
@@ -651,12 +645,12 @@ namespace SharpKeys
             Cursor = Cursors.Default;
         }
 
-        private void Dialog_Main_Closing(object sender, CancelEventArgs e)
+        void Dialog_Main_Closing(object sender, CancelEventArgs e)
         {
             // if anything has been added, edit'd or delete'd, ask if a save to the registry should be performed
             if (m_bDirty)
             {
-                DialogResult dlgRes = MessageBox.Show("You have made changes to the list of key mappings.\n\nDo you want to update the registry now?", "SharpKeys", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button3);
+                var dlgRes = MessageBox.Show("You have made changes to the list of key mappings.\n\nDo you want to update the registry now?", "SharpKeys", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button3);
                 if (dlgRes == DialogResult.Cancel)
                 {
                     e.Cancel = true;
@@ -700,7 +694,7 @@ namespace SharpKeys
         }
 
         // Other Events
-        private void lvKeys_SelectedIndexChanged(object sender, System.EventArgs e)
+        void lvKeys_SelectedIndexChanged(object sender, EventArgs e)
         {
             // UI stuff (to prevent editing or deleting a non-item
             if (lvKeys.SelectedItems.Count <= 0)
@@ -715,7 +709,7 @@ namespace SharpKeys
             }
         }
 
-        private void mnuPop_Popup(object sender, System.EventArgs e)
+        void mnuPop_Popup(object sender, EventArgs e)
         {
             // UI stuff (to prevent editing or deleting a non-item
             if (lvKeys.SelectedItems.Count <= 0)
@@ -730,107 +724,69 @@ namespace SharpKeys
             }
         }
 
-        private void btnClose_Click(object sender, System.EventArgs e)
-        {
-            this.Close();
-        }
+        void btnClose_Click(object sender, EventArgs e) => Close();
 
-        private void btnAdd_Click(object sender, System.EventArgs e)
-        {
-            AddMapping();
-        }
+        void btnAdd_Click(object sender, EventArgs e) => AddMapping();
 
-        private void mniAdd_Click(object sender, System.EventArgs e)
-        {
-            AddMapping();
-        }
+        void mniAdd_Click(object sender, EventArgs e) => AddMapping();
 
-        private void btnEdit_Click(object sender, System.EventArgs e)
-        {
-            EditMapping();
-        }
+        void btnEdit_Click(object sender, EventArgs e) => EditMapping();
 
-        private void mniEdit_Click(object sender, System.EventArgs e)
-        {
-            EditMapping();
-        }
+        void mniEdit_Click(object sender, EventArgs e) => EditMapping();
 
-        private void lvKeys_DoubleClick(object sender, System.EventArgs e)
-        {
-            EditMapping();
-        }
+        void lvKeys_DoubleClick(object sender, EventArgs e) => EditMapping();
 
-        private void btnDelete_Click(object sender, System.EventArgs e)
-        {
-            DeleteMapping();
-        }
+        void btnDelete_Click(object sender, EventArgs e) => DeleteMapping();
 
-        private void mniDelete_Click(object sender, System.EventArgs e)
-        {
-            DeleteMapping();
-        }
+        void mniDelete_Click(object sender, EventArgs e) => DeleteMapping();
 
-        private void btnDeleteAll_Click(object sender, System.EventArgs e)
-        {
-            DeleteAllMapping();
-        }
+        void btnDeleteAll_Click(object sender, EventArgs e) => DeleteAllMapping();
 
-        private void mniDeleteAll_Click(object sender, System.EventArgs e)
-        {
-            DeleteAllMapping();
-        }
+        void mniDeleteAll_Click(object sender, EventArgs e) => DeleteAllMapping();
 
-        private void btnSave_Click(object sender, System.EventArgs e)
-        {
-            SaveMappingsToRegistry();
-        }
+        void btnSave_Click(object sender, EventArgs e) => SaveMappingsToRegistry();
 
-        private void urlMain_LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
-        {
+        void urlMain_LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e) =>
             // open the home page
             System.Diagnostics.Process.Start(((LinkLabel)sender).Text);
-        }
 
-        private void Dialog_Main_Resize(object sender, EventArgs e)
+        void Dialog_Main_Resize(object sender, EventArgs e) => Invalidate();
+
+        void Dialog_Main_Paint(object sender, PaintEventArgs e)
         {
-            this.Invalidate();
-        }
+            var graphics = e.Graphics;
 
-        private void Dialog_Main_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics graphics = e.Graphics;
-
-            Rectangle rectangle = new Rectangle(0, 0, this.Width, this.Height);
-            LinearGradientBrush linearGradientBrush = new LinearGradientBrush(rectangle,
+            var rectangle = new Rectangle(0, 0, Width, Height);
+            var linearGradientBrush = new LinearGradientBrush(rectangle,
                            Color.FromArgb(188, 188, 188), Color.FromArgb(225, 225, 225),
                            LinearGradientMode.ForwardDiagonal);
 
             graphics.FillRectangle(linearGradientBrush, rectangle);
         }
 
-        private void mainPanel_Paint(object sender, PaintEventArgs e)
+        void mainPanel_Paint(object sender, PaintEventArgs e)
         {
-            Graphics graphics = e.Graphics;
+            var graphics = e.Graphics;
 
-            Rectangle rectangle = new Rectangle(0, 0, mainPanel.Width, mainPanel.Height);
-            LinearGradientBrush linearGradientBrush = new LinearGradientBrush(rectangle,
+            var rectangle = new Rectangle(0, 0, mainPanel.Width, mainPanel.Height);
+            var linearGradientBrush = new LinearGradientBrush(rectangle,
                            Color.FromArgb(209, 221, 228), Color.FromArgb(237, 239, 247), //Color.FromArgb(236, 241, 243),
                            LinearGradientMode.Vertical);
 
             graphics.FillRectangle(linearGradientBrush, rectangle);
         }
 
-        private void headerPanel_Paint(object sender, PaintEventArgs e)
+        void headerPanel_Paint(object sender, PaintEventArgs e)
         {
-            Graphics graphics = e.Graphics;
+            var graphics = e.Graphics;
 
-            Rectangle topRectangle = new Rectangle(0, 0, headerPanel.Width, headerPanel.Height / 2);
-            Rectangle bottomRectangle = new Rectangle(0, topRectangle.Height, headerPanel.Width, headerPanel.Height - topRectangle.Height);
-            LinearGradientBrush topGradientBrush = new LinearGradientBrush(topRectangle,
+            var topRectangle = new Rectangle(0, 0, headerPanel.Width, headerPanel.Height / 2);
+            var bottomRectangle = new Rectangle(0, topRectangle.Height, headerPanel.Width, headerPanel.Height - topRectangle.Height);
+            var topGradientBrush = new LinearGradientBrush(topRectangle,
                            Color.FromArgb(165, 182, 206), Color.FromArgb(37, 81, 142),
                            LinearGradientMode.Vertical);
 
-            LinearGradientBrush bottomGradientBrush = new LinearGradientBrush(bottomRectangle,
+            var bottomGradientBrush = new LinearGradientBrush(bottomRectangle,
                            Color.FromArgb(13, 37, 90), Color.FromArgb(39, 37, 160),
                            LinearGradientMode.Vertical);
 

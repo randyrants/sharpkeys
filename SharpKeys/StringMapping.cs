@@ -17,10 +17,10 @@ namespace SharpKeys
 
         public StringMapping(StringMappings stringMappings, int scanCodeFrom, int scanCodeTo)
         {
-            byte b0 = (byte)((scanCodeFrom & 0xff00) >> 8);
-            byte b1 = (byte)(scanCodeFrom & 0xff);
-            byte b2 = (byte)((scanCodeTo & 0xff00) >> 8);
-            byte b3 = (byte)(scanCodeTo & 0xff);
+            var b0 = (byte)((scanCodeFrom & 0xff00) >> 8);
+            var b1 = (byte)(scanCodeFrom & 0xff);
+            var b2 = (byte)((scanCodeTo & 0xff00) >> 8);
+            var b3 = (byte)(scanCodeTo & 0xff);
 
             m_stringMappings = stringMappings;
             m_registryScanCode = new byte[4] { b3, b2, b1, b0 };
@@ -42,7 +42,7 @@ namespace SharpKeys
         public StringKey From => m_stringMappings[FromScanCode];
         public StringKey To => m_stringMappings[ToScanCode];
 
-        public byte[] RegistryScanCode => m_registryScanCode;
+        public byte[] GetRegistryScanCode() => m_registryScanCode;
 
         public void SetMappings(byte[] scanCode) => m_registryScanCode = scanCode;
     }

@@ -11,32 +11,22 @@ namespace SharpKeys
     /// </summary>
     public class Dialog_KeyItem : System.Windows.Forms.Form
     {
-        internal System.Windows.Forms.ListBox lbFrom;
-        internal System.Windows.Forms.ListBox lbTo;
-        private System.Windows.Forms.Button btnFrom;
-        private System.Windows.Forms.Button btnTo;
-        private Button btnOK;
-        private GroupBox groupBox2;
-        private GroupBox groupBox1;
-        private Panel mainPanel;
-        private Button btnCancel;
+        internal ListBox lbFrom;
+        internal ListBox lbTo;
+        Button btnFrom;
+        Button btnTo;
+        Button btnOK;
+        GroupBox groupBox2;
+        GroupBox groupBox1;
+        Panel mainPanel;
+        Button btnCancel;
 
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.Container components = null;
+        System.ComponentModel.Container components;
 
-        public Dialog_KeyItem()
-        {
-            //
-            // Required for Windows Form Designer support
-            //
-            InitializeComponent();
-
-            //
-            // TODO: Add any constructor code after InitializeComponent call
-            //
-        }
+        public Dialog_KeyItem() => InitializeComponent();
 
         /// <summary>
         /// Clean up any resources being used.
@@ -59,149 +49,149 @@ namespace SharpKeys
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dialog_KeyItem));
-            this.lbFrom = new System.Windows.Forms.ListBox();
-            this.btnFrom = new System.Windows.Forms.Button();
-            this.btnTo = new System.Windows.Forms.Button();
-            this.lbTo = new System.Windows.Forms.ListBox();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.mainPanel = new System.Windows.Forms.Panel();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.mainPanel.SuspendLayout();
-            this.SuspendLayout();
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(Dialog_KeyItem));
+            lbFrom = new ListBox();
+            btnFrom = new Button();
+            btnTo = new Button();
+            lbTo = new ListBox();
+            btnOK = new Button();
+            groupBox2 = new System.Windows.Forms.GroupBox();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            mainPanel = new System.Windows.Forms.Panel();
+            btnCancel = new Button();
+            groupBox2.SuspendLayout();
+            groupBox1.SuspendLayout();
+            mainPanel.SuspendLayout();
+            SuspendLayout();
             //
             // lbFrom
             //
-            this.lbFrom.IntegralHeight = false;
-            this.lbFrom.Location = new System.Drawing.Point(9, 20);
-            this.lbFrom.Name = "lbFrom";
-            this.lbFrom.ScrollAlwaysVisible = true;
-            this.lbFrom.Size = new System.Drawing.Size(230, 276);
-            this.lbFrom.TabIndex = 0;
+            lbFrom.IntegralHeight = false;
+            lbFrom.Location = new System.Drawing.Point(9, 20);
+            lbFrom.Name = "lbFrom";
+            lbFrom.ScrollAlwaysVisible = true;
+            lbFrom.Size = new System.Drawing.Size(230, 276);
+            lbFrom.TabIndex = 0;
             //
             // btnFrom
             //
-            this.btnFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFrom.Location = new System.Drawing.Point(164, 311);
-            this.btnFrom.Name = "btnFrom";
-            this.btnFrom.Size = new System.Drawing.Size(75, 23);
-            this.btnFrom.TabIndex = 1;
-            this.btnFrom.Text = "Type &Key";
-            this.btnFrom.Click += new System.EventHandler(this.btnFrom_Click);
+            btnFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            btnFrom.Location = new System.Drawing.Point(164, 311);
+            btnFrom.Name = "btnFrom";
+            btnFrom.Size = new System.Drawing.Size(75, 23);
+            btnFrom.TabIndex = 1;
+            btnFrom.Text = "Type &Key";
+            btnFrom.Click += new System.EventHandler(btnFrom_Click);
             //
             // btnTo
             //
-            this.btnTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTo.Location = new System.Drawing.Point(164, 311);
-            this.btnTo.Name = "btnTo";
-            this.btnTo.Size = new System.Drawing.Size(75, 23);
-            this.btnTo.TabIndex = 0;
-            this.btnTo.Text = "Type K&ey";
-            this.btnTo.Click += new System.EventHandler(this.btnTo_Click);
+            btnTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            btnTo.Location = new System.Drawing.Point(164, 311);
+            btnTo.Name = "btnTo";
+            btnTo.Size = new System.Drawing.Size(75, 23);
+            btnTo.TabIndex = 0;
+            btnTo.Text = "Type K&ey";
+            btnTo.Click += new System.EventHandler(btnTo_Click);
             //
             // lbTo
             //
-            this.lbTo.IntegralHeight = false;
-            this.lbTo.Location = new System.Drawing.Point(9, 20);
-            this.lbTo.Name = "lbTo";
-            this.lbTo.ScrollAlwaysVisible = true;
-            this.lbTo.Size = new System.Drawing.Size(230, 276);
-            this.lbTo.TabIndex = 1;
+            lbTo.IntegralHeight = false;
+            lbTo.Location = new System.Drawing.Point(9, 20);
+            lbTo.Name = "lbTo";
+            lbTo.ScrollAlwaysVisible = true;
+            lbTo.Size = new System.Drawing.Size(230, 276);
+            lbTo.TabIndex = 1;
             //
             // btnOK
             //
-            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(367, 373);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 2;
-            this.btnOK.Text = "OK";
+            btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            btnOK.Location = new System.Drawing.Point(367, 373);
+            btnOK.Name = "btnOK";
+            btnOK.Size = new System.Drawing.Size(75, 23);
+            btnOK.TabIndex = 2;
+            btnOK.Text = "OK";
             //
             // groupBox2
             //
-            this.groupBox2.Controls.Add(this.btnTo);
-            this.groupBox2.Controls.Add(this.lbTo);
-            this.groupBox2.Location = new System.Drawing.Point(271, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(251, 347);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "To this key (&To key):";
+            groupBox2.Controls.Add(btnTo);
+            groupBox2.Controls.Add(lbTo);
+            groupBox2.Location = new System.Drawing.Point(271, 12);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new System.Drawing.Size(251, 347);
+            groupBox2.TabIndex = 1;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "To this key (&To key):";
             //
             // groupBox1
             //
-            this.groupBox1.Controls.Add(this.lbFrom);
-            this.groupBox1.Controls.Add(this.btnFrom);
-            this.groupBox1.Location = new System.Drawing.Point(14, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(251, 347);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Map this key (&From key):";
+            groupBox1.Controls.Add(lbFrom);
+            groupBox1.Controls.Add(btnFrom);
+            groupBox1.Location = new System.Drawing.Point(14, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new System.Drawing.Size(251, 347);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Map this key (&From key):";
             //
             // mainPanel
             //
-            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.mainPanel.BackColor = System.Drawing.Color.Transparent;
-            this.mainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mainPanel.Controls.Add(this.groupBox1);
-            this.mainPanel.Controls.Add(this.btnOK);
-            this.mainPanel.Controls.Add(this.groupBox2);
-            this.mainPanel.Controls.Add(this.btnCancel);
-            this.mainPanel.Location = new System.Drawing.Point(12, 12);
-            this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(537, 410);
-            this.mainPanel.TabIndex = 4;
-            this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainPanel_Paint);
+            mainPanel.BackColor = System.Drawing.Color.Transparent;
+            mainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            mainPanel.Controls.Add(groupBox1);
+            mainPanel.Controls.Add(btnOK);
+            mainPanel.Controls.Add(groupBox2);
+            mainPanel.Controls.Add(btnCancel);
+            mainPanel.Location = new System.Drawing.Point(12, 12);
+            mainPanel.Name = "mainPanel";
+            mainPanel.Size = new System.Drawing.Size(537, 410);
+            mainPanel.TabIndex = 4;
+            mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(mainPanel_Paint);
             //
             // btnCancel
             //
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(447, 373);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 3;
-            this.btnCancel.Text = "Cancel";
+            btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            btnCancel.Location = new System.Drawing.Point(447, 373);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new System.Drawing.Size(75, 23);
+            btnCancel.TabIndex = 3;
+            btnCancel.Text = "Cancel";
             //
             // Dialog_KeyItem
             //
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(561, 434);
-            this.Controls.Add(this.mainPanel);
-            this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "Dialog_KeyItem";
-            this.ShowInTaskbar = false;
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Dialog_KeyItem_Paint);
-            this.Resize += new System.EventHandler(this.Dialog_KeyItem_Resize);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.mainPanel.ResumeLayout(false);
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(561, 434);
+            Controls.Add(mainPanel);
+            DoubleBuffered = true;
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "Dialog_KeyItem";
+            ShowInTaskbar = false;
+            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            Paint += new System.Windows.Forms.PaintEventHandler(Dialog_KeyItem_Paint);
+            Resize += new System.EventHandler(Dialog_KeyItem_Resize);
+            groupBox2.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            mainPanel.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion Windows Form Designer generated code
 
-        private void btnFrom_Click(object sender, System.EventArgs e)
+        void btnFrom_Click(object sender, EventArgs e)
         {
             // Pop open the "typing" form to collect keyboard input to get a valid code
-            Dialog_KeyPress dlg = new Dialog_KeyPress();
+            var dlg = new Dialog_KeyPress();
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 if (lbFrom.Items.Contains(dlg.m_strSelected))
@@ -214,10 +204,10 @@ namespace SharpKeys
             }
         }
 
-        private void btnTo_Click(object sender, System.EventArgs e)
+        void btnTo_Click(object sender, EventArgs e)
         {
             // Pop open the "typing" form to collect keyboard input to get a valid code
-            Dialog_KeyPress dlg = new Dialog_KeyPress();
+            var dlg = new Dialog_KeyPress();
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 if (lbTo.Items.Contains(dlg.m_strSelected))
@@ -230,27 +220,24 @@ namespace SharpKeys
             }
         }
 
-        private void Dialog_KeyItem_Paint(object sender, PaintEventArgs e)
+        void Dialog_KeyItem_Paint(object sender, PaintEventArgs e)
         {
-            Graphics graphics = e.Graphics;
+            var graphics = e.Graphics;
 
-            Rectangle rectangle = new Rectangle(0, 0, this.Width, this.Height);
-            LinearGradientBrush linearGradientBrush = new LinearGradientBrush(rectangle, Color.FromArgb(188, 188, 188), Color.FromArgb(225, 225, 225), LinearGradientMode.ForwardDiagonal);
+            var rectangle = new Rectangle(0, 0, Width, Height);
+            var linearGradientBrush = new LinearGradientBrush(rectangle, Color.FromArgb(188, 188, 188), Color.FromArgb(225, 225, 225), LinearGradientMode.ForwardDiagonal);
 
             graphics.FillRectangle(linearGradientBrush, rectangle);
         }
 
-        private void Dialog_KeyItem_Resize(object sender, EventArgs e)
-        {
-            this.Invalidate();
-        }
+        void Dialog_KeyItem_Resize(object sender, EventArgs e) => Invalidate();
 
-        private void mainPanel_Paint(object sender, PaintEventArgs e)
+        void mainPanel_Paint(object sender, PaintEventArgs e)
         {
-            Graphics graphics = e.Graphics;
+            var graphics = e.Graphics;
 
-            Rectangle rectangle = new Rectangle(0, 0, mainPanel.Width, mainPanel.Height);
-            LinearGradientBrush linearGradientBrush = new LinearGradientBrush(rectangle, Color.FromArgb(209, 221, 228), Color.FromArgb(237, 239, 247), LinearGradientMode.Vertical);
+            var rectangle = new Rectangle(0, 0, mainPanel.Width, mainPanel.Height);
+            var linearGradientBrush = new LinearGradientBrush(rectangle, Color.FromArgb(209, 221, 228), Color.FromArgb(237, 239, 247), LinearGradientMode.Vertical);
 
             graphics.FillRectangle(linearGradientBrush, rectangle);
         }

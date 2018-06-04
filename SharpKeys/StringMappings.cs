@@ -8,7 +8,7 @@ namespace SharpKeys
     {
         readonly StringKeys m_hashKeys = StringKeys.Default;
 
-        static StringMappings stringMappings = new StringMappings();
+        static readonly StringMappings stringMappings = new StringMappings();
 
         StringMappings()
         {
@@ -23,23 +23,21 @@ namespace SharpKeys
         /// <summary>
         /// Adds a string mappings from registry
         /// </summary>
-        /// <param name="b0">ToHi</param>
-        /// <param name="b1">ToLow</param>
-        /// <param name="b2">FromHi</param>
-        /// <param name="b3">FromLo</param>
+        /// <param name="b0">ToLow</param>
+        /// <param name="b1">ToHi</param>
+        /// <param name="b2">FromLo</param>
+        /// <param name="b3">FromHi</param>
         void AddRegistryStringMapping(byte b0, byte b1, byte b2, byte b3)
         {
-            StringMapping sm = new StringMapping(this, b0, b1, b2, b3);
+            var sm = new StringMapping(this, b0, b1, b2, b3);
             m_stringMappings.Add(sm.From, sm.To);
         }
 
-        int Count => Instance.m_stringMappings.Count;
+        public IEnumerable<StringMapping> Default => stringMappings.m_stringMappings.Select(p => new StringMapping(this, p.Key.ScanCode, p.Value.ScanCode));
 
-        public IEnumerable<StringMapping> Default => Instance.m_stringMappings.Select(p => new StringMapping(this, p.Key.ScanCode, p.Value.ScanCode));
-
-        public byte[] WriteRegistryBytes()
+        public static byte[] WriteRegistryBytes()
         {
-            int nCount = Instance.Count;
+            int nCount = stringMappings.m_stringMappings.Count;
 
             if (nCount == 0)
                 return new byte[0];
@@ -60,9 +58,9 @@ namespace SharpKeys
 
             // add up the list
             int i = 0;
-            foreach (var keymap in StringMappings.Instance.Default)
+            foreach (var keymap in stringMappings.Default)
             {
-                byte[] registryScanCode = keymap.RegistryScanCode;
+                byte[] registryScanCode = keymap.GetRegistryScanCode();
                 bytes[(i * 4) + 12 + 0] = registryScanCode[0];
                 bytes[(i * 4) + 12 + 1] = registryScanCode[1];
                 bytes[(i * 4) + 12 + 2] = registryScanCode[2];
@@ -74,16 +72,16 @@ namespace SharpKeys
             return bytes;
         }
 
-        public void ReadRegistryBytes(byte[] bytes)
+        public static void ReadRegistryBytes(byte[] bytes)
         {
             // can skip the first 8 bytes as they are ALWAYS 0x00
             // the 9th byte is ALWAYS the total number of mappings (including the trailing null pointer)
             if (bytes.Length > 8)
             {
-                int nTotal = Int32.Parse(bytes[8].ToString());
+                var nTotal = int.Parse(bytes[8].ToString());
                 for (int i = 0; i < nTotal - 1; i++)
                 {
-                    Instance.AddRegistryStringMapping(bytes[(i * 4) + 12 + 0], bytes[(i * 4) + 12 + 1], bytes[(i * 4) + 12 + 2], bytes[(i * 4) + 12 + 3]);
+                    stringMappings.AddRegistryStringMapping(bytes[(i * 4) + 12 + 0], bytes[(i * 4) + 12 + 1], bytes[(i * 4) + 12 + 2], bytes[(i * 4) + 12 + 3]);
                 }
             }
         }
