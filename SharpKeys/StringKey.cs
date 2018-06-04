@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SharpKeys
+﻿namespace SharpKeys
 {
     public class StringKey
     {
