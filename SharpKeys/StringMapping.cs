@@ -26,7 +26,7 @@ namespace SharpKeys
             m_registryScanCode = new byte[4] { b3, b2, b1, b0 };
         }
 
-        byte[] m_registryScanCode;
+        readonly byte[] m_registryScanCode;
 
         public string TextFrom => From.Text;
         public string TextTo => To.Text;
