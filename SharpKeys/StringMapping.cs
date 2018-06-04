@@ -29,12 +29,7 @@ namespace SharpKeys
         byte[] m_registryScanCode;
 
         public string TextFrom => From.Text;
-
         public string TextTo => To.Text;
-
-        public bool IsAssigned => ToScanCode == 0;
-
-        public int ScanCode => (m_registryScanCode[3] << 24) | (m_registryScanCode[2] << 16) | (m_registryScanCode[1] << 8) | m_registryScanCode[0];
 
         public int FromScanCode => (m_registryScanCode[3] << 8) | m_registryScanCode[2];
         public int ToScanCode => (m_registryScanCode[1] << 8) | m_registryScanCode[0];
@@ -43,7 +38,5 @@ namespace SharpKeys
         public StringKey To => m_stringMappings[ToScanCode];
 
         public byte[] GetRegistryScanCode() => m_registryScanCode;
-
-        public void SetMappings(byte[] scanCode) => m_registryScanCode = scanCode;
     }
 }

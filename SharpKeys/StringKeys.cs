@@ -200,7 +200,5 @@ namespace SharpKeys
             Add(0xE0_6C, "App: E-Mail");
             Add(0xE0_6D, "App: Media Select");
         }
-
-        public bool ContainsKey(StringKey key) => m_hashKeys.ContainsKey(key.ScanCode);
     }
 }
