@@ -74,6 +74,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -131,6 +132,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StringKey.cs" />
+    <Compile Include="StringKeys.cs" />
+    <Compile Include="StringMapping.cs" />
+    <Compile Include="StringMappings.cs" />
     <Content Include="App.ico" />
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
