@@ -18,12 +18,13 @@ namespace SharpKeys
 		internal string m_strSelected = "";
 		const string DISABLED_KEY = "Key is disabled\n(00_00)";
 		private Panel mainPanel;
-		private Button btnOK;
-		private Button btnCancel;
-		private Label lblKey;
-		private Label label1;
-		private Label label2;
-		private Label lblPressed;
+		private Button confirmationButton;
+		private Button cancelationButton;
+		private Label keyPressedInformation;
+		private Label panelDescription;
+		private Label lineDivisor;
+		private Label youPressedLabel;
+
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -70,95 +71,96 @@ namespace SharpKeys
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dialog_KeyPress));
 			this.mainPanel = new System.Windows.Forms.Panel();
-			this.lblPressed = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.btnOK = new System.Windows.Forms.Button();
-			this.btnCancel = new System.Windows.Forms.Button();
-			this.lblKey = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
+			this.youPressedLabel = new System.Windows.Forms.Label();
+			this.lineDivisor = new System.Windows.Forms.Label();
+			this.confirmationButton = new System.Windows.Forms.Button();
+			this.cancelationButton = new System.Windows.Forms.Button();
+			this.keyPressedInformation = new System.Windows.Forms.Label();
+			this.panelDescription = new System.Windows.Forms.Label();
 			this.mainPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// mainPanel
 			// 
-			this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-				    | System.Windows.Forms.AnchorStyles.Left)
-				    | System.Windows.Forms.AnchorStyles.Right)));
+			this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.mainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.mainPanel.Controls.Add(this.lblPressed);
-			this.mainPanel.Controls.Add(this.label2);
-			this.mainPanel.Controls.Add(this.btnOK);
-			this.mainPanel.Controls.Add(this.btnCancel);
-			this.mainPanel.Controls.Add(this.lblKey);
-			this.mainPanel.Controls.Add(this.label1);
+			this.mainPanel.Controls.Add(this.youPressedLabel);
+			this.mainPanel.Controls.Add(this.lineDivisor);
+			this.mainPanel.Controls.Add(this.confirmationButton);
+			this.mainPanel.Controls.Add(this.cancelationButton);
+			this.mainPanel.Controls.Add(this.keyPressedInformation);
+			this.mainPanel.Controls.Add(this.panelDescription);
 			this.mainPanel.Location = new System.Drawing.Point(12, 12);
 			this.mainPanel.Name = "mainPanel";
 			this.mainPanel.Size = new System.Drawing.Size(329, 177);
 			this.mainPanel.TabIndex = 12;
 			this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainPanel_Paint);
 			// 
-			// lblPressed
+			// youPressedLabel
 			// 
-			this.lblPressed.AutoSize = true;
-			this.lblPressed.BackColor = System.Drawing.Color.Transparent;
-			this.lblPressed.Location = new System.Drawing.Point(13, 38);
-			this.lblPressed.Name = "lblPressed";
-			this.lblPressed.Size = new System.Drawing.Size(0, 13);
-			this.lblPressed.TabIndex = 17;
+			this.youPressedLabel.AutoSize = true;
+			this.youPressedLabel.BackColor = System.Drawing.Color.Transparent;
+			this.youPressedLabel.Location = new System.Drawing.Point(13, 38);
+			this.youPressedLabel.Name = "youPressedLabel";
+			this.youPressedLabel.Size = new System.Drawing.Size(72, 13);
+			this.youPressedLabel.TabIndex = 17;
 			// 
-			// label2
+			// lineDivisor
 			// 
-			this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.label2.Location = new System.Drawing.Point(13, 27);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(307, 3);
-			this.label2.TabIndex = 16;
+			this.lineDivisor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.lineDivisor.Location = new System.Drawing.Point(13, 31);
+			this.lineDivisor.Name = "lineDivisor";
+			this.lineDivisor.Size = new System.Drawing.Size(307, 3);
+			this.lineDivisor.TabIndex = 16;
 			// 
-			// btnOK
+			// confirmationButton
 			// 
-			this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.btnOK.Enabled = false;
-			this.btnOK.Location = new System.Drawing.Point(159, 140);
-			this.btnOK.Name = "btnOK";
-			this.btnOK.Size = new System.Drawing.Size(75, 23);
-			this.btnOK.TabIndex = 14;
-			this.btnOK.TabStop = false;
-			this.btnOK.Text = "OK";
-			this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+			this.confirmationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.confirmationButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.confirmationButton.Enabled = false;
+			this.confirmationButton.Location = new System.Drawing.Point(159, 140);
+			this.confirmationButton.Name = "confirmationButton";
+			this.confirmationButton.Size = new System.Drawing.Size(75, 23);
+			this.confirmationButton.TabIndex = 14;
+			this.confirmationButton.TabStop = false;
+			this.confirmationButton.Text = "OK";
+			this.confirmationButton.Click += new System.EventHandler(this.btnOK_Click);
 			// 
-			// btnCancel
+			// cancelationButton
 			// 
-			this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnCancel.Location = new System.Drawing.Point(240, 140);
-			this.btnCancel.Name = "btnCancel";
-			this.btnCancel.Size = new System.Drawing.Size(75, 23);
-			this.btnCancel.TabIndex = 15;
-			this.btnCancel.TabStop = false;
-			this.btnCancel.Text = "Cancel";
-			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+			this.cancelationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.cancelationButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.cancelationButton.Location = new System.Drawing.Point(240, 140);
+			this.cancelationButton.Name = "cancelationButton";
+			this.cancelationButton.Size = new System.Drawing.Size(75, 23);
+			this.cancelationButton.TabIndex = 15;
+			this.cancelationButton.TabStop = false;
+			this.cancelationButton.Text = "Cancel";
+			this.cancelationButton.Click += new System.EventHandler(this.btnCancel_Click);
 			// 
-			// lblKey
+			// keyPressedInformation
 			// 
-			this.lblKey.BackColor = System.Drawing.Color.Transparent;
-			this.lblKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblKey.Location = new System.Drawing.Point(14, 57);
-			this.lblKey.Name = "lblKey";
-			this.lblKey.Size = new System.Drawing.Size(299, 59);
-			this.lblKey.TabIndex = 13;
-			this.lblKey.Text = "(press a key)";
-			this.lblKey.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.keyPressedInformation.BackColor = System.Drawing.Color.Transparent;
+			this.keyPressedInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.keyPressedInformation.Location = new System.Drawing.Point(14, 57);
+			this.keyPressedInformation.Name = "keyPressedInformation";
+			this.keyPressedInformation.Size = new System.Drawing.Size(299, 59);
+			this.keyPressedInformation.TabIndex = 13;
+			this.keyPressedInformation.Text = "(Press a Key)";
+			this.keyPressedInformation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// label1
+			// panelDescription
 			// 
-			this.label1.AutoSize = true;
-			this.label1.BackColor = System.Drawing.Color.Transparent;
-			this.label1.Location = new System.Drawing.Point(13, 9);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(163, 13);
-			this.label1.TabIndex = 12;
-			this.label1.Text = "Press a button on your keyboard.";
+			this.panelDescription.AutoSize = true;
+			this.panelDescription.BackColor = System.Drawing.Color.Transparent;
+			this.panelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.panelDescription.Location = new System.Drawing.Point(13, 9);
+			this.panelDescription.Name = "panelDescription";
+			this.panelDescription.Size = new System.Drawing.Size(219, 20);
+			this.panelDescription.TabIndex = 12;
+			this.panelDescription.Text = "Press a key on your keyboard.";
 			// 
 			// Dialog_KeyPress
 			// 
@@ -176,9 +178,9 @@ namespace SharpKeys
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Type Key";
+			this.Closing += new System.ComponentModel.CancelEventHandler(this.Dialog_KeyPress_Closing);
 			this.Paint += new System.Windows.Forms.PaintEventHandler(this.Dialog_KeyPress_Paint);
 			this.Resize += new System.EventHandler(this.Dialog_KeyPress_Resize);
-			this.Closing += new System.ComponentModel.CancelEventHandler(this.Dialog_KeyPress_Closing);
 			this.mainPanel.ResumeLayout(false);
 			this.mainPanel.PerformLayout();
 			this.ResumeLayout(false);
@@ -200,44 +202,45 @@ namespace SharpKeys
 
 			if (nCode == 0)
 			{
-				lblKey.Text = DISABLED_KEY;
-				btnOK.Enabled = false;
+				keyPressedInformation.Text = DISABLED_KEY;
+				confirmationButton.Enabled = false;
 				return;
 			}
 
 			// get the code from LPARAM
 			// if it's more than 256 then it's an extended key and mapped to 0xE0nn
-			string strCode = "";
+			string keyCode = "";
 			if (nCode > 0x0100)
 			{
-				strCode = string.Format("E0_{0,2:X}", (nCode - 0x0100));
+				keyCode = string.Format("E0_{0,2:X}", (nCode - 0x0100));
 			}
 			else
 			{
-				strCode = string.Format("00_{0,2:X}", nCode);
+				keyCode = string.Format("00_{0,2:X}", nCode);
 			}
-			strCode = strCode.Replace(" ", "0");
+			keyCode = keyCode.Replace(" ", "0");
 
 			// Look up the scan code in the hashtable
-			string strShow = "";
 			if (m_hashKeys != null)
 			{
-				strShow = string.Format("{0}\n({1})", m_hashKeys[strCode], strCode);
+				keyPressedInformation.Text = string.Format($"{m_hashKeys[keyCode]}\n({keyCode})");
 			}
 			else
 			{
-				strShow = "Scan code: " + strCode;
+				keyPressedInformation.Text = "Scan code: " + keyCode;
 			}
-			lblKey.Text = strShow;
 
 			// UI to collect only valid scancodes
-			btnOK.Enabled = true;
+			confirmationButton.Enabled = true;
 		}
 
 		public bool PreFilterMessage(ref Message m)
 		{
-			if (m.Msg == 0x100) //0x100 == WM_KEYDOWN
+			const int WM_KEYDOWN = 0x100; // https://autohotkey.com/docs/misc/SendMessageList.htm
+
+			if (m.Msg == WM_KEYDOWN)
 				ShowKeyCode((int)m.LParam);
+
 			// always return false because we're just watching messages; not
 			// trapping them - this message comes from IMessageFilter!
 			return false;
@@ -246,13 +249,13 @@ namespace SharpKeys
 		// button handlers - don't have to worry about null b/c they can't get to it
 		private void btnOK_Click(object sender, System.EventArgs e)
 		{
-			this.AcceptButton = btnOK;
-			m_strSelected = lblKey.Text.Replace("\n", " ");
+			this.AcceptButton = confirmationButton;
+			m_strSelected = keyPressedInformation.Text.Replace("\n", " ");
 		}
 
 		private void btnCancel_Click(object sender, System.EventArgs e)
 		{
-			this.CancelButton = btnCancel;
+			this.CancelButton = cancelationButton;
 			m_strSelected = "";
 		}
 

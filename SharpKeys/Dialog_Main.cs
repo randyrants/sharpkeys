@@ -25,29 +25,29 @@ namespace SharpKeys
 		// Dirty flag (to see track if mappings have been saved)
 		private bool m_bDirty = false;
 
-		private System.Windows.Forms.ListView lvKeys;
-		private System.Windows.Forms.Button btnSave;
-		private System.Windows.Forms.Button btnClose;
-		private System.Windows.Forms.Button btnAdd;
-		private System.Windows.Forms.Button btnDelete;
-		private System.Windows.Forms.Button btnEdit;
-		private System.Windows.Forms.ColumnHeader lvcFrom;
-		private System.Windows.Forms.ColumnHeader lvcTo;
-		private System.Windows.Forms.Button btnDeleteAll;
-		private System.Windows.Forms.Label label11;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.LinkLabel urlMain;
-		private System.Windows.Forms.MenuItem menuItem5;
-		private System.Windows.Forms.MenuItem mniAdd;
-		private System.Windows.Forms.MenuItem mniEdit;
-		private System.Windows.Forms.MenuItem mniDelete;
-		private System.Windows.Forms.MenuItem mniDeleteAll;
-		private System.Windows.Forms.ContextMenu mnuPop;
+		private System.Windows.Forms.ListView remappedKeysListView;
+		private System.Windows.Forms.Button saveChangesButton;
+		private System.Windows.Forms.Button closeButton;
+		private System.Windows.Forms.Button addButton;
+		private System.Windows.Forms.Button deleteButton;
+		private System.Windows.Forms.Button editButton;
+		private System.Windows.Forms.ColumnHeader remappedFromKeyListView;
+		private System.Windows.Forms.ColumnHeader remappedToKeyListView;
+		private System.Windows.Forms.Button deleteAllButton;
+		private System.Windows.Forms.Label lineDivisor;
+		private System.Windows.Forms.Label legalShortInformation;
+		private System.Windows.Forms.Label softwareShortDescription;
+		private System.Windows.Forms.LinkLabel mainWebsite;
+		private System.Windows.Forms.MenuItem contextMenuLineDivisor;
+		private System.Windows.Forms.MenuItem contextMenuAddOption;
+		private System.Windows.Forms.MenuItem contextMenuEditOption;
+		private System.Windows.Forms.MenuItem contextMenuDeleteOption;
+		private System.Windows.Forms.MenuItem contextMenuDeleteAllOption;
+		private System.Windows.Forms.ContextMenu contextMenu;
 		private Panel mainPanel;
 		private Panel headerPanel;
-		private Label displayProduct;
-		private LinkLabel urlCode;
+		private Label displayProductName;
+		private LinkLabel contributeUrlLink;
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -84,234 +84,234 @@ namespace SharpKeys
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dialog_Main));
-			this.lvKeys = new System.Windows.Forms.ListView();
-			this.lvcFrom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.lvcTo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.mnuPop = new System.Windows.Forms.ContextMenu();
-			this.mniAdd = new System.Windows.Forms.MenuItem();
-			this.mniEdit = new System.Windows.Forms.MenuItem();
-			this.mniDelete = new System.Windows.Forms.MenuItem();
-			this.menuItem5 = new System.Windows.Forms.MenuItem();
-			this.mniDeleteAll = new System.Windows.Forms.MenuItem();
-			this.btnSave = new System.Windows.Forms.Button();
-			this.btnClose = new System.Windows.Forms.Button();
-			this.btnAdd = new System.Windows.Forms.Button();
-			this.btnDelete = new System.Windows.Forms.Button();
-			this.btnEdit = new System.Windows.Forms.Button();
-			this.btnDeleteAll = new System.Windows.Forms.Button();
-			this.label11 = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.urlMain = new System.Windows.Forms.LinkLabel();
+			this.remappedKeysListView = new System.Windows.Forms.ListView();
+			this.remappedFromKeyListView = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.remappedToKeyListView = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.contextMenu = new System.Windows.Forms.ContextMenu();
+			this.contextMenuAddOption = new System.Windows.Forms.MenuItem();
+			this.contextMenuEditOption = new System.Windows.Forms.MenuItem();
+			this.contextMenuDeleteOption = new System.Windows.Forms.MenuItem();
+			this.contextMenuLineDivisor = new System.Windows.Forms.MenuItem();
+			this.contextMenuDeleteAllOption = new System.Windows.Forms.MenuItem();
+			this.saveChangesButton = new System.Windows.Forms.Button();
+			this.closeButton = new System.Windows.Forms.Button();
+			this.addButton = new System.Windows.Forms.Button();
+			this.deleteButton = new System.Windows.Forms.Button();
+			this.editButton = new System.Windows.Forms.Button();
+			this.deleteAllButton = new System.Windows.Forms.Button();
+			this.lineDivisor = new System.Windows.Forms.Label();
+			this.legalShortInformation = new System.Windows.Forms.Label();
+			this.softwareShortDescription = new System.Windows.Forms.Label();
+			this.mainWebsite = new System.Windows.Forms.LinkLabel();
 			this.mainPanel = new System.Windows.Forms.Panel();
 			this.headerPanel = new System.Windows.Forms.Panel();
-			this.displayProduct = new System.Windows.Forms.Label();
-			this.urlCode = new System.Windows.Forms.LinkLabel();
+			this.displayProductName = new System.Windows.Forms.Label();
+			this.contributeUrlLink = new System.Windows.Forms.LinkLabel();
 			this.mainPanel.SuspendLayout();
 			this.headerPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// lvKeys
+			// remappedKeysListView
 			// 
-			this.lvKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)
+			this.remappedKeysListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			| System.Windows.Forms.AnchorStyles.Left) 
 			| System.Windows.Forms.AnchorStyles.Right)));
-			this.lvKeys.Columns.AddRange(new System.Windows.Forms.ColumnHeader[]
+			this.remappedKeysListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] 
 			{
-				this.lvcFrom,
-				this.lvcTo
+				this.remappedFromKeyListView,
+				this.remappedToKeyListView
 			});
-			this.lvKeys.ContextMenu = this.mnuPop;
-			this.lvKeys.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.lvKeys.FullRowSelect = true;
-			this.lvKeys.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-			this.lvKeys.HideSelection = false;
-			this.lvKeys.Location = new System.Drawing.Point(14, 45);
-			this.lvKeys.MultiSelect = false;
-			this.lvKeys.Name = "lvKeys";
-			this.lvKeys.Size = new System.Drawing.Size(579, 282);
-			this.lvKeys.Sorting = System.Windows.Forms.SortOrder.Ascending;
-			this.lvKeys.TabIndex = 0;
-			this.lvKeys.UseCompatibleStateImageBehavior = false;
-			this.lvKeys.View = System.Windows.Forms.View.Details;
-			this.lvKeys.SelectedIndexChanged += new System.EventHandler(this.lvKeys_SelectedIndexChanged);
-			this.lvKeys.DoubleClick += new System.EventHandler(this.lvKeys_DoubleClick);
+			this.remappedKeysListView.ContextMenu = this.contextMenu;
+			this.remappedKeysListView.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.remappedKeysListView.FullRowSelect = true;
+			this.remappedKeysListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+			this.remappedKeysListView.HideSelection = false;
+			this.remappedKeysListView.Location = new System.Drawing.Point(14, 45);
+			this.remappedKeysListView.MultiSelect = false;
+			this.remappedKeysListView.Name = "remappedKeysListView";
+			this.remappedKeysListView.Size = new System.Drawing.Size(579, 282);
+			this.remappedKeysListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
+			this.remappedKeysListView.TabIndex = 0;
+			this.remappedKeysListView.UseCompatibleStateImageBehavior = false;
+			this.remappedKeysListView.View = System.Windows.Forms.View.Details;
+			this.remappedKeysListView.SelectedIndexChanged += new System.EventHandler(this.lvKeys_SelectedIndexChanged);
+			this.remappedKeysListView.DoubleClick += new System.EventHandler(this.lvKeys_DoubleClick);
 			// 
-			// lvcFrom
+			// remappedFromKeyListView
 			// 
-			this.lvcFrom.Text = "From:";
+			this.remappedFromKeyListView.Text = "From:";
 			// 
-			// lvcTo
+			// remappedToKeyListView
 			// 
-			this.lvcTo.Text = "To:";
+			this.remappedToKeyListView.Text = "To:";
 			// 
-			// mnuPop
+			// contextMenu
 			// 
-			this.mnuPop.MenuItems.AddRange(new System.Windows.Forms.MenuItem[]
+			this.contextMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] 
 			{
-				this.mniAdd,
-				this.mniEdit,
-				this.mniDelete,
-				this.menuItem5,
-				this.mniDeleteAll
+				this.contextMenuAddOption,
+				this.contextMenuEditOption,
+				this.contextMenuDeleteOption,
+				this.contextMenuLineDivisor,
+				this.contextMenuDeleteAllOption
 			});
-			this.mnuPop.Popup += new System.EventHandler(this.mnuPop_Popup);
+			this.contextMenu.Popup += new System.EventHandler(this.mnuPop_Popup);
 			// 
-			// mniAdd
+			// contextMenuAddOption
 			// 
-			this.mniAdd.Index = 0;
-			this.mniAdd.Text = "Add";
-			this.mniAdd.Click += new System.EventHandler(this.mniAdd_Click);
+			this.contextMenuAddOption.Index = 0;
+			this.contextMenuAddOption.Text = "Add";
+			this.contextMenuAddOption.Click += new System.EventHandler(this.mniAdd_Click);
 			// 
-			// mniEdit
+			// contextMenuEditOption
 			// 
-			this.mniEdit.Index = 1;
-			this.mniEdit.Text = "Edit";
-			this.mniEdit.Click += new System.EventHandler(this.mniEdit_Click);
+			this.contextMenuEditOption.Index = 1;
+			this.contextMenuEditOption.Text = "Edit";
+			this.contextMenuEditOption.Click += new System.EventHandler(this.mniEdit_Click);
 			// 
-			// mniDelete
+			// contextMenuDeleteOption
 			// 
-			this.mniDelete.Index = 2;
-			this.mniDelete.Text = "Delete";
-			this.mniDelete.Click += new System.EventHandler(this.mniDelete_Click);
+			this.contextMenuDeleteOption.Index = 2;
+			this.contextMenuDeleteOption.Text = "Delete";
+			this.contextMenuDeleteOption.Click += new System.EventHandler(this.mniDelete_Click);
 			// 
-			// menuItem5
+			// contextMenuLineDivisor
 			// 
-			this.menuItem5.Index = 3;
-			this.menuItem5.Text = "-";
+			this.contextMenuLineDivisor.Index = 3;
+			this.contextMenuLineDivisor.Text = "-";
 			// 
-			// mniDeleteAll
+			// contextMenuDeleteAllOption
 			// 
-			this.mniDeleteAll.Index = 4;
-			this.mniDeleteAll.Text = "Delete All";
-			this.mniDeleteAll.Click += new System.EventHandler(this.mniDeleteAll_Click);
+			this.contextMenuDeleteAllOption.Index = 4;
+			this.contextMenuDeleteAllOption.Text = "Delete All";
+			this.contextMenuDeleteAllOption.Click += new System.EventHandler(this.mniDeleteAll_Click);
 			// 
-			// btnSave
+			// saveChangesButton
 			// 
-			this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnSave.Location = new System.Drawing.Point(409, 339);
-			this.btnSave.Name = "btnSave";
-			this.btnSave.Size = new System.Drawing.Size(106, 23);
-			this.btnSave.TabIndex = 5;
-			this.btnSave.Text = "&Write to Registry";
-			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+			this.saveChangesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.saveChangesButton.Location = new System.Drawing.Point(409, 339);
+			this.saveChangesButton.Name = "saveChangesButton";
+			this.saveChangesButton.Size = new System.Drawing.Size(106, 23);
+			this.saveChangesButton.TabIndex = 5;
+			this.saveChangesButton.Text = "&Write to Registry";
+			this.saveChangesButton.Click += new System.EventHandler(this.btnSave_Click);
 			// 
-			// btnClose
+			// closeButton
 			// 
-			this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnClose.Location = new System.Drawing.Point(521, 339);
-			this.btnClose.Name = "btnClose";
-			this.btnClose.Size = new System.Drawing.Size(72, 23);
-			this.btnClose.TabIndex = 6;
-			this.btnClose.Text = "&Close";
-			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+			this.closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.closeButton.Location = new System.Drawing.Point(521, 339);
+			this.closeButton.Name = "closeButton";
+			this.closeButton.Size = new System.Drawing.Size(72, 23);
+			this.closeButton.TabIndex = 6;
+			this.closeButton.Text = "&Close";
+			this.closeButton.Click += new System.EventHandler(this.btnClose_Click);
 			// 
-			// btnAdd
+			// addButton
 			// 
-			this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.btnAdd.Location = new System.Drawing.Point(14, 339);
-			this.btnAdd.Name = "btnAdd";
-			this.btnAdd.Size = new System.Drawing.Size(72, 23);
-			this.btnAdd.TabIndex = 1;
-			this.btnAdd.Text = "&Add";
-			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+			this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.addButton.Location = new System.Drawing.Point(14, 339);
+			this.addButton.Name = "addButton";
+			this.addButton.Size = new System.Drawing.Size(72, 23);
+			this.addButton.TabIndex = 1;
+			this.addButton.Text = "&Add";
+			this.addButton.Click += new System.EventHandler(this.btnAdd_Click);
 			// 
-			// btnDelete
+			// deleteButton
 			// 
-			this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.btnDelete.Location = new System.Drawing.Point(170, 339);
-			this.btnDelete.Name = "btnDelete";
-			this.btnDelete.Size = new System.Drawing.Size(72, 23);
-			this.btnDelete.TabIndex = 3;
-			this.btnDelete.Text = "&Delete";
-			this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+			this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.deleteButton.Location = new System.Drawing.Point(170, 339);
+			this.deleteButton.Name = "deleteButton";
+			this.deleteButton.Size = new System.Drawing.Size(72, 23);
+			this.deleteButton.TabIndex = 3;
+			this.deleteButton.Text = "&Delete";
+			this.deleteButton.Click += new System.EventHandler(this.btnDelete_Click);
 			// 
-			// btnEdit
+			// editButton
 			// 
-			this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.btnEdit.Location = new System.Drawing.Point(92, 339);
-			this.btnEdit.Name = "btnEdit";
-			this.btnEdit.Size = new System.Drawing.Size(72, 23);
-			this.btnEdit.TabIndex = 2;
-			this.btnEdit.Text = "&Edit";
-			this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+			this.editButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.editButton.Location = new System.Drawing.Point(92, 339);
+			this.editButton.Name = "editButton";
+			this.editButton.Size = new System.Drawing.Size(72, 23);
+			this.editButton.TabIndex = 2;
+			this.editButton.Text = "&Edit";
+			this.editButton.Click += new System.EventHandler(this.btnEdit_Click);
 			// 
-			// btnDeleteAll
+			// deleteAllButton
 			// 
-			this.btnDeleteAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.btnDeleteAll.Location = new System.Drawing.Point(248, 339);
-			this.btnDeleteAll.Name = "btnDeleteAll";
-			this.btnDeleteAll.Size = new System.Drawing.Size(72, 23);
-			this.btnDeleteAll.TabIndex = 4;
-			this.btnDeleteAll.Text = "De&lete All";
-			this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
+			this.deleteAllButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.deleteAllButton.Location = new System.Drawing.Point(248, 339);
+			this.deleteAllButton.Name = "deleteAllButton";
+			this.deleteAllButton.Size = new System.Drawing.Size(72, 23);
+			this.deleteAllButton.TabIndex = 4;
+			this.deleteAllButton.Text = "De&lete All";
+			this.deleteAllButton.Click += new System.EventHandler(this.btnDeleteAll_Click);
 			// 
-			// label11
+			// lineDivisor
 			// 
-			this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+			this.lineDivisor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
 			| System.Windows.Forms.AnchorStyles.Right)));
-			this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.label11.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this.label11.Location = new System.Drawing.Point(9, 373);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(588, 3);
-			this.label11.TabIndex = 7;
+			this.lineDivisor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.lineDivisor.FlatStyle = System.Windows.Forms.FlatStyle.System;
+			this.lineDivisor.Location = new System.Drawing.Point(9, 373);
+			this.lineDivisor.Name = "lineDivisor";
+			this.lineDivisor.Size = new System.Drawing.Size(588, 3);
+			this.lineDivisor.TabIndex = 7;
 			// 
-			// label1
+			// legalShortInformation
 			// 
-			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.label1.AutoSize = true;
-			this.label1.Enabled = false;
-			this.label1.Location = new System.Drawing.Point(15, 385);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(283, 13);
-			this.label1.TabIndex = 8;
-			this.label1.Text = "SharpKeys 3.6.0 - Copyright 2004 - 2018 RandyRants.com";
+			this.legalShortInformation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.legalShortInformation.AutoSize = true;
+			this.legalShortInformation.Enabled = false;
+			this.legalShortInformation.Location = new System.Drawing.Point(15, 385);
+			this.legalShortInformation.Name = "legalShortInformation";
+			this.legalShortInformation.Size = new System.Drawing.Size(283, 13);
+			this.legalShortInformation.TabIndex = 8;
+			this.legalShortInformation.Text = "SharpKeys 3.6.0 - Copyright 2004 - 2018 RandyRants.com";
 			// 
-			// label2
+			// softwareShortDescription
 			// 
-			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.label2.AutoSize = true;
-			this.label2.Enabled = false;
-			this.label2.Location = new System.Drawing.Point(15, 403);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(226, 13);
-			this.label2.TabIndex = 10;
-			this.label2.Text = "Registry hack for remapping keys for Windows";
+			this.softwareShortDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.softwareShortDescription.AutoSize = true;
+			this.softwareShortDescription.Enabled = false;
+			this.softwareShortDescription.Location = new System.Drawing.Point(15, 403);
+			this.softwareShortDescription.Name = "softwareShortDescription";
+			this.softwareShortDescription.Size = new System.Drawing.Size(226, 13);
+			this.softwareShortDescription.TabIndex = 10;
+			this.softwareShortDescription.Text = "Registry hack for remapping keys for Windows";
 			// 
-			// urlMain
+			// mainWebsite
 			// 
-			this.urlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.urlMain.AutoSize = true;
-			this.urlMain.Location = new System.Drawing.Point(451, 403);
-			this.urlMain.Name = "urlMain";
-			this.urlMain.Size = new System.Drawing.Size(142, 13);
-			this.urlMain.TabIndex = 11;
-			this.urlMain.TabStop = true;
-			this.urlMain.Text = "http://www.randyrants.com/";
-			this.urlMain.TextAlign = System.Drawing.ContentAlignment.TopRight;
-			this.urlMain.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.urlMain_LinkClicked);
+			this.mainWebsite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.mainWebsite.AutoSize = true;
+			this.mainWebsite.Location = new System.Drawing.Point(451, 403);
+			this.mainWebsite.Name = "mainWebsite";
+			this.mainWebsite.Size = new System.Drawing.Size(142, 13);
+			this.mainWebsite.TabIndex = 11;
+			this.mainWebsite.TabStop = true;
+			this.mainWebsite.Text = "http://www.randyrants.com/";
+			this.mainWebsite.TextAlign = System.Drawing.ContentAlignment.TopRight;
+			this.mainWebsite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.urlMain_LinkClicked);
 			// 
 			// mainPanel
 			// 
-			this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)
+			this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			| System.Windows.Forms.AnchorStyles.Left) 
 			| System.Windows.Forms.AnchorStyles.Right)));
 			this.mainPanel.BackColor = System.Drawing.Color.Transparent;
 			this.mainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.mainPanel.Controls.Add(this.headerPanel);
-			this.mainPanel.Controls.Add(this.urlCode);
-			this.mainPanel.Controls.Add(this.urlMain);
-			this.mainPanel.Controls.Add(this.label2);
-			this.mainPanel.Controls.Add(this.lvKeys);
-			this.mainPanel.Controls.Add(this.btnAdd);
-			this.mainPanel.Controls.Add(this.label1);
-			this.mainPanel.Controls.Add(this.btnEdit);
-			this.mainPanel.Controls.Add(this.btnDelete);
-			this.mainPanel.Controls.Add(this.label11);
-			this.mainPanel.Controls.Add(this.btnDeleteAll);
-			this.mainPanel.Controls.Add(this.btnSave);
-			this.mainPanel.Controls.Add(this.btnClose);
+			this.mainPanel.Controls.Add(this.contributeUrlLink);
+			this.mainPanel.Controls.Add(this.mainWebsite);
+			this.mainPanel.Controls.Add(this.softwareShortDescription);
+			this.mainPanel.Controls.Add(this.remappedKeysListView);
+			this.mainPanel.Controls.Add(this.addButton);
+			this.mainPanel.Controls.Add(this.legalShortInformation);
+			this.mainPanel.Controls.Add(this.editButton);
+			this.mainPanel.Controls.Add(this.deleteButton);
+			this.mainPanel.Controls.Add(this.lineDivisor);
+			this.mainPanel.Controls.Add(this.deleteAllButton);
+			this.mainPanel.Controls.Add(this.saveChangesButton);
+			this.mainPanel.Controls.Add(this.closeButton);
 			this.mainPanel.Location = new System.Drawing.Point(12, 12);
 			this.mainPanel.Name = "mainPanel";
 			this.mainPanel.Size = new System.Drawing.Size(608, 430);
@@ -320,41 +320,41 @@ namespace SharpKeys
 			// 
 			// headerPanel
 			// 
-			this.headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+			this.headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 			| System.Windows.Forms.AnchorStyles.Right)));
 			this.headerPanel.BackColor = System.Drawing.Color.Transparent;
-			this.headerPanel.Controls.Add(this.displayProduct);
+			this.headerPanel.Controls.Add(this.displayProductName);
 			this.headerPanel.Location = new System.Drawing.Point(0, 0);
 			this.headerPanel.Name = "headerPanel";
 			this.headerPanel.Size = new System.Drawing.Size(606, 29);
 			this.headerPanel.TabIndex = 7;
 			this.headerPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.headerPanel_Paint);
 			// 
-			// displayProduct
+			// displayProductName
 			// 
-			this.displayProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+			this.displayProductName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 			| System.Windows.Forms.AnchorStyles.Right)));
-			this.displayProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.displayProduct.ForeColor = System.Drawing.Color.White;
-			this.displayProduct.Location = new System.Drawing.Point(10, 2);
-			this.displayProduct.Name = "displayProduct";
-			this.displayProduct.Size = new System.Drawing.Size(586, 23);
-			this.displayProduct.TabIndex = 1;
-			this.displayProduct.Text = "SharpKeys";
-			this.displayProduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.displayProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.displayProductName.ForeColor = System.Drawing.Color.White;
+			this.displayProductName.Location = new System.Drawing.Point(10, 2);
+			this.displayProductName.Name = "displayProductName";
+			this.displayProductName.Size = new System.Drawing.Size(586, 23);
+			this.displayProductName.TabIndex = 1;
+			this.displayProductName.Text = "SharpKeys";
+			this.displayProductName.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
 			// 
-			// urlCode
+			// contributeUrlLink
 			// 
-			this.urlCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.urlCode.AutoSize = true;
-			this.urlCode.Location = new System.Drawing.Point(386, 385);
-			this.urlCode.Name = "urlCode";
-			this.urlCode.Size = new System.Drawing.Size(207, 13);
-			this.urlCode.TabIndex = 11;
-			this.urlCode.TabStop = true;
-			this.urlCode.Text = "https://github.com/randyrants/sharpkeys/";
-			this.urlCode.TextAlign = System.Drawing.ContentAlignment.TopRight;
-			this.urlCode.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.urlMain_LinkClicked);
+			this.contributeUrlLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.contributeUrlLink.AutoSize = true;
+			this.contributeUrlLink.Location = new System.Drawing.Point(386, 385);
+			this.contributeUrlLink.Name = "contributeUrlLink";
+			this.contributeUrlLink.Size = new System.Drawing.Size(207, 13);
+			this.contributeUrlLink.TabIndex = 11;
+			this.contributeUrlLink.TabStop = true;
+			this.contributeUrlLink.Text = "https://github.com/randyrants/sharpkeys/";
+			this.contributeUrlLink.TextAlign = System.Drawing.ContentAlignment.TopRight;
+			this.contributeUrlLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.urlMain_LinkClicked);
 			// 
 			// Dialog_Main
 			// 
@@ -446,7 +446,7 @@ namespace SharpKeys
 						strToCode = strToCode.Replace(" ", "0");
 						strTo = string.Format("{0} ({1})", (string)m_hashKeys[strToCode], strToCode);
 
-						ListViewItem lvI = lvKeys.Items.Add(strFrom);
+						ListViewItem lvI = remappedKeysListView.Items.Add(strFrom);
 						lvI.SubItems.Add(strTo);
 					}
 				}
@@ -477,7 +477,7 @@ namespace SharpKeys
 			RegistryKey regScanMapKey = Registry.LocalMachine.CreateSubKey("System\\CurrentControlSet\\Control\\Keyboard Layout");
 			if (regScanMapKey != null)
 			{
-				int nCount = lvKeys.Items.Count;
+				int nCount = remappedKeysListView.Items.Count;
 				if (nCount <= 0)
 				{
 					// the second param is required; this will throw an exception if the value isn't found,
@@ -503,7 +503,7 @@ namespace SharpKeys
 					// add up the list
 					for (int i = 0; i < nCount; i++)
 					{
-						String str = lvKeys.Items[i].SubItems[1].Text; //Example: (E0_0020)
+						String str = remappedKeysListView.Items[i].SubItems[1].Text; //Example: (E0_0020)
 						int BinaryStartIndex = str.LastIndexOf("_") + 1;
 						int BinaryLength = str.LastIndexOf(")") - str.LastIndexOf("_") - 1;
 						String Binary = str.Substring(BinaryStartIndex, BinaryLength); //Example: 0020
@@ -516,7 +516,7 @@ namespace SharpKeys
 						bytes[(i * 4) + 12 + 0] = Convert.ToByte(Binary, 16);
 						bytes[(i * 4) + 12 + 1] = Convert.ToByte(Reg, 16);
 
-						str = lvKeys.Items[i].Text; //Example: (E0_0020)
+						str = remappedKeysListView.Items[i].Text; //Example: (E0_0020)
 						BinaryStartIndex = str.LastIndexOf("_") + 1;
 						BinaryLength = str.LastIndexOf(")") - str.LastIndexOf("_") - 1;
 						Binary = str.Substring(BinaryStartIndex, BinaryLength); //Example: 0020
@@ -546,7 +546,7 @@ namespace SharpKeys
 		private void AddMapping()
 		{
 			// max out the mapping at 104
-			if (lvKeys.Items.Count >= 104)
+			if (remappedKeysListView.Items.Count >= 104)
 			{
 				MessageBox.Show("The maximum number of mappings SharpKeys supports is 16.\n\nPlease delete an existing mapping before adding a new one!", "SharpKeys");
 				return;
@@ -559,47 +559,47 @@ namespace SharpKeys
 			while (iDic.MoveNext() == true)
 			{
 				string str = string.Format("{0} ({1})", iDic.Value, iDic.Key);
-				dlg.lbFrom.Items.Add(str);
-				dlg.lbTo.Items.Add(str);
+				dlg.mapFromKeyListView.Items.Add(str);
+				dlg.mapToKeyListView.Items.Add(str);
 			}
 
 			// remove the null setting for "From" since you can never have a null key to map
 			int nPos = 0;
-			nPos = dlg.lbFrom.FindString("-- Turn Key Off (00_00)");
+			nPos = dlg.mapFromKeyListView.FindString("-- Turn Key Off (00_00)");
 			if (nPos > -1)
-				dlg.lbFrom.Items.RemoveAt(nPos);
+				dlg.mapFromKeyListView.Items.RemoveAt(nPos);
 
 			// Now remove any of the keys that have already been mapped in the list (can't double up on from's)
-			for (int i = 0; i < lvKeys.Items.Count; i++)
+			for (int i = 0; i < remappedKeysListView.Items.Count; i++)
 			{
-				nPos = dlg.lbFrom.FindString(lvKeys.Items[i].Text);
+				nPos = dlg.mapFromKeyListView.FindString(remappedKeysListView.Items[i].Text);
 				if (nPos > -1)
-					dlg.lbFrom.Items.RemoveAt(nPos);
+					dlg.mapFromKeyListView.Items.RemoveAt(nPos);
 			}
 
 			// let C# sort the lists
-			dlg.lbFrom.Sorted = true;
-			dlg.lbTo.Sorted = true;
+			dlg.mapFromKeyListView.Sorted = true;
+			dlg.mapToKeyListView.Sorted = true;
 
 			// UI stuff
 			dlg.Text = "SharpKeys: Add New Key Mapping";
-			dlg.lbFrom.SelectedIndex = 0;
-			dlg.lbTo.SelectedIndex = 0;
+			dlg.mapFromKeyListView.SelectedIndex = 0;
+			dlg.mapToKeyListView.SelectedIndex = 0;
 			if (dlg.ShowDialog() == DialogResult.OK)
 			{
 				m_bDirty = true;
 
 				// Add the list, as it's past inspection.
-				ListViewItem lvI = lvKeys.Items.Add(dlg.lbFrom.Text);
-				lvI.SubItems.Add(dlg.lbTo.Text);
+				ListViewItem lvI = remappedKeysListView.Items.Add(dlg.mapFromKeyListView.Text);
+				lvI.SubItems.Add(dlg.mapToKeyListView.Text);
 				lvI.Selected = true;
 			}
-			lvKeys.Focus();
+			remappedKeysListView.Focus();
 		}
 		private void EditMapping()
 		{
 			// make sure something was selecting
-			if (lvKeys.SelectedItems.Count <= 0)
+			if (remappedKeysListView.SelectedItems.Count <= 0)
 			{
 				MessageBox.Show("Please select a mapping to edit!", "SharpKeys");
 				return;
@@ -612,44 +612,44 @@ namespace SharpKeys
 			while (iDic.MoveNext() == true)
 			{
 				string str = string.Format("{0} ({1})", iDic.Value, iDic.Key);
-				dlg.lbFrom.Items.Add(str);
-				dlg.lbTo.Items.Add(str);
+				dlg.mapFromKeyListView.Items.Add(str);
+				dlg.mapToKeyListView.Items.Add(str);
 			}
 
 			// remove the null setting for "From" since you can never have a null key to map
 			int nPos = 0;
-			nPos = dlg.lbFrom.FindString("-- Turn Key Off (00_00)");
+			nPos = dlg.mapFromKeyListView.FindString("-- Turn Key Off (00_00)");
 			if (nPos > -1)
-				dlg.lbFrom.Items.RemoveAt(nPos);
+				dlg.mapFromKeyListView.Items.RemoveAt(nPos);
 
 			// remove any of the existing from key mappings however, leave in the one that has currently
 			// been selected!
-			for (int i = 0; i < lvKeys.Items.Count; i++)
+			for (int i = 0; i < remappedKeysListView.Items.Count; i++)
 			{
-				nPos = dlg.lbFrom.FindString(lvKeys.Items[i].Text);
-				if ((nPos > -1) && (lvKeys.Items[i].Text != lvKeys.SelectedItems[0].Text))
+				nPos = dlg.mapFromKeyListView.FindString(remappedKeysListView.Items[i].Text);
+				if ((nPos > -1) && (remappedKeysListView.Items[i].Text != remappedKeysListView.SelectedItems[0].Text))
 				{
-					dlg.lbFrom.Items.RemoveAt(nPos);
+					dlg.mapFromKeyListView.Items.RemoveAt(nPos);
 				}
 			}
 
 			// Let C# sort the lists
-			dlg.lbFrom.Sorted = true;
-			dlg.lbTo.Sorted = true;
+			dlg.mapFromKeyListView.Sorted = true;
+			dlg.mapToKeyListView.Sorted = true;
 
 			// as it's an edit, set the drop down lists to the current From value
-			nPos = dlg.lbFrom.FindString(lvKeys.SelectedItems[0].Text);
+			nPos = dlg.mapFromKeyListView.FindString(remappedKeysListView.SelectedItems[0].Text);
 			if (nPos > -1)
-				dlg.lbFrom.SelectedIndex = nPos;
+				dlg.mapFromKeyListView.SelectedIndex = nPos;
 			else
-				dlg.lbFrom.SelectedIndex = 0;
+				dlg.mapFromKeyListView.SelectedIndex = 0;
 
 			// as it's an edit, set the drop down lists to the current To value
-			nPos = dlg.lbTo.FindString(lvKeys.SelectedItems[0].SubItems[1].Text);
+			nPos = dlg.mapToKeyListView.FindString(remappedKeysListView.SelectedItems[0].SubItems[1].Text);
 			if (nPos > -1)
-				dlg.lbTo.SelectedIndex = nPos;
+				dlg.mapToKeyListView.SelectedIndex = nPos;
 			else
-				dlg.lbTo.SelectedIndex = 0;
+				dlg.mapToKeyListView.SelectedIndex = 0;
 
 			dlg.Text = "SharpKeys: Edit Key Mapping";
 			if (dlg.ShowDialog() == DialogResult.OK)
@@ -657,22 +657,22 @@ namespace SharpKeys
 				m_bDirty = true;
 
 				// update the select mapping item in the list view
-				lvKeys.SelectedItems[0].Text = dlg.lbFrom.Text;
-				lvKeys.SelectedItems[0].SubItems[1].Text = dlg.lbTo.Text;
+				remappedKeysListView.SelectedItems[0].Text = dlg.mapFromKeyListView.Text;
+				remappedKeysListView.SelectedItems[0].SubItems[1].Text = dlg.mapToKeyListView.Text;
 			}
-			lvKeys.Focus();
+			remappedKeysListView.Focus();
 		}
 
 		private void DeleteMapping()
 		{
 			// Pop a mapping out of the list view
-			if (lvKeys.SelectedItems.Count <= 0)
+			if (remappedKeysListView.SelectedItems.Count <= 0)
 			{
 				MessageBox.Show("Please select a mapping to remove!", "SharpKeys");
 				return;
 			}
 
-			lvKeys.Items.Remove(lvKeys.SelectedItems[0]);
+			remappedKeysListView.Items.Remove(remappedKeysListView.SelectedItems[0]);
 
 			m_bDirty = true;
 		}
@@ -688,9 +688,9 @@ namespace SharpKeys
 
 			// ...and then clean out the list
 			m_bDirty = true;
-			btnEdit.Enabled = true;
-			btnDelete.Enabled = false;
-			lvKeys.Items.Clear();
+			editButton.Enabled = true;
+			deleteButton.Enabled = false;
+			remappedKeysListView.Items.Clear();
 		}
 
 		private void BuildParseTables()
@@ -969,9 +969,9 @@ namespace SharpKeys
 			LoadRegistrySettings();
 
 			// UI tweaking
-			if (lvKeys.Items.Count > 0)
+			if (remappedKeysListView.Items.Count > 0)
 			{
-				lvKeys.Items[0].Selected = true;
+				remappedKeysListView.Items[0].Selected = true;
 			}
 			Cursor = Cursors.Default;
 		}
@@ -1012,8 +1012,8 @@ namespace SharpKeys
 			base.OnResize(e);
 
 			// resize the listview columns whenever sizeds
-			lvcFrom.Width = lvKeys.Width / 2 - 2;
-			lvcTo.Width = lvcFrom.Width - 2;
+			remappedFromKeyListView.Width = remappedKeysListView.Width / 2 - 2;
+			remappedToKeyListView.Width = remappedFromKeyListView.Width - 2;
 
 			// save the current window position/size whenever moved
 			if (WindowState == FormWindowState.Normal)
@@ -1027,30 +1027,30 @@ namespace SharpKeys
 		private void lvKeys_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
 			// UI stuff (to prevent editing or deleting a non-item
-			if (lvKeys.SelectedItems.Count <= 0)
+			if (remappedKeysListView.SelectedItems.Count <= 0)
 			{
-				btnEdit.Enabled = false;
-				btnDelete.Enabled = false;
+				editButton.Enabled = false;
+				deleteButton.Enabled = false;
 			}
 			else
 			{
-				btnEdit.Enabled = true;
-				btnDelete.Enabled = true;
+				editButton.Enabled = true;
+				deleteButton.Enabled = true;
 			}
 		}
 
 		private void mnuPop_Popup(object sender, System.EventArgs e)
 		{
 			// UI stuff (to prevent editing or deleting a non-item
-			if (lvKeys.SelectedItems.Count <= 0)
+			if (remappedKeysListView.SelectedItems.Count <= 0)
 			{
-				mniEdit.Enabled = false;
-				mniDelete.Enabled = false;
+				contextMenuEditOption.Enabled = false;
+				contextMenuDeleteOption.Enabled = false;
 			}
 			else
 			{
-				mniEdit.Enabled = true;
-				mniDelete.Enabled = true;
+				contextMenuEditOption.Enabled = true;
+				contextMenuDeleteOption.Enabled = true;
 			}
 		}
 
