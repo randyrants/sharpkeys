@@ -11,9 +11,6 @@ namespace SharpKeys
 	/// </summary>
 	public class Dialog_KeyPress : System.Windows.Forms.Form, IMessageFilter
 	{
-		// passed in from the main form
-		internal Hashtable m_hashKeys = null;
-
 		// data handlers
 		internal string m_strSelected = "";
 		const string DISABLED_KEY = "Key is disabled\n(00_00)";
@@ -223,9 +220,12 @@ namespace SharpKeys
 			keyCode = keyCode.Replace(" ", "0");
 
 			// Look up the scan code in the hashtable
-			if (m_hashKeys != null)
+			KeyboardMapping keyboardMapping = new KeyboardMapping();
+			Hashtable keyboardScanCodeMap = keyboardMapping.GetFullMapping();
+
+			if (keyboardScanCodeMap != null)
 			{
-				keyPressedInformation.Text = string.Format($"{m_hashKeys[keyCode]}\n({keyCode})");
+				keyPressedInformation.Text = string.Format($"{keyboardScanCodeMap[keyCode]}\n({keyCode})");
 			}
 			else
 			{

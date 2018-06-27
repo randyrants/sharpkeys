@@ -11,8 +11,6 @@ namespace SharpKeys
 	/// </summary>
 	public class Dialog_KeyItem : System.Windows.Forms.Form
 	{
-		// passed into here so it can be pushed through to type key
-		internal Hashtable m_hashKeys = null;
 		internal System.Windows.Forms.ListBox mapFromKeyListView;
 		internal System.Windows.Forms.ListBox mapToKeyListView;
 		private System.Windows.Forms.Button typeOriginalKeyButton;
@@ -202,7 +200,6 @@ namespace SharpKeys
 		{
 			// Pop open the "typing" form to collect keyboard input to get a valid code
 			Dialog_KeyPress dlg = new Dialog_KeyPress();
-			dlg.m_hashKeys = m_hashKeys;
 			if (dlg.ShowDialog() == DialogResult.OK)
 			{
 				if (mapFromKeyListView.Items.Contains(dlg.m_strSelected))
@@ -219,7 +216,6 @@ namespace SharpKeys
 		{
 			// Pop open the "typing" form to collect keyboard input to get a valid code
 			Dialog_KeyPress dlg = new Dialog_KeyPress();
-			dlg.m_hashKeys = m_hashKeys;
 			if (dlg.ShowDialog() == DialogResult.OK)
 			{
 				if (mapToKeyListView.Items.Contains(dlg.m_strSelected))
