@@ -1,7 +1,6 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpKeys", "SharpKeys.csproj", "{8C3DB929-51B7-4B74-BBB9-69560732A834}"
 EndProject
@@ -14,12 +13,15 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8C3DB929-51B7-4B74-BBB9-69560732A834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8C3DB929-51B7-4B74-BBB9-69560732A834}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C3DB929-51B7-4B74-BBB9-69560732A834}.Release RT|Any CPU.ActiveCfg = Release RT|Any CPU
-		{8C3DB929-51B7-4B74-BBB9-69560732A834}.Release RT|Any CPU.Build.0 = Release RT|Any CPU
+		{8C3DB929-51B7-4B74-BBB9-69560732A834}.Release RT|Any CPU.ActiveCfg = Release|Any CPU
+		{8C3DB929-51B7-4B74-BBB9-69560732A834}.Release RT|Any CPU.Build.0 = Release|Any CPU
 		{8C3DB929-51B7-4B74-BBB9-69560732A834}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C3DB929-51B7-4B74-BBB9-69560732A834}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AD2AD6F7-43F3-4C44-90D4-0090B093BDEE}
 	EndGlobalSection
 EndGlobal
