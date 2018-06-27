@@ -4,6 +4,7 @@ using System.Drawing.Drawing2D;
 using System.Collections;
 using System.Windows.Forms;
 using System.ComponentModel;
+using System.IO;
 using Microsoft.Win32;
 
 namespace SharpKeys
@@ -48,6 +49,9 @@ namespace SharpKeys
         private Panel headerPanel;
         private Label displayProduct;
         private LinkLabel urlCode;
+        private Button btnLoadKeys;
+        private Button btnSaveKeys;
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -107,14 +111,16 @@ namespace SharpKeys
             this.headerPanel = new System.Windows.Forms.Panel();
             this.displayProduct = new System.Windows.Forms.Label();
             this.urlCode = new System.Windows.Forms.LinkLabel();
+            this.btnLoadKeys = new System.Windows.Forms.Button();
+            this.btnSaveKeys = new System.Windows.Forms.Button();
             this.mainPanel.SuspendLayout();
             this.headerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // lvKeys
             // 
-            this.lvKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.lvKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lvKeys.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.lvcFrom,
@@ -124,10 +130,11 @@ namespace SharpKeys
             this.lvKeys.FullRowSelect = true;
             this.lvKeys.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lvKeys.HideSelection = false;
-            this.lvKeys.Location = new System.Drawing.Point(14, 45);
+            this.lvKeys.Location = new System.Drawing.Point(19, 55);
+            this.lvKeys.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lvKeys.MultiSelect = false;
             this.lvKeys.Name = "lvKeys";
-            this.lvKeys.Size = new System.Drawing.Size(579, 282);
+            this.lvKeys.Size = new System.Drawing.Size(771, 319);
             this.lvKeys.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.lvKeys.TabIndex = 0;
             this.lvKeys.UseCompatibleStateImageBehavior = false;
@@ -185,9 +192,10 @@ namespace SharpKeys
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(409, 339);
+            this.btnSave.Location = new System.Drawing.Point(545, 381);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(106, 23);
+            this.btnSave.Size = new System.Drawing.Size(141, 28);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "&Write to Registry";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -195,9 +203,10 @@ namespace SharpKeys
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(521, 339);
+            this.btnClose.Location = new System.Drawing.Point(694, 381);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(72, 23);
+            this.btnClose.Size = new System.Drawing.Size(96, 28);
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "&Close";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -205,9 +214,10 @@ namespace SharpKeys
             // btnAdd
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAdd.Location = new System.Drawing.Point(14, 339);
+            this.btnAdd.Location = new System.Drawing.Point(18, 382);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(72, 23);
+            this.btnAdd.Size = new System.Drawing.Size(96, 28);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "&Add";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -215,9 +225,10 @@ namespace SharpKeys
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDelete.Location = new System.Drawing.Point(170, 339);
+            this.btnDelete.Location = new System.Drawing.Point(226, 381);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(72, 23);
+            this.btnDelete.Size = new System.Drawing.Size(96, 28);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "&Delete";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -225,9 +236,10 @@ namespace SharpKeys
             // btnEdit
             // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEdit.Location = new System.Drawing.Point(92, 339);
+            this.btnEdit.Location = new System.Drawing.Point(122, 382);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(72, 23);
+            this.btnEdit.Size = new System.Drawing.Size(96, 28);
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "&Edit";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -235,22 +247,24 @@ namespace SharpKeys
             // btnDeleteAll
             // 
             this.btnDeleteAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDeleteAll.Location = new System.Drawing.Point(248, 339);
+            this.btnDeleteAll.Location = new System.Drawing.Point(330, 381);
+            this.btnDeleteAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDeleteAll.Name = "btnDeleteAll";
-            this.btnDeleteAll.Size = new System.Drawing.Size(72, 23);
+            this.btnDeleteAll.Size = new System.Drawing.Size(96, 28);
             this.btnDeleteAll.TabIndex = 4;
             this.btnDeleteAll.Text = "De&lete All";
             this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
             // 
             // label11
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label11.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label11.Location = new System.Drawing.Point(9, 373);
+            this.label11.Location = new System.Drawing.Point(12, 459);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(588, 3);
+            this.label11.Size = new System.Drawing.Size(784, 4);
             this.label11.TabIndex = 7;
             // 
             // label1
@@ -258,20 +272,22 @@ namespace SharpKeys
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Enabled = false;
-            this.label1.Location = new System.Drawing.Point(15, 385);
+            this.label1.Location = new System.Drawing.Point(20, 474);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(283, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "SharpKeys 3.6.0 - Copyright 2004 - 2018 RandyRants.com";
+            this.label1.Size = new System.Drawing.Size(379, 17);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "SharpKeys 3.7.0 - Copyright 2004 - 2018 RandyRants.com";
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Enabled = false;
-            this.label2.Location = new System.Drawing.Point(15, 403);
+            this.label2.Location = new System.Drawing.Point(20, 496);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(226, 13);
+            this.label2.Size = new System.Drawing.Size(300, 17);
             this.label2.TabIndex = 10;
             this.label2.Text = "Registry hack for remapping keys for Windows";
             // 
@@ -279,10 +295,11 @@ namespace SharpKeys
             // 
             this.urlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.urlMain.AutoSize = true;
-            this.urlMain.Location = new System.Drawing.Point(451, 403);
+            this.urlMain.Location = new System.Drawing.Point(601, 496);
+            this.urlMain.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.urlMain.Name = "urlMain";
-            this.urlMain.Size = new System.Drawing.Size(142, 13);
-            this.urlMain.TabIndex = 11;
+            this.urlMain.Size = new System.Drawing.Size(177, 17);
+            this.urlMain.TabIndex = 12;
             this.urlMain.TabStop = true;
             this.urlMain.Text = "http://www.randyrants.com/";
             this.urlMain.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -290,11 +307,13 @@ namespace SharpKeys
             // 
             // mainPanel
             // 
-            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.BackColor = System.Drawing.Color.Transparent;
             this.mainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mainPanel.Controls.Add(this.btnLoadKeys);
+            this.mainPanel.Controls.Add(this.btnSaveKeys);
             this.mainPanel.Controls.Add(this.headerPanel);
             this.mainPanel.Controls.Add(this.urlCode);
             this.mainPanel.Controls.Add(this.urlMain);
@@ -308,33 +327,36 @@ namespace SharpKeys
             this.mainPanel.Controls.Add(this.btnDeleteAll);
             this.mainPanel.Controls.Add(this.btnSave);
             this.mainPanel.Controls.Add(this.btnClose);
-            this.mainPanel.Location = new System.Drawing.Point(12, 12);
+            this.mainPanel.Location = new System.Drawing.Point(16, 15);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(608, 430);
+            this.mainPanel.Size = new System.Drawing.Size(810, 529);
             this.mainPanel.TabIndex = 12;
             this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainPanel_Paint);
             // 
             // headerPanel
             // 
-            this.headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.headerPanel.BackColor = System.Drawing.Color.Transparent;
             this.headerPanel.Controls.Add(this.displayProduct);
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
+            this.headerPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(606, 29);
+            this.headerPanel.Size = new System.Drawing.Size(808, 36);
             this.headerPanel.TabIndex = 7;
             this.headerPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.headerPanel_Paint);
             // 
             // displayProduct
             // 
-            this.displayProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.displayProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.displayProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.displayProduct.ForeColor = System.Drawing.Color.White;
-            this.displayProduct.Location = new System.Drawing.Point(10, 2);
+            this.displayProduct.Location = new System.Drawing.Point(13, 2);
+            this.displayProduct.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.displayProduct.Name = "displayProduct";
-            this.displayProduct.Size = new System.Drawing.Size(586, 23);
+            this.displayProduct.Size = new System.Drawing.Size(781, 28);
             this.displayProduct.TabIndex = 1;
             this.displayProduct.Text = "SharpKeys";
             this.displayProduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -343,24 +365,48 @@ namespace SharpKeys
             // 
             this.urlCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.urlCode.AutoSize = true;
-            this.urlCode.Location = new System.Drawing.Point(386, 385);
+            this.urlCode.Location = new System.Drawing.Point(515, 474);
+            this.urlCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.urlCode.Name = "urlCode";
-            this.urlCode.Size = new System.Drawing.Size(207, 13);
+            this.urlCode.Size = new System.Drawing.Size(265, 17);
             this.urlCode.TabIndex = 11;
             this.urlCode.TabStop = true;
             this.urlCode.Text = "https://github.com/randyrants/sharpkeys/";
             this.urlCode.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.urlCode.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.urlMain_LinkClicked);
             // 
+            // btnLoadKeys
+            // 
+            this.btnLoadKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLoadKeys.Location = new System.Drawing.Point(18, 418);
+            this.btnLoadKeys.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLoadKeys.Name = "btnLoadKeys";
+            this.btnLoadKeys.Size = new System.Drawing.Size(96, 28);
+            this.btnLoadKeys.TabIndex = 7;
+            this.btnLoadKeys.Text = "L&oad keys...";
+            this.btnLoadKeys.Click += new System.EventHandler(this.btnLoadKeys_Click);
+            // 
+            // btnSaveKeys
+            // 
+            this.btnSaveKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSaveKeys.Location = new System.Drawing.Point(122, 418);
+            this.btnSaveKeys.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSaveKeys.Name = "btnSaveKeys";
+            this.btnSaveKeys.Size = new System.Drawing.Size(96, 28);
+            this.btnSaveKeys.TabIndex = 8;
+            this.btnSaveKeys.Text = "&Save keys...";
+            this.btnSaveKeys.Click += new System.EventHandler(this.btnSaveKeys_Click);
+            // 
             // Dialog_Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 454);
+            this.ClientSize = new System.Drawing.Size(843, 559);
             this.Controls.Add(this.mainPanel);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(640, 480);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(847, 580);
             this.Name = "Dialog_Main";
             this.Text = "SharpKeys";
             this.Closing += new System.ComponentModel.CancelEventHandler(this.Dialog_Main_Closing);
@@ -425,29 +471,35 @@ namespace SharpKeys
                     regScanMapKey.Close();
                     return;
                 }
-                // can skip the first 8 bytes as they are ALWAYS 0x00
-                // the 9th byte is ALWAYS the total number of mappings (including the trailing null pointer)
-                if (bytes.Length > 8)
-                {
-                    int nTotal = Int32.Parse(bytes[8].ToString());
-                    for (int i = 0; i < nTotal - 1; i++)
-                    {
-                        // scan codes are stored in ToHi ToLo FromHi FromLo
-                        String strFrom, strFromCode, strTo, strToCode;
-                        strFromCode = string.Format("{0,2:X}_{1,2:X}", bytes[(i * 4) + 12 + 3], bytes[(i * 4) + 12 + 2]);
-                        strFromCode = strFromCode.Replace(" ", "0");
-                        strFrom = string.Format("{0} ({1})", (string)m_hashKeys[strFromCode], strFromCode);
 
-                        strToCode = string.Format("{0,2:X}_{1,2:X}", bytes[(i * 4) + 12 + 1], bytes[(i * 4) + 12 + 0]);
-                        strToCode = strToCode.Replace(" ", "0");
-                        strTo = string.Format("{0} ({1})", (string)m_hashKeys[strToCode], strToCode);
-
-                        ListViewItem lvI = lvKeys.Items.Add(strFrom);
-                        lvI.SubItems.Add(strTo);
-                    }
-                }
+                LoadListWithKeys(bytes);
 
                 regScanMapKey.Close();
+            }
+        }
+
+        private void LoadListWithKeys(byte[] bytes)
+        {
+            // can skip the first 8 bytes as they are ALWAYS 0x00
+            // the 9th byte is ALWAYS the total number of mappings (including the trailing null pointer)
+            if (bytes.Length > 8)
+            {
+                int nTotal = Int32.Parse(bytes[8].ToString());
+                for (int i = 0; i < nTotal - 1; i++)
+                {
+                    // scan codes are stored in ToHi ToLo FromHi FromLo
+                    String strFrom, strFromCode, strTo, strToCode;
+                    strFromCode = string.Format("{0,2:X}_{1,2:X}", bytes[(i * 4) + 12 + 3], bytes[(i * 4) + 12 + 2]);
+                    strFromCode = strFromCode.Replace(" ", "0");
+                    strFrom = string.Format("{0} ({1})", (string)m_hashKeys[strFromCode], strFromCode);
+
+                    strToCode = string.Format("{0,2:X}_{1,2:X}", bytes[(i * 4) + 12 + 1], bytes[(i * 4) + 12 + 0]);
+                    strToCode = strToCode.Replace(" ", "0");
+                    strTo = string.Format("{0} ({1})", (string)m_hashKeys[strToCode], strToCode);
+
+                    ListViewItem lvI = lvKeys.Items.Add(strFrom);
+                    lvI.SubItems.Add(strTo);
+                }
             }
         }
 
@@ -473,8 +525,7 @@ namespace SharpKeys
             RegistryKey regScanMapKey = Registry.LocalMachine.CreateSubKey("System\\CurrentControlSet\\Control\\Keyboard Layout");
             if (regScanMapKey != null)
             {
-                int nCount = lvKeys.Items.Count;
-                if (nCount <= 0)
+                if (lvKeys.Items.Count <= 0)
                 {
                     // the second param is required; this will throw an exception if the value isn't found,
                     // and it might not always be there (which is valid), so it's ok to ignore it
@@ -482,51 +533,7 @@ namespace SharpKeys
                 }
                 else
                 {
-                    // create a new byte array that is:
-                    //   8 bytes that are always 00 00 00 00 00 00 00 00 (as is required)
-                    // + 4 bytes that are used for the count nn 00 00 00 (as is required)
-                    // + 4 bytes per mapping
-                    // + 4 bytes for the last mapping (required)
-                    byte[] bytes = new byte[8 + 4 + (4 * nCount) + 4];
-
-                    // skip first 8 (0-7)
-
-                    // set 8 to the count, plus the trailing null
-                    bytes[8] = Convert.ToByte(nCount + 1);
-
-                    // skip 9, 10, 11
-
-                    // add up the list
-                    for (int i = 0; i < nCount; i++)
-                    {
-                        String str = lvKeys.Items[i].SubItems[1].Text; //Example: (E0_0020)
-                        int BinaryStartIndex = str.LastIndexOf("_") + 1;
-                        int BinaryLength = str.LastIndexOf(")") - str.LastIndexOf("_") - 1;
-                        String Binary = str.Substring(BinaryStartIndex, BinaryLength); //Example: 0020
-                        String Reg = str.Substring(str.LastIndexOf("(") + 1, 2); //Example: E0
-                        if (Binary.Length > 2)
-                        {
-                            Binary = Binary.Substring(2);
-                        }
-
-                        bytes[(i * 4) + 12 + 0] = Convert.ToByte(Binary, 16);
-                        bytes[(i * 4) + 12 + 1] = Convert.ToByte(Reg, 16);
-
-                        str = lvKeys.Items[i].Text; //Example: (E0_0020)
-                        BinaryStartIndex = str.LastIndexOf("_") + 1;
-                        BinaryLength = str.LastIndexOf(")") - str.LastIndexOf("_") - 1;
-                        Binary = str.Substring(BinaryStartIndex, BinaryLength); //Example: 0020
-                        Reg = str.Substring(str.LastIndexOf("(") + 1, 2); //Example: E0
-                        if (Binary.Length > 2)
-                        {
-                            Binary = Binary.Substring(2);
-                        }
-
-                        bytes[(i * 4) + 12 + 2] = Convert.ToByte(Binary, 16);
-                        bytes[(i * 4) + 12 + 3] = Convert.ToByte(Reg, 16);
-                    }
-
-                    // last 4 are 0's
+                    byte[] bytes = DefineScancodeMap();
 
                     // dump to the registry
                     regScanMapKey.SetValue("Scancode Map", bytes);
@@ -537,6 +544,59 @@ namespace SharpKeys
             Cursor = Cursors.Default;
 
             MessageBox.Show("Key Mappings have been successfully stored to the registry.\n\nPlease logout or reboot for these changes to take effect!", "SharpKeys");
+        }
+
+        private byte[] DefineScancodeMap()
+        {
+            int nCount = lvKeys.Items.Count;
+
+            // create a new byte array that is:
+            //   8 bytes that are always 00 00 00 00 00 00 00 00 (as is required)
+            // + 4 bytes that are used for the count nn 00 00 00 (as is required)
+            // + 4 bytes per mapping
+            // + 4 bytes for the last mapping (required)
+            byte[] bytes = new byte[8 + 4 + (4 * nCount) + 4];
+
+            // skip first 8 (0-7)
+
+            // set 8 to the count, plus the trailing null
+            bytes[8] = Convert.ToByte(nCount + 1);
+
+            // skip 9, 10, 11
+
+            // add up the list
+            for (int i = 0; i < nCount; i++)
+            {
+                String str = lvKeys.Items[i].SubItems[1].Text; //Example: (E0_0020)
+                int BinaryStartIndex = str.LastIndexOf("_") + 1;
+                int BinaryLength = str.LastIndexOf(")") - str.LastIndexOf("_") - 1;
+                String Binary = str.Substring(BinaryStartIndex, BinaryLength); //Example: 0020
+                String Reg = str.Substring(str.LastIndexOf("(") + 1, 2); //Example: E0
+                if (Binary.Length > 2)
+                {
+                    Binary = Binary.Substring(2);
+                }
+
+                bytes[(i * 4) + 12 + 0] = Convert.ToByte(Binary, 16);
+                bytes[(i * 4) + 12 + 1] = Convert.ToByte(Reg, 16);
+
+                str = lvKeys.Items[i].Text; //Example: (E0_0020)
+                BinaryStartIndex = str.LastIndexOf("_") + 1;
+                BinaryLength = str.LastIndexOf(")") - str.LastIndexOf("_") - 1;
+                Binary = str.Substring(BinaryStartIndex, BinaryLength); //Example: 0020
+                Reg = str.Substring(str.LastIndexOf("(") + 1, 2); //Example: E0
+                if (Binary.Length > 2)
+                {
+                    Binary = Binary.Substring(2);
+                }
+
+                bytes[(i * 4) + 12 + 2] = Convert.ToByte(Binary, 16);
+                bytes[(i * 4) + 12 + 3] = Convert.ToByte(Reg, 16);
+            }
+
+            // last 4 are 0's
+
+            return bytes;
         }
 
         private void AddMapping()
@@ -592,6 +652,7 @@ namespace SharpKeys
             }
             lvKeys.Focus();
         }
+
         private void EditMapping()
         {
             // make sure something was selecting
@@ -682,11 +743,87 @@ namespace SharpKeys
                 return;
             }
 
+            CleanOutTheList();
+        }
+
+        private void CleanOutTheList()
+        {
             // ...and then clean out the list
             m_bDirty = true;
             btnEdit.Enabled = true;
             btnDelete.Enabled = false;
             lvKeys.Items.Clear();
+        }
+
+        private void btnLoadKeys_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "SharpKeys key list (*.skl)|*.SKL";
+            openFileDialog.Title = "Open SharpKey Key List";
+            openFileDialog.DefaultExt = "skl";
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            openFileDialog.CheckPathExists = true;
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.Multiselect = false;
+            openFileDialog.ShowHelp = false;
+            if (openFileDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            string filename = openFileDialog.FileName;
+            byte[] bytes = File.ReadAllBytes(filename);
+
+            if (bytes.Length > 0)
+            {
+                try
+                {
+                    CleanOutTheList();
+                    LoadListWithKeys(bytes);
+                    m_bDirty = true;
+                }
+                catch
+                {
+                    MessageBox.Show("The file you are trying to load is not a valid SKL file!", "SharpKeys");
+                }
+            }
+            else
+            {
+                MessageBox.Show("You've tried to open a file that is empty!", "SharpKeys");
+            }
+        }
+
+        private void btnSaveKeys_Click(object sender, EventArgs e)
+        {
+            if (lvKeys.Items.Count <= 0)
+            {
+                MessageBox.Show("There are no remapped keys to save to a file!", "SharpKeys");
+            }
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "SharpKeys key list (*.skl)|*.SKL";
+            saveDialog.Title = "Save SharpKeys Key List";
+            saveDialog.DefaultExt = "skl";
+            saveDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            saveDialog.CheckPathExists = true;
+            saveDialog.RestoreDirectory = true;
+            saveDialog.AddExtension = true;
+            saveDialog.ShowHelp = false;
+            saveDialog.FileName = "My Keys.skl";
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Grab the current bytes in the list
+                byte[] bytes = DefineScancodeMap();
+                string filename = saveDialog.FileName;
+                using (FileStream writer = File.Create(filename))
+                {
+                    writer.Write(bytes, 0, bytes.Length);
+                    writer.Close();
+                }
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void BuildParseTables()
