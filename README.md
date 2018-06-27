@@ -30,6 +30,16 @@ Click the Releases button in the header above or go to https://github.com/randyr
 * Support multiple mappings for different users - the Windows key being tweaked is for an entire machine
 * Protect you from yourself - if you disable your DEL key and can’t login because Ctrl+Alt+Del doesn’t work now, you’ll have to reformat
 
+## Additional FAQ and answers ##
+Q: Can I remap a combination of keys to one key?  
+A: Sadly, no. SharpKeys only remaps whole keys rather than a modified key. For example, you can remap Ctrl or C but you can't remap Ctrl+C to another key.
+
+Q: Can I remap a mouse click to a new key?  
+A: Sorry, but no. The remapping technology that Windows uses to remap your keys isn't aware of your mouse.
+
+Q: Why can't I remap my Fn key on my [notebook or Apple] keyboard?  
+A: Some keys simply just never get to Windows. In the case of most Fn keys, they are interpretted by the hardware and never get passed onto the OS, no matter how they appear to work... if Windows doesn't see the key, there's no way for the key to be remapped by Windows.
+
 ## Hope for GitHub contributions:
 * A more complete list to support more international keyboards
 * An import/export functionality that allows people to swap keymappings easier
