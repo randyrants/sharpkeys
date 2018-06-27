@@ -106,6 +106,8 @@ namespace SharpKeys
 			this.youPressedLabel.Name = "youPressedLabel";
 			this.youPressedLabel.Size = new System.Drawing.Size(72, 13);
 			this.youPressedLabel.TabIndex = 17;
+			this.youPressedLabel.Text = "You pressed: ";
+			this.youPressedLabel.Visible = false;
 			// 
 			// lineDivisor
 			// 
@@ -190,9 +192,9 @@ namespace SharpKeys
 
 		private void ShowKeyCode(int nCode)
 		{
-			// set up UI label
-			if (lblPressed.Text.Length == 0)
-				lblPressed.Text = "You pressed: ";
+			// Show up UI Label
+			if (youPressedLabel.Visible == false)
+				youPressedLabel.Visible = true;
 
 			nCode = nCode >> 16;
 
