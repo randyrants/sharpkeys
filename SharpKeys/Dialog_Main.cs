@@ -13,11 +13,7 @@ namespace SharpKeys
 	/// </summary>
 	public class Dialog_Main : System.Windows.Forms.Form
 	{
-		// Field for saving window position
-		private Rectangle m_rcWindow;
-
-		// Field for registy storage
-		private string m_strRegKey = "Software\\RandyRants\\SharpKeys";
+		private Rectangle currentWindowPosition;
 
 		// Hashtable for tracking text to scan codes
 		private Hashtable m_hashKeys = null;
@@ -392,32 +388,17 @@ namespace SharpKeys
 		private void LoadRegistrySettings()
 		{
 			// First load the window positions from registry
-			RegistryKey regKey = Registry.CurrentUser.OpenSubKey(m_strRegKey);
-			Rectangle rc = new Rectangle(10, 10, 750, 550);
-			int nWinState = 0, nWarning = 0;
+			SoftwareProperties softwareProperties = new SoftwareProperties();
 
-			if (regKey != null)
-			{
-				// Load Window Pos
-				nWinState = (int)regKey.GetValue("MainWinState", 0);
-				rc.X = (int)regKey.GetValue("MainX", 10);
-				rc.Y = (int)regKey.GetValue("MainY", 10);
-				rc.Width = (int)regKey.GetValue("MainCX", 750);
-				rc.Height = (int)regKey.GetValue("MainCY", 550);
+			currentWindowPosition = softwareProperties.LoadWindowPosition();
+			DesktopBounds = currentWindowPosition;
+			WindowState = softwareProperties.LoadWindowState();
 
-				nWarning = (int)regKey.GetValue("ShowWarning", 0);
-				regKey.Close();
-			}
-
-			if (nWarning == 0)
+			if (softwareProperties.ShowFirstUsageWarning() == true)
 			{
 				MessageBox.Show("Welcome to SharpKeys!\n\nThis application will add one key to your registry that allows you\nto change how certain keys on your keyboard will work.\n\nYou must be running Windows 2000 through Windows 10 for this to be supported and\nyou'll be using SharpKeys at your own risk!\n\nEnjoy!\nRandyRants.com", "SharpKeys");
 			}
-
-			// Set the WinPos
-			m_rcWindow = rc;
-			DesktopBounds = m_rcWindow;
-			WindowState = (FormWindowState)nWinState;
+						
 
 			// now load the scan code map
 			RegistryKey regScanMapKey = Registry.LocalMachine.OpenSubKey("System\\CurrentControlSet\\Control\\Keyboard Layout");
@@ -458,15 +439,11 @@ namespace SharpKeys
 		private void SaveRegistrySettings()
 		{
 			// Only save the window position info on close; user is prompted to save mappings elsewhere
-			RegistryKey regKey = Registry.CurrentUser.CreateSubKey(m_strRegKey);
+			SoftwareProperties softwareProperties = new SoftwareProperties();
 
-			// Save Window Pos
-			regKey.SetValue("MainWinState", (int)WindowState);
-			regKey.SetValue("MainX", m_rcWindow.X);
-			regKey.SetValue("MainY", m_rcWindow.Y);
-			regKey.SetValue("MainCX", m_rcWindow.Width);
-			regKey.SetValue("MainCY", m_rcWindow.Height);
-			regKey.SetValue("ShowWarning", 1);
+			softwareProperties.SaveWindowState(WindowState);
+			softwareProperties.SaveWindowPosition(currentWindowPosition);
+			softwareProperties.DisableFirstUsageWarning();
 		}
 
 		private void SaveMappingsToRegistry()
@@ -1003,7 +980,7 @@ namespace SharpKeys
 			// save the current window position/size whenever moved
 			if (WindowState == FormWindowState.Normal)
 			{
-				m_rcWindow = DesktopBounds;
+				currentWindowPosition = DesktopBounds;
 			}
 		}
 
@@ -1018,7 +995,7 @@ namespace SharpKeys
 			// save the current window position/size whenever moved
 			if (WindowState == FormWindowState.Normal)
 			{
-				m_rcWindow = DesktopBounds;
+				currentWindowPosition = DesktopBounds;
 			}
 		}
 
