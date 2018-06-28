@@ -124,6 +124,12 @@ namespace SharpKeys
 
 			userStoredMappings.SetUserMappings(userRemappedKeysInBytes);
 		}
+		
+		public bool ShowDelKeyWarning(string keycode)
+		{
+			// Main Delete or Numpad Del
+			return keycode == "E0_53" || keycode == "00_53";
+		}
 
 		public Hashtable GetFullMapping()
 		{

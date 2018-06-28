@@ -231,6 +231,18 @@ namespace SharpKeys
 			{
 				keyPressedInformation.Text = $"Scan code: {keyCode}";
 			}
+			
+			// Since removing DEL key is a big step, get a confirmation
+			if (keyboardMappingService.ShowDelKeyWarning(keyCode) == true)
+			{
+				DialogResult dlgRes = MessageBox.Show("Disabling your \"DEL\" key will affect \"Ctrl+Alt+Del Login Command\".\n\nDo you want to continue?", "SharpKeys", MessageBoxButtons.YesNo, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button2);
+				if (dlgRes == DialogResult.No)
+				{
+					confirmationButton.Enabled = false;
+					this.Close();
+					return;
+				}
+			}
 
 			// UI to collect only valid scancodes
 			confirmationButton.Enabled = true;
