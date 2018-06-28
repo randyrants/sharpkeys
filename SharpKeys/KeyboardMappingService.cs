@@ -6,10 +6,13 @@ namespace SharpKeys
 {
 	public class KeyboardMappingService
 	{
+		private UserStoredMappings userStoredMappings = new UserStoredMappings();
+
 		private const int MAPPINGS_COUNT_POSITION = 8; // the 9th byte is ALWAYS the total number of mappings (including the trailing null pointer)
-		
-		UserStoredMappings userStoredMappings = new UserStoredMappings();
-		
+		private const string REG_BINARY_SEPARATOR = "_";
+		private const string KEY_CODE_CONTAINER_BEGINNING_CHARACTER = "(";
+		private const string KEY_CODE_CONTAINER_ENDING_CHARACTER = ")";
+				
 		private bool UserHasStoredMappings(byte[] bytes)
 		{
 			return bytes != null && bytes.Length > 8; // can skip the first 8 bytes as they are ALWAYS 0x00
@@ -33,7 +36,27 @@ namespace SharpKeys
 			string replacementKeyCode = string.Format("{0,2:X}_{1,2:X}", bytes[(currentPosition * 4) + 12 + 1], bytes[(currentPosition * 4) + 12 + 0]);
 			return replacementKeyCode.Replace(" ", "0");
 		}
+		
+		private string GetRegSubstring(string fullKeyCodeText)
+		{
+			return fullKeyCodeText.Substring(fullKeyCodeText.LastIndexOf(KEY_CODE_CONTAINER_BEGINNING_CHARACTER) + 1, 2); //Example: E0
+		}
 
+		private string GetBinarySubstring(string fullKeyCodeText)
+		{
+			int binaryStartIndex = fullKeyCodeText.LastIndexOf(REG_BINARY_SEPARATOR) + 1;
+			int binaryLength = fullKeyCodeText.LastIndexOf(KEY_CODE_CONTAINER_ENDING_CHARACTER) - fullKeyCodeText.LastIndexOf(REG_BINARY_SEPARATOR) - 1;
+
+			string binarySubstring = fullKeyCodeText.Substring(binaryStartIndex, binaryLength); //Example: 0020
+
+			if (binarySubstring.Length > 2)
+			{
+				binarySubstring = binarySubstring.Substring(2);
+			}
+
+			return binarySubstring;
+		}
+		
 		public void LoadUserStoredMappings(ref ListView userStoredMappingsList)
 		{
 			byte[] userMappingInBytes = userStoredMappings.GetUserStoredMappings();
@@ -83,33 +106,19 @@ namespace SharpKeys
 			// add up the list
 			for (int i = 0; i < totalUserMappings; i++)
 			{
-				String fullKeyCode = userRemappedKeys.Items[i].SubItems[1].Text; //Example: (E0_0020)
-				int BinaryStartIndex = fullKeyCode.LastIndexOf("_") + 1;
-				int BinaryLength = fullKeyCode.LastIndexOf(")") - fullKeyCode.LastIndexOf("_") - 1;
-				String Binary = fullKeyCode.Substring(BinaryStartIndex, BinaryLength); //Example: 0020
-				String Reg = fullKeyCode.Substring(fullKeyCode.LastIndexOf("(") + 1, 2); //Example: E0
-				if (Binary.Length > 2)
-				{
-					Binary = Binary.Substring(2);
-				}
+				string fullKeyCode = userRemappedKeys.Items[i].SubItems[1].Text; //Example: (E0_0020)
+				string reg = this.GetRegSubstring(fullKeyCode); //Example: E0
+				string binary = this.GetBinarySubstring(fullKeyCode); //Example: 0020
 
-				userRemappedKeysInBytes[(i * 4) + 12 + 0] = Convert.ToByte(Binary, 16);
-				userRemappedKeysInBytes[(i * 4) + 12 + 1] = Convert.ToByte(Reg, 16);
-
-				//////////////////////
-
+				userRemappedKeysInBytes[(i * 4) + 12 + 0] = Convert.ToByte(binary, 16);
+				userRemappedKeysInBytes[(i * 4) + 12 + 1] = Convert.ToByte(reg, 16);
+				
 				fullKeyCode = userRemappedKeys.Items[i].Text; //Example: (E0_0020)
-				BinaryStartIndex = fullKeyCode.LastIndexOf("_") + 1;
-				BinaryLength = fullKeyCode.LastIndexOf(")") - fullKeyCode.LastIndexOf("_") - 1;
-				Binary = fullKeyCode.Substring(BinaryStartIndex, BinaryLength); //Example: 0020
-				Reg = fullKeyCode.Substring(fullKeyCode.LastIndexOf("(") + 1, 2); //Example: E0
-				if (Binary.Length > 2)
-				{
-					Binary = Binary.Substring(2);
-				}
+				reg = this.GetRegSubstring(fullKeyCode); //Example: E0
+				binary = this.GetBinarySubstring(fullKeyCode); //Example: 0020
 
-				userRemappedKeysInBytes[(i * 4) + 12 + 2] = Convert.ToByte(Binary, 16);
-				userRemappedKeysInBytes[(i * 4) + 12 + 3] = Convert.ToByte(Reg, 16);
+				userRemappedKeysInBytes[(i * 4) + 12 + 2] = Convert.ToByte(binary, 16);
+				userRemappedKeysInBytes[(i * 4) + 12 + 3] = Convert.ToByte(reg, 16);
 			}
 			// last 4 are 0's
 

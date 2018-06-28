@@ -24,19 +24,20 @@ namespace SharpKeys
 		{
 			RegistryKey registryKey = this.GetRegistryKeyReadOnlyAccess();
 
-			if (registryKey != null)
+			if (registryKey == null)
 			{
-				int x = (int)registryKey.GetValue("MainX", 10);
-				int y = (int)registryKey.GetValue("MainY", 10);
-				int width = (int)registryKey.GetValue("MainCX", 750);
-				int height = (int)registryKey.GetValue("MainCY", 550);
-
-				registryKey.Close();
-
-				return new Rectangle(x, y, width, height);
+				return defaultWindowPosition;
 			}
+				
 
-			return defaultWindowPosition;
+			int x = (int)registryKey.GetValue("MainX", 10);
+			int y = (int)registryKey.GetValue("MainY", 10);
+			int width = (int)registryKey.GetValue("MainCX", 750);
+			int height = (int)registryKey.GetValue("MainCY", 550);
+
+			registryKey.Close();
+
+			return new Rectangle(x, y, width, height);
 		}
 
 		public void SaveWindowPosition(Rectangle currentWindowPosition)
@@ -55,16 +56,16 @@ namespace SharpKeys
 		{
 			RegistryKey registryKey = this.GetRegistryKeyReadOnlyAccess();
 
-			if (registryKey != null)
+			if (registryKey == null)
 			{
-				FormWindowState windowState = (FormWindowState)registryKey.GetValue("MainWinState", FormWindowState.Normal);
-
-				registryKey.Close();
-
-				return windowState;
+				return FormWindowState.Normal;
 			}
-			
-			return FormWindowState.Normal;
+
+			FormWindowState windowState = (FormWindowState)registryKey.GetValue("MainWinState", FormWindowState.Normal);
+
+			registryKey.Close();
+
+			return windowState;
 		}
 
 		public void SaveWindowState(FormWindowState currentWindowState)
@@ -89,16 +90,16 @@ namespace SharpKeys
 		{
 			RegistryKey registryKey = this.GetRegistryKeyReadOnlyAccess();
 
-			if (registryKey != null)
+			if (registryKey == null)
 			{
-				int showWarning = (int)registryKey.GetValue("ShowWarning", 0);
-				
-				registryKey.Close();
-
-				return showWarning == 0? true : false;
+				return true;
 			}
 
-			return true;
+			int showWarning = (int)registryKey.GetValue("ShowWarning", 0);
+
+			registryKey.Close();
+
+			return showWarning == 0 ? true : false;
 		}
 	}
 }

@@ -218,18 +218,18 @@ namespace SharpKeys
 				keyCode = string.Format("00_{0,2:X}", nCode);
 			}
 			keyCode = keyCode.Replace(" ", "0");
-
+			
 			// Look up the scan code in the hashtable
 			KeyboardMappingService keyboardMappingService = new KeyboardMappingService();
 			Hashtable keyboardScanCodeMap = keyboardMappingService.GetFullMapping();
 
 			if (keyboardScanCodeMap != null)
 			{
-				keyPressedInformation.Text = string.Format($"{keyboardScanCodeMap[keyCode]}\n({keyCode})");
+				keyPressedInformation.Text = $"{keyboardScanCodeMap[keyCode]}\n({keyCode})";
 			}
 			else
 			{
-				keyPressedInformation.Text = "Scan code: " + keyCode;
+				keyPressedInformation.Text = $"Scan code: {keyCode}";
 			}
 
 			// UI to collect only valid scancodes

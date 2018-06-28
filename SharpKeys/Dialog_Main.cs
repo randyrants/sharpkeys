@@ -381,9 +381,8 @@ namespace SharpKeys
 			Application.Run(new Dialog_Main());
 		}
 
-		private void LoadRegistrySettings()
+		private void LoadSoftwareSettings()
 		{
-			// First load the window positions from registry
 			SoftwareProperties softwareProperties = new SoftwareProperties();
 
 			currentWindowPosition = softwareProperties.LoadWindowPosition();
@@ -394,14 +393,15 @@ namespace SharpKeys
 			{
 				MessageBox.Show("Welcome to SharpKeys!\n\nThis application will add one key to your registry that allows you\nto change how certain keys on your keyboard will work.\n\nYou must be running Windows 2000 through Windows 10 for this to be supported and\nyou'll be using SharpKeys at your own risk!\n\nEnjoy!\nRandyRants.com", "SharpKeys");
 			}
+		}
 
-			// now load the scan code map
+		private void LoadUserRemapedSettings()
+		{
 			KeyboardMappingService keyboardMappingService = new KeyboardMappingService();
-
 			keyboardMappingService.LoadUserStoredMappings(ref remappedKeysListView);
 		}
 
-		private void SaveRegistrySettings()
+		private void SaveSoftwareSettings()
 		{
 			// Only save the window position info on close; user is prompted to save mappings elsewhere
 			SoftwareProperties softwareProperties = new SoftwareProperties();
@@ -509,8 +509,11 @@ namespace SharpKeys
 		{
 			Cursor = Cursors.WaitCursor;
 
-			// Load the registy settings
-			LoadRegistrySettings();
+			// First load the window positions from registry
+			this.LoadSoftwareSettings();
+
+			// Load the user scan code map
+			this.LoadUserRemapedSettings();
 
 			// UI tweaking
 			if (remappedKeysListView.Items.Count > 0)
@@ -522,8 +525,7 @@ namespace SharpKeys
 
 		private void Dialog_Main_Closing(object sender, CancelEventArgs e)
 		{
-			// if anything has been added, edit'd or delete'd, ask if a save to the registry should be performed
-			if (shouldAskToSaveMappingChangesToRegistry)
+			if (shouldAskToSaveMappingChangesToRegistry == true)
 			{
 				DialogResult dlgRes = MessageBox.Show("You have made changes to the list of key mappings.\n\nDo you want to update the registry now?", "SharpKeys", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button3);
 				if (dlgRes == DialogResult.Cancel)
@@ -533,11 +535,10 @@ namespace SharpKeys
 				}
 				else if (dlgRes == DialogResult.Yes)
 				{
-					// update the registry
 					SaveMappingsToRegistry();
 				}
 			}
-			SaveRegistrySettings();
+			SaveSoftwareSettings();
 		}
 
 		protected override void OnMove(EventArgs e)
