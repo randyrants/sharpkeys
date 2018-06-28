@@ -12,9 +12,10 @@ namespace SharpKeys
 	public class Dialog_Main : System.Windows.Forms.Form
 	{
 		private Rectangle currentWindowPosition;
-		
+
 		// Dirty flag (to see track if mappings have been saved)
-		private bool m_bDirty = false;
+		// if anything has been added, edit'd or delete'd, ask if a save to the registry should be performed
+		private bool shouldAskToSaveMappingChangesToRegistry = false;
 
 		private System.Windows.Forms.ListView remappedKeysListView;
 		private System.Windows.Forms.Button saveChangesButton;
@@ -184,7 +185,7 @@ namespace SharpKeys
 			this.saveChangesButton.Name = "saveChangesButton";
 			this.saveChangesButton.Size = new System.Drawing.Size(106, 23);
 			this.saveChangesButton.TabIndex = 5;
-			this.saveChangesButton.Text = "&Write to Registry";
+			this.saveChangesButton.Text = "&Save Changes";
 			this.saveChangesButton.Click += new System.EventHandler(this.btnSave_Click);
 			// 
 			// closeButton
@@ -418,7 +419,7 @@ namespace SharpKeys
 
 			keyboardMappingService.SaveUserMappings(remappedKeysListView);
 
-			m_bDirty = false;
+			shouldAskToSaveMappingChangesToRegistry = false;
 			Cursor = Cursors.Default;
 
 			MessageBox.Show("Key Mappings have been successfully stored to the registry.\n\nPlease logout or reboot for these changes to take effect!", "SharpKeys");
@@ -439,7 +440,7 @@ namespace SharpKeys
 			
 			if (dlg.ShowDialog() == DialogResult.OK)
 			{
-				m_bDirty = true;
+				shouldAskToSaveMappingChangesToRegistry = true;
 
 				// Add the list, as it's past inspection.
 				ListViewItem lvI = remappedKeysListView.Items.Add(dlg.mapFromKeyListView.Text);
@@ -464,7 +465,7 @@ namespace SharpKeys
 
 			if (dlg.ShowDialog() == DialogResult.OK)
 			{
-				m_bDirty = true;
+				shouldAskToSaveMappingChangesToRegistry = true;
 
 				// update the select mapping item in the list view
 				remappedKeysListView.SelectedItems[0].Text = dlg.mapFromKeyListView.Text;
@@ -484,7 +485,7 @@ namespace SharpKeys
 
 			remappedKeysListView.Items.Remove(remappedKeysListView.SelectedItems[0]);
 
-			m_bDirty = true;
+			shouldAskToSaveMappingChangesToRegistry = true;
 		}
 
 		private void DeleteAllMapping()
@@ -497,7 +498,7 @@ namespace SharpKeys
 			}
 
 			// ...and then clean out the list
-			m_bDirty = true;
+			shouldAskToSaveMappingChangesToRegistry = true;
 			editButton.Enabled = true;
 			deleteButton.Enabled = false;
 			remappedKeysListView.Items.Clear();
@@ -522,7 +523,7 @@ namespace SharpKeys
 		private void Dialog_Main_Closing(object sender, CancelEventArgs e)
 		{
 			// if anything has been added, edit'd or delete'd, ask if a save to the registry should be performed
-			if (m_bDirty)
+			if (shouldAskToSaveMappingChangesToRegistry)
 			{
 				DialogResult dlgRes = MessageBox.Show("You have made changes to the list of key mappings.\n\nDo you want to update the registry now?", "SharpKeys", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button3);
 				if (dlgRes == DialogResult.Cancel)
@@ -565,7 +566,6 @@ namespace SharpKeys
 			}
 		}
 
-
 		// Other Events
 		private void lvKeys_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
@@ -601,6 +601,7 @@ namespace SharpKeys
 		{
 			this.Close();
 		}
+
 		private void btnAdd_Click(object sender, System.EventArgs e)
 		{
 			AddMapping();
