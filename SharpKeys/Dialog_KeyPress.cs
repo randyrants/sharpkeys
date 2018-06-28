@@ -220,8 +220,8 @@ namespace SharpKeys
 			keyCode = keyCode.Replace(" ", "0");
 
 			// Look up the scan code in the hashtable
-			KeyboardMapping keyboardMapping = new KeyboardMapping();
-			Hashtable keyboardScanCodeMap = keyboardMapping.GetFullMapping();
+			KeyboardMappingService keyboardMappingService = new KeyboardMappingService();
+			Hashtable keyboardScanCodeMap = keyboardMappingService.GetFullMapping();
 
 			if (keyboardScanCodeMap != null)
 			{

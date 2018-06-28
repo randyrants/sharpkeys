@@ -1,7 +1,6 @@
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections;
 using System.Windows.Forms;
 
 namespace SharpKeys
@@ -50,6 +49,41 @@ namespace SharpKeys
 				}
 			}
 			base.Dispose(disposing);
+		}
+
+		public void AddMapping(ListView remappedKeysList)
+		{
+			MappingListHelper mappingListHelper = new MappingListHelper();
+			mappingListHelper.GetAddMappingList(remappedKeysList, ref mapFromKeyListView, ref mapToKeyListView);
+
+			// UI stuff
+			this.Text = "SharpKeys: Add New Key Mapping";
+			mapFromKeyListView.SelectedIndex = 0;
+			mapToKeyListView.SelectedIndex = 0;
+		}
+
+		private void SetDropdownSelectedIndex(ref ListBox mapKeyListView, string SelectedItemtext)
+		{
+			int nPos = 0;
+			nPos = mapKeyListView.FindString(SelectedItemtext);
+			if (nPos > -1)
+				mapKeyListView.SelectedIndex = nPos;
+			else
+				mapKeyListView.SelectedIndex = 0;
+		}
+
+		public void EditMapping(ListView remappedKeysList)
+		{
+			MappingListHelper mappingListHelper = new MappingListHelper();
+			mappingListHelper.GetEditMappingList(remappedKeysList, ref mapFromKeyListView, ref mapToKeyListView);
+
+			// as it's an edit, set the drop down lists to the current From value
+			this.SetDropdownSelectedIndex(ref mapFromKeyListView, remappedKeysList.SelectedItems[0].Text);
+
+			// as it's an edit, set the drop down lists to the current To value
+			this.SetDropdownSelectedIndex(ref mapToKeyListView, remappedKeysList.SelectedItems[0].SubItems[1].Text);
+
+			this.Text = "SharpKeys: Edit Key Mapping";
 		}
 
 		#region Windows Form Designer generated code

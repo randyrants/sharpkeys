@@ -1,25 +1,15 @@
 ﻿using System;
-using Microsoft.Win32;
 using System.Collections;
 using System.Windows.Forms;
 
 namespace SharpKeys
 {
-	public class KeyboardMapping
+	public class KeyboardMappingService
 	{
-		private const string KEYBOARD_MAPPING_REGISTRY_KEY_LOCATION = "System\\CurrentControlSet\\Control\\Keyboard Layout";
 		private const int MAPPINGS_COUNT_POSITION = 8; // the 9th byte is ALWAYS the total number of mappings (including the trailing null pointer)
-
-		private RegistryKey GetRegistryKeyReadOnlyAccess()
-		{
-			return Registry.LocalMachine.OpenSubKey(KEYBOARD_MAPPING_REGISTRY_KEY_LOCATION);
-		}
-
-		private RegistryKey GetRegistryKeyWriteAccess()
-		{
-			return Registry.LocalMachine.CreateSubKey(KEYBOARD_MAPPING_REGISTRY_KEY_LOCATION);
-		}
-
+		
+		UserStoredMappings userStoredMappings = new UserStoredMappings();
+		
 		private bool UserHasStoredMappings(byte[] bytes)
 		{
 			return bytes != null && bytes.Length > 8; // can skip the first 8 bytes as they are ALWAYS 0x00
@@ -43,7 +33,89 @@ namespace SharpKeys
 			string replacementKeyCode = string.Format("{0,2:X}_{1,2:X}", bytes[(currentPosition * 4) + 12 + 1], bytes[(currentPosition * 4) + 12 + 0]);
 			return replacementKeyCode.Replace(" ", "0");
 		}
-		
+
+		public void LoadUserStoredMappings(ref ListView userStoredMappingsList)
+		{
+			byte[] userMappingInBytes = userStoredMappings.GetUserStoredMappings();
+			
+			if (this.UserHasStoredMappings(userMappingInBytes) == true)
+			{
+				Hashtable keyboardScanCodeMap = this.GetFullMapping();
+
+				int totalUserMappings = new KeyboardMappingService().GetTotalUserMappings(userMappingInBytes);
+				for (int i = 0; i < totalUserMappings - 1; i++)
+				{
+					string originalKeyCode = new KeyboardMappingService().GetOriginalKeyCode(userMappingInBytes, i);
+					string originalKeyListItem = $"{(string)keyboardScanCodeMap[originalKeyCode]} ({originalKeyCode})";
+
+					string replacementKeyCode = new KeyboardMappingService().GetReplacementKeyCode(userMappingInBytes, i);
+					string replacementKeyListItem = $"{(string)keyboardScanCodeMap[replacementKeyCode]} ({replacementKeyCode})";
+
+					ListViewItem userStoredMappingsItems = userStoredMappingsList.Items.Add(originalKeyListItem);
+					userStoredMappingsItems.SubItems.Add(replacementKeyListItem);
+				}
+			}
+		}
+
+		public void SaveUserMappings(ListView userRemappedKeys)
+		{
+			int totalUserMappings = userRemappedKeys.Items.Count;
+			if (totalUserMappings <= 0)
+			{
+				userStoredMappings.DeleteUserMappings();
+				return;
+			}
+
+			// create a new byte array that is:
+			//   8 bytes that are always 00 00 00 00 00 00 00 00 (as is required)
+			// + 4 bytes that are used for the count nn 00 00 00 (as is required)
+			// + 4 bytes per mapping
+			// + 4 bytes for the last mapping (required)
+			byte[] userRemappedKeysInBytes = new byte[8 + 4 + (4 * totalUserMappings) + 4];
+
+			// skip first 8 (0-7)
+
+			// set 8 to the count, plus the trailing null
+			userRemappedKeysInBytes[MAPPINGS_COUNT_POSITION] = Convert.ToByte(totalUserMappings + 1);
+
+			// skip 9, 10, 11
+
+			// add up the list
+			for (int i = 0; i < totalUserMappings; i++)
+			{
+				String fullKeyCode = userRemappedKeys.Items[i].SubItems[1].Text; //Example: (E0_0020)
+				int BinaryStartIndex = fullKeyCode.LastIndexOf("_") + 1;
+				int BinaryLength = fullKeyCode.LastIndexOf(")") - fullKeyCode.LastIndexOf("_") - 1;
+				String Binary = fullKeyCode.Substring(BinaryStartIndex, BinaryLength); //Example: 0020
+				String Reg = fullKeyCode.Substring(fullKeyCode.LastIndexOf("(") + 1, 2); //Example: E0
+				if (Binary.Length > 2)
+				{
+					Binary = Binary.Substring(2);
+				}
+
+				userRemappedKeysInBytes[(i * 4) + 12 + 0] = Convert.ToByte(Binary, 16);
+				userRemappedKeysInBytes[(i * 4) + 12 + 1] = Convert.ToByte(Reg, 16);
+
+				//////////////////////
+
+				fullKeyCode = userRemappedKeys.Items[i].Text; //Example: (E0_0020)
+				BinaryStartIndex = fullKeyCode.LastIndexOf("_") + 1;
+				BinaryLength = fullKeyCode.LastIndexOf(")") - fullKeyCode.LastIndexOf("_") - 1;
+				Binary = fullKeyCode.Substring(BinaryStartIndex, BinaryLength); //Example: 0020
+				Reg = fullKeyCode.Substring(fullKeyCode.LastIndexOf("(") + 1, 2); //Example: E0
+				if (Binary.Length > 2)
+				{
+					Binary = Binary.Substring(2);
+				}
+
+				userRemappedKeysInBytes[(i * 4) + 12 + 2] = Convert.ToByte(Binary, 16);
+				userRemappedKeysInBytes[(i * 4) + 12 + 3] = Convert.ToByte(Reg, 16);
+			}
+			// last 4 are 0's
+
+			userStoredMappings.SetUserMappings(userRemappedKeysInBytes);
+		}
+
 		public Hashtable GetFullMapping()
 		{
 
@@ -54,6 +126,7 @@ namespace SharpKeys
 			// 
 			// There is a bit of a reverse lookup however, so labels changed here
 			// need to be changed in a couple of other places
+			// Example: "00_00", "-- Turn Key Off"
 
 			Hashtable hashtable = new Hashtable();
 
@@ -166,15 +239,15 @@ namespace SharpKeys
 			hashtable.Add("00_64", "Function: F13");
 			hashtable.Add("00_65", "Function: F14");
 			hashtable.Add("00_66", "Function: F15");
-			hashtable.Add("00_67", "Function: F16"); // Mac keyboard
-			hashtable.Add("00_68", "Function: F17"); // Mac keyboard
-			hashtable.Add("00_69", "Function: F18"); // Mac keyboard
-			hashtable.Add("00_6A", "Function: F19"); // Mac keyboard
-			hashtable.Add("00_6B", "Function: F20"); // IBM Model F 122-keys
-			hashtable.Add("00_6C", "Function: F21"); // IBM Model F 122-keys
-			hashtable.Add("00_6D", "Function: F22"); // IBM Model F 122-keys
-			hashtable.Add("00_6E", "Function: F23"); // IBM Model F 122-keys
-			hashtable.Add("00_6F", "Function: F24"); // IBM Model F 122-keys
+			hashtable.Add("00_67", "Function: F16");	// Mac keyboard
+			hashtable.Add("00_68", "Function: F17");	// Mac keyboard
+			hashtable.Add("00_69", "Function: F18");	// Mac keyboard
+			hashtable.Add("00_6A", "Function: F19");	// Mac keyboard
+			hashtable.Add("00_6B", "Function: F20");	// IBM Model F 122-keys
+			hashtable.Add("00_6C", "Function: F21");	// IBM Model F 122-keys
+			hashtable.Add("00_6D", "Function: F22");	// IBM Model F 122-keys
+			hashtable.Add("00_6E", "Function: F23");	// IBM Model F 122-keys
+			hashtable.Add("00_6F", "Function: F24");	// IBM Model F 122-keys
 
 			hashtable.Add("00_70", "Unknown: 0x0070");
 			hashtable.Add("00_71", "Unknown: 0x0071");
@@ -199,8 +272,8 @@ namespace SharpKeys
 			hashtable.Add("E0_04", "Unknown: 0xE004");
 			hashtable.Add("E0_05", "Unknown: 0xE005");
 			hashtable.Add("E0_06", "Unknown: 0xE006");
-			hashtable.Add("E0_07", "F-Lock: Redo");        //   F3 - Redo
-			hashtable.Add("E0_08", "F-Lock: Undo"); //   F2 - Undo
+			hashtable.Add("E0_07", "F-Lock: Redo");		//   F3 - Redo
+			hashtable.Add("E0_08", "F-Lock: Undo");		//   F2 - Undo
 			hashtable.Add("E0_09", "Unknown: 0xE009");
 			hashtable.Add("E0_0A", "Unknown: 0xE00A");
 			hashtable.Add("E0_0B", "Unknown: 0xE00B");
@@ -229,14 +302,14 @@ namespace SharpKeys
 			hashtable.Add("E0_20", "Media: Mute");
 			hashtable.Add("E0_21", "App: Calculator");
 			hashtable.Add("E0_22", "Media: Play/Pause");
-			hashtable.Add("E0_23", "F-Lock: Spell");       //   F10
+			hashtable.Add("E0_23", "F-Lock: Spell");	//   F10
 			hashtable.Add("E0_24", "Media: Stop");
 			hashtable.Add("E0_25", "Unknown: 0xE025");
 			hashtable.Add("E0_26", "Unknown: 0xE026");
 			hashtable.Add("E0_27", "Unknown: 0xE027");
 			hashtable.Add("E0_28", "Unknown: 0xE028");
 			hashtable.Add("E0_29", "Unknown: 0xE029");
-			// hashtable.Add("E0_2A", "Special: PrtSc");   // removed due to conflict
+			// hashtable.Add("E0_2A", "Special: PrtSc");	// removed due to conflict
 			hashtable.Add("E0_2B", "Unknown: 0xE02B");
 			hashtable.Add("E0_2C", "Unknown: 0xE02C");
 			hashtable.Add("E0_2D", "Unknown: 0xE02D");
@@ -255,18 +328,18 @@ namespace SharpKeys
 			hashtable.Add("E0_2038", "Special: Alt Gr");
 			hashtable.Add("E0_39", "Unknown: 0xE039");
 			hashtable.Add("E0_3A", "Unknown: 0xE03A");
-			hashtable.Add("E0_3B", "F-Lock: Help");        //   F1
-			hashtable.Add("E0_3C", "F-Lock: Office Home"); //   F2 - Office Home
-			hashtable.Add("E0_3D", "F-Lock: Task Pane");   //   F3 - Task pane
-			hashtable.Add("E0_3E", "F-Lock: New");         //   F4
-			hashtable.Add("E0_3F", "F-Lock: Open");        //   F5
+			hashtable.Add("E0_3B", "F-Lock: Help");		//   F1
+			hashtable.Add("E0_3C", "F-Lock: Office Home");	//   F2 - Office Home
+			hashtable.Add("E0_3D", "F-Lock: Task Pane");	//   F3 - Task pane
+			hashtable.Add("E0_3E", "F-Lock: New");		//   F4
+			hashtable.Add("E0_3F", "F-Lock: Open");		//   F5
 
-			hashtable.Add("E0_40", "F-Lock: Close");       //   F6
-			hashtable.Add("E0_41", "F-Lock: Reply");       //   F7
-			hashtable.Add("E0_42", "F-Lock: Fwd");         //   F8
-			hashtable.Add("E0_43", "F-Lock: Send");        //   F9
+			hashtable.Add("E0_40", "F-Lock: Close");	//   F6
+			hashtable.Add("E0_41", "F-Lock: Reply");	//   F7
+			hashtable.Add("E0_42", "F-Lock: Fwd");		//   F8
+			hashtable.Add("E0_43", "F-Lock: Send");		//   F9
 			hashtable.Add("E0_44", "Unknown: 0xE044");
-			hashtable.Add("E0_45", "Special: €");        //   Euro
+			hashtable.Add("E0_45", "Special: €");		//   Euro
 			hashtable.Add("E0_46", "Unknown: 0xE046");
 			hashtable.Add("E0_47", "Special: Home");
 			hashtable.Add("E0_48", "Arrow: Up");
@@ -285,8 +358,8 @@ namespace SharpKeys
 			hashtable.Add("E0_54", "Unknown: 0xE054");
 			hashtable.Add("E0_55", "Unknown: 0xE055");
 			hashtable.Add("E0_56", "Special: < > |");
-			hashtable.Add("E0_57", "F-Lock: Save");        //   F11
-			hashtable.Add("E0_58", "F-Lock: Print");       //   F12
+			hashtable.Add("E0_57", "F-Lock: Save");		//   F11
+			hashtable.Add("E0_58", "F-Lock: Print");	//   F12
 			hashtable.Add("E0_59", "Unknown: 0xE059");
 			hashtable.Add("E0_5A", "Unknown: 0xE05A");
 			hashtable.Add("E0_5B", "Special: Left Windows");
@@ -312,112 +385,6 @@ namespace SharpKeys
 			hashtable.Add("E0_6F", "Unknown: 0xE06F");
 
 			return hashtable;
-		}
-
-		public void LoadUserStoredMappings(ref ListView userStoredMappings)
-		{
-			RegistryKey registryKey = this.GetRegistryKeyReadOnlyAccess();
-
-			if (registryKey != null)
-			{
-				byte[] bytes = (byte[])registryKey.GetValue("Scancode Map");
-				
-				if (this.UserHasStoredMappings(bytes) == true)
-				{
-					KeyboardMapping keyboardMapping = new KeyboardMapping();
-					Hashtable keyboardScanCodeMap = keyboardMapping.GetFullMapping();
-
-					int totalUserMappings = this.GetTotalUserMappings(bytes);
-					for (int i = 0; i < totalUserMappings - 1; i++)
-					{
-						string originalKeyCode = this.GetOriginalKeyCode(bytes, i);
-						string originalKeyListItem = string.Format("{0} ({1})", (string)keyboardScanCodeMap[originalKeyCode], originalKeyCode);
-						
-						string replacementKeyCode = this.GetReplacementKeyCode(bytes, i);
-						string replacementKeyListItem = string.Format("{0} ({1})", (string)keyboardScanCodeMap[replacementKeyCode], replacementKeyCode);
-
-						ListViewItem userStoredMappingsItems = userStoredMappings.Items.Add(originalKeyListItem);
-						userStoredMappingsItems.SubItems.Add(replacementKeyListItem);
-					}
-				}
-
-				registryKey.Close();
-
-				return;
-			}
-
-			return;
-		}
-
-		public void SaveUserMappings(ListView userRemappedKeys)
-		{
-			RegistryKey registryKey = this.GetRegistryKeyWriteAccess();
-
-			if (registryKey != null)
-			{
-				int totalUserMappings = userRemappedKeys.Items.Count;
-				if (totalUserMappings <= 0)
-				{
-					// the second param is required; this will throw an exception if the value isn't found,
-					// and it might not always be there (which is valid), so it's ok to ignore it
-					registryKey.DeleteValue("Scancode Map", false);
-				}
-				else
-				{
-					// create a new byte array that is:
-					//   8 bytes that are always 00 00 00 00 00 00 00 00 (as is required)
-					// + 4 bytes that are used for the count nn 00 00 00 (as is required)
-					// + 4 bytes per mapping
-					// + 4 bytes for the last mapping (required)
-					byte[] bytes = new byte[8 + 4 + (4 * totalUserMappings) + 4];
-
-					// skip first 8 (0-7)
-
-					// set 8 to the count, plus the trailing null
-					bytes[MAPPINGS_COUNT_POSITION] = Convert.ToByte(totalUserMappings + 1);
-
-					// skip 9, 10, 11
-
-					// add up the list
-					for (int i = 0; i < totalUserMappings; i++)
-					{
-						String str = userRemappedKeys.Items[i].SubItems[1].Text; //Example: (E0_0020)
-						int BinaryStartIndex = str.LastIndexOf("_") + 1;
-						int BinaryLength = str.LastIndexOf(")") - str.LastIndexOf("_") - 1;
-						String Binary = str.Substring(BinaryStartIndex, BinaryLength); //Example: 0020
-						String Reg = str.Substring(str.LastIndexOf("(") + 1, 2); //Example: E0
-						if (Binary.Length > 2)
-						{
-							Binary = Binary.Substring(2);
-						}
-
-						bytes[(i * 4) + 12 + 0] = Convert.ToByte(Binary, 16);
-						bytes[(i * 4) + 12 + 1] = Convert.ToByte(Reg, 16);
-
-						//////////////////////
-
-						str = userRemappedKeys.Items[i].Text; //Example: (E0_0020)
-						BinaryStartIndex = str.LastIndexOf("_") + 1;
-						BinaryLength = str.LastIndexOf(")") - str.LastIndexOf("_") - 1;
-						Binary = str.Substring(BinaryStartIndex, BinaryLength); //Example: 0020
-						Reg = str.Substring(str.LastIndexOf("(") + 1, 2); //Example: E0
-						if (Binary.Length > 2)
-						{
-							Binary = Binary.Substring(2);
-						}
-
-						bytes[(i * 4) + 12 + 2] = Convert.ToByte(Binary, 16);
-						bytes[(i * 4) + 12 + 3] = Convert.ToByte(Reg, 16);
-					}
-
-					// last 4 are 0's
-
-					// dump to the registry
-					registryKey.SetValue("Scancode Map", bytes);
-				}
-
-				registryKey.Close();
-			}
 		}
 	}
 }

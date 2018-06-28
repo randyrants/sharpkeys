@@ -1,10 +1,8 @@
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections;
 using System.Windows.Forms;
 using System.ComponentModel;
-using Microsoft.Win32;
 
 namespace SharpKeys
 {
@@ -397,9 +395,9 @@ namespace SharpKeys
 			}
 
 			// now load the scan code map
-			KeyboardMapping keyboardMapping = new KeyboardMapping();
+			KeyboardMappingService keyboardMappingService = new KeyboardMappingService();
 
-			keyboardMapping.LoadUserStoredMappings(ref remappedKeysListView);
+			keyboardMappingService.LoadUserStoredMappings(ref remappedKeysListView);
 		}
 
 		private void SaveRegistrySettings()
@@ -416,9 +414,9 @@ namespace SharpKeys
 		{
 			Cursor = Cursors.WaitCursor;
 
-			KeyboardMapping keyboardMapping = new KeyboardMapping();
+			KeyboardMappingService keyboardMappingService = new KeyboardMappingService();
 
-			keyboardMapping.SaveUserMappings(remappedKeysListView);
+			keyboardMappingService.SaveUserMappings(remappedKeysListView);
 
 			m_bDirty = false;
 			Cursor = Cursors.Default;
@@ -437,40 +435,8 @@ namespace SharpKeys
 
 			// adding a new mapping, so prep the add dialog with all of the scancodes
 			Dialog_KeyItem dlg = new Dialog_KeyItem();
+			dlg.AddMapping(remappedKeysListView);
 			
-			KeyboardMapping keyboardMapping = new KeyboardMapping();
-			Hashtable keyboardScanCodeMap = keyboardMapping.GetFullMapping();
-
-			IDictionaryEnumerator iDic = keyboardScanCodeMap.GetEnumerator();
-			while (iDic.MoveNext() == true)
-			{
-				string str = string.Format("{0} ({1})", iDic.Value, iDic.Key);
-				dlg.mapFromKeyListView.Items.Add(str);
-				dlg.mapToKeyListView.Items.Add(str);
-			}
-
-			// remove the null setting for "From" since you can never have a null key to map
-			int nPos = 0;
-			nPos = dlg.mapFromKeyListView.FindString("-- Turn Key Off (00_00)");
-			if (nPos > -1)
-				dlg.mapFromKeyListView.Items.RemoveAt(nPos);
-
-			// Now remove any of the keys that have already been mapped in the list (can't double up on from's)
-			for (int i = 0; i < remappedKeysListView.Items.Count; i++)
-			{
-				nPos = dlg.mapFromKeyListView.FindString(remappedKeysListView.Items[i].Text);
-				if (nPos > -1)
-					dlg.mapFromKeyListView.Items.RemoveAt(nPos);
-			}
-
-			// let C# sort the lists
-			dlg.mapFromKeyListView.Sorted = true;
-			dlg.mapToKeyListView.Sorted = true;
-
-			// UI stuff
-			dlg.Text = "SharpKeys: Add New Key Mapping";
-			dlg.mapFromKeyListView.SelectedIndex = 0;
-			dlg.mapToKeyListView.SelectedIndex = 0;
 			if (dlg.ShowDialog() == DialogResult.OK)
 			{
 				m_bDirty = true;
@@ -494,54 +460,8 @@ namespace SharpKeys
 
 			// built the drop down lists no matter what
 			Dialog_KeyItem dlg = new Dialog_KeyItem();
-			
-			KeyboardMapping keyboardMapping = new KeyboardMapping();
-			Hashtable keyboardScanCodeMap = keyboardMapping.GetFullMapping();
+			dlg.EditMapping(remappedKeysListView);
 
-			IDictionaryEnumerator iDic = keyboardScanCodeMap.GetEnumerator();
-			while (iDic.MoveNext() == true)
-			{
-				string str = string.Format("{0} ({1})", iDic.Value, iDic.Key);
-				dlg.mapFromKeyListView.Items.Add(str);
-				dlg.mapToKeyListView.Items.Add(str);
-			}
-
-			// remove the null setting for "From" since you can never have a null key to map
-			int nPos = 0;
-			nPos = dlg.mapFromKeyListView.FindString("-- Turn Key Off (00_00)");
-			if (nPos > -1)
-				dlg.mapFromKeyListView.Items.RemoveAt(nPos);
-
-			// remove any of the existing from key mappings however, leave in the one that has currently
-			// been selected!
-			for (int i = 0; i < remappedKeysListView.Items.Count; i++)
-			{
-				nPos = dlg.mapFromKeyListView.FindString(remappedKeysListView.Items[i].Text);
-				if ((nPos > -1) && (remappedKeysListView.Items[i].Text != remappedKeysListView.SelectedItems[0].Text))
-				{
-					dlg.mapFromKeyListView.Items.RemoveAt(nPos);
-				}
-			}
-
-			// Let C# sort the lists
-			dlg.mapFromKeyListView.Sorted = true;
-			dlg.mapToKeyListView.Sorted = true;
-
-			// as it's an edit, set the drop down lists to the current From value
-			nPos = dlg.mapFromKeyListView.FindString(remappedKeysListView.SelectedItems[0].Text);
-			if (nPos > -1)
-				dlg.mapFromKeyListView.SelectedIndex = nPos;
-			else
-				dlg.mapFromKeyListView.SelectedIndex = 0;
-
-			// as it's an edit, set the drop down lists to the current To value
-			nPos = dlg.mapToKeyListView.FindString(remappedKeysListView.SelectedItems[0].SubItems[1].Text);
-			if (nPos > -1)
-				dlg.mapToKeyListView.SelectedIndex = nPos;
-			else
-				dlg.mapToKeyListView.SelectedIndex = 0;
-
-			dlg.Text = "SharpKeys: Edit Key Mapping";
 			if (dlg.ShowDialog() == DialogResult.OK)
 			{
 				m_bDirty = true;

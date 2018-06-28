@@ -131,7 +131,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="KeyboardMapping.cs" />
+    <Compile Include="KeyboardMappingService.cs" />
+    <Compile Include="UserStoredMappings.cs" />
+    <Compile Include="MappingListHelper.cs" />
     <Compile Include="SoftwareProperties.cs" />
     <Content Include="App.ico" />
     <Compile Include="AssemblyInfo.cs">
