@@ -79,9 +79,9 @@ namespace SharpKeys
 			// 
 			// mainPanel
 			// 
-			this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+	    | System.Windows.Forms.AnchorStyles.Left)
+	    | System.Windows.Forms.AnchorStyles.Right)));
 			this.mainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.mainPanel.Controls.Add(this.youPressedLabel);
 			this.mainPanel.Controls.Add(this.lineDivisor);
@@ -218,7 +218,7 @@ namespace SharpKeys
 				keyCode = string.Format("00_{0,2:X}", nCode);
 			}
 			keyCode = keyCode.Replace(" ", "0");
-			
+
 			// Look up the scan code in the hashtable
 			KeyboardMappingService keyboardMappingService = new KeyboardMappingService();
 			Hashtable keyboardScanCodeMap = keyboardMappingService.GetFullMapping();
@@ -231,7 +231,7 @@ namespace SharpKeys
 			{
 				keyPressedInformation.Text = $"Scan code: {keyCode}";
 			}
-			
+
 			// Since removing DEL key is a big step, get a confirmation
 			if (keyboardMappingService.ShowDelKeyWarning(keyCode) == true)
 			{

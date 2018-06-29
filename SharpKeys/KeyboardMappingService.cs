@@ -80,14 +80,30 @@ namespace SharpKeys
 			}
 		}
 
-		public void SaveUserMappings(ListView userRemappedKeys)
+		public void LoadUserStoredMappingsFromFile(ref ListView userStoredMappingsList, byte[] userMappingInBytes)
+		{
+			if (this.UserHasStoredMappings(userMappingInBytes) == true)
+			{
+				Hashtable keyboardScanCodeMap = this.GetFullMapping();
+
+				int totalUserMappings = new KeyboardMappingService().GetTotalUserMappings(userMappingInBytes);
+				for (int i = 0; i < totalUserMappings - 1; i++)
+				{
+					string originalKeyCode = new KeyboardMappingService().GetOriginalKeyCode(userMappingInBytes, i);
+					string originalKeyListItem = $"{(string)keyboardScanCodeMap[originalKeyCode]} ({originalKeyCode})";
+
+					string replacementKeyCode = new KeyboardMappingService().GetReplacementKeyCode(userMappingInBytes, i);
+					string replacementKeyListItem = $"{(string)keyboardScanCodeMap[replacementKeyCode]} ({replacementKeyCode})";
+
+					ListViewItem userStoredMappingsItems = userStoredMappingsList.Items.Add(originalKeyListItem);
+					userStoredMappingsItems.SubItems.Add(replacementKeyListItem);
+				}
+			}
+		}
+
+		public byte[] DefineScanCodeMap(ListView userRemappedKeys)
 		{
 			int totalUserMappings = userRemappedKeys.Items.Count;
-			if (totalUserMappings <= 0)
-			{
-				userStoredMappings.DeleteUserMappings();
-				return;
-			}
 
 			// create a new byte array that is:
 			//   8 bytes that are always 00 00 00 00 00 00 00 00 (as is required)
@@ -112,7 +128,7 @@ namespace SharpKeys
 
 				userRemappedKeysInBytes[(i * 4) + 12 + 0] = Convert.ToByte(binary, 16);
 				userRemappedKeysInBytes[(i * 4) + 12 + 1] = Convert.ToByte(reg, 16);
-				
+
 				fullKeyCode = userRemappedKeys.Items[i].Text; //Example: (E0_0020)
 				reg = this.GetRegSubstring(fullKeyCode); //Example: E0
 				binary = this.GetBinarySubstring(fullKeyCode); //Example: 0020
@@ -121,6 +137,20 @@ namespace SharpKeys
 				userRemappedKeysInBytes[(i * 4) + 12 + 3] = Convert.ToByte(reg, 16);
 			}
 			// last 4 are 0's
+
+			return userRemappedKeysInBytes;
+		}
+
+		public void SaveUserMappings(ListView userRemappedKeys)
+		{
+			int totalUserMappings = userRemappedKeys.Items.Count;
+			if (totalUserMappings <= 0)
+			{
+				userStoredMappings.DeleteUserMappings();
+				return;
+			}
+
+			byte[] userRemappedKeysInBytes = this.DefineScanCodeMap(userRemappedKeys);
 
 			userStoredMappings.SetUserMappings(userRemappedKeysInBytes);
 		}

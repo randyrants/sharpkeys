@@ -180,9 +180,9 @@ namespace SharpKeys
 			// 
 			// mainPanel
 			// 
-			this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+	    | System.Windows.Forms.AnchorStyles.Left)
+	    | System.Windows.Forms.AnchorStyles.Right)));
 			this.mainPanel.BackColor = System.Drawing.Color.Transparent;
 			this.mainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.mainPanel.Controls.Add(this.mapFromKeyGroupBox);
