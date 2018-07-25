@@ -43,6 +43,12 @@ A: Sorry, but no. The remapping technology that Windows uses to remap your keys 
 Q: Why can't I remap my Fn key on my [notebook or Apple] keyboard?  
 A: Some keys simply just never get to Windows. In the case of most Fn keys, they are interpretted by the hardware and never get passed onto the OS, no matter how they appear to work... if Windows doesn't see the key, there's no way for the key to be remapped by Windows.
 
+Q: Type a Key shows 00_100 - can I remap this key?  
+A: 00_100 is a catch all code that Windows reports when a key is captured by hardware or some other driver so there's no way to successfully remap that key, especially since multiple keys can return the same 00_100 code.
+
+Q: Type a Key shows Unknown Key - can I remap this key?  
+A: Odds are this is just a key that has never been seen by SharpKeys before so it doesn't know what to do with it.  Open an issue on this site for the this project and someone from the Open Source community can look into adding it.
+
 ## Hope for GitHub contributions:
 * A more complete list to support more international keyboards
 * An import/export functionality that allows people to swap keymappings easier
