@@ -1089,6 +1089,9 @@ namespace SharpKeys
             m_hashKeys.Add("E0_6D", "App: Media Select");
             m_hashKeys.Add("E0_6E", "Unknown: 0xE06E");
             m_hashKeys.Add("E0_6F", "Unknown: 0xE06F");
+            
+            m_hashKeys.Add("E0_F1", "Special: Hanja Key");
+            m_hashKeys.Add("E0_F2", "Special: Hangul Key");
         }
 
 
