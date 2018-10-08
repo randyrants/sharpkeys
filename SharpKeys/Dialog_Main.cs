@@ -1092,6 +1092,8 @@ namespace SharpKeys
             
             m_hashKeys.Add("E0_F1", "Special: Hanja Key");
             m_hashKeys.Add("E0_F2", "Special: Hangul Key");
+            m_hashKeys.Add("E0_1F6D", "HP: Display Key");
+            m_hashKeys.Add("E0_1F65", "HP: HangUp Key");
         }
 
 
