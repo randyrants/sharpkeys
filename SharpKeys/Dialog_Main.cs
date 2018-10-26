@@ -1074,6 +1074,7 @@ namespace SharpKeys
             m_hashKeys.Add("E0_5E", "Special: Power");
             m_hashKeys.Add("E0_5F", "Special: Sleep");
 
+            m_hashKeys.Add("E0_60", "Unknown: 0xE060");
             m_hashKeys.Add("E0_61", "Unknown: 0xE061");
             m_hashKeys.Add("E0_62", "Unknown: 0xE062");
             m_hashKeys.Add("E0_63", "Special: Wake (or Fn)");
@@ -1089,6 +1090,23 @@ namespace SharpKeys
             m_hashKeys.Add("E0_6D", "App: Media Select");
             m_hashKeys.Add("E0_6E", "Unknown: 0xE06E");
             m_hashKeys.Add("E0_6F", "Unknown: 0xE06F");
+            
+            m_hashKeys.Add("E0_70", "Unknown: 0xE070");
+            m_hashKeys.Add("E0_71", "Unknown: 0xE071");
+            m_hashKeys.Add("E0_72", "Unknown: 0xE072");
+            m_hashKeys.Add("E0_73", "Unknown: 0xE073");
+            m_hashKeys.Add("E0_74", "Unknown: 0xE074");
+            m_hashKeys.Add("E0_75", "Unknown: 0xE075");
+            m_hashKeys.Add("E0_76", "Unknown: 0xE076");
+            m_hashKeys.Add("E0_77", "Unknown: 0xE077");
+            m_hashKeys.Add("E0_78", "Unknown: 0xE078");
+            m_hashKeys.Add("E0_79", "Unknown: 0xE079");
+            m_hashKeys.Add("E0_7A", "Unknown: 0xE07A");
+            m_hashKeys.Add("E0_7B", "Unknown: 0xE07B");
+            m_hashKeys.Add("E0_7C", "Unknown: 0xE07C");
+            m_hashKeys.Add("E0_7D", "Unknown: 0xE07D");
+            m_hashKeys.Add("E0_7E", "Unknown: 0xE07E");
+            m_hashKeys.Add("E0_7F", "Unknown: 0xE07F");
             
             m_hashKeys.Add("E0_F1", "Special: Hanja Key");
             m_hashKeys.Add("E0_F2", "Special: Hangul Key");
