@@ -1046,7 +1046,7 @@ namespace SharpKeys
             m_hashKeys.Add("E0_43", "F-Lock: Send");        //   F9
             m_hashKeys.Add("E0_44", "Unknown: 0xE044");
             m_hashKeys.Add("E0_45", "Special: €");        //   Euro
-            m_hashKeys.Add("E0_46", "Unknown: 0xE046");
+            m_hashKeys.Add("E0_46", "Special: Break");
             m_hashKeys.Add("E0_47", "Special: Home");
             m_hashKeys.Add("E0_48", "Arrow: Up");
             m_hashKeys.Add("E0_49", "Special: Page Up");
