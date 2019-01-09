@@ -11,7 +11,7 @@ using System.Security.Permissions;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("RandyRants.com")]
 [assembly: AssemblyProduct("SharpKeys")]
-[assembly: AssemblyCopyright("Copyright 2004 - 2018 RandyRants.com")]
+[assembly: AssemblyCopyright("Copyright 2004 - 2019 RandyRants.com")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]		
 
@@ -26,4 +26,4 @@ using System.Security.Permissions;
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
 
-[assembly: AssemblyVersion("3.8.0.0")]
+[assembly: AssemblyVersion("3.9.0.0")]
