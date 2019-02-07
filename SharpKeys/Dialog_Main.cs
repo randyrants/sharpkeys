@@ -144,11 +144,11 @@ namespace SharpKeys
             // 
             // lvcFrom
             // 
-            this.lvcFrom.Text = "From:";
+            this.lvcFrom.Text = "Map this key:";
             // 
             // lvcTo
             // 
-            this.lvcTo.Text = "To:";
+            this.lvcTo.Text = "To this key:";
             // 
             // mnuPop
             // 
