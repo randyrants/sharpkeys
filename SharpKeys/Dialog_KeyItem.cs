@@ -134,7 +134,7 @@ namespace SharpKeys
             this.groupBox2.Size = new System.Drawing.Size(251, 347);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "To this key (&To key):";
+            this.groupBox2.Text = "&To this key:";
             // 
             // groupBox1
             // 
@@ -145,7 +145,7 @@ namespace SharpKeys
             this.groupBox1.Size = new System.Drawing.Size(251, 347);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Map this key (&From key):";
+            this.groupBox1.Text = "&Map this key:";
             // 
             // mainPanel
             // 
