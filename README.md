@@ -24,9 +24,9 @@ Click the Releases button in the header above or go to https://github.com/randyr
 * Map an entire key to any other key - e.g. you could remap Caps Lock to a Shift key
 * Remap more than one key to one single key - e.g. you could remap every key on a keyboard to the letter Q
 * Force you to look for the Left or Right ALT key in the list of available keys because Type Key cannot scan for ALT
+* Allow you to swap two keys with each other - e.g. you can swap Left Windows with Left Control and vice versa
 
 ## Things that SharpKeys **_will not_** do:
-* Allow you to swap two keys with each other - e.g. you can’t have Q and Z swap places because the remapping code would get confused
 * Map multiple key presses to one key - e.g. it will not support an attempt to remap Ctrl+C to the F5 key
 * Map mouse clicks to any key
 * Support certain hardware keys that never make it to Windows - e.g. Logitech’s volume buttons or most Fn keys
@@ -48,6 +48,9 @@ A: 00_100 is a catch all code that Windows reports when a key is captured by har
 
 Q: Type a Key shows Unknown Key - can I remap this key?  
 A: Odds are this is just a key that has never been seen by SharpKeys before so it doesn't know what to do with it.  Open an issue on this site for the this project and someone from the Open Source community can look into adding it.
+
+Q: Type a Key shows a code that is E0_nnnn - can I remap this key?  
+A: If a scancode has 6 numbers, then it is what is known as a triple byte scancode which is something that cannot be remapped by the Windows Registry.  To remap a key like this, you'll need an active remapper like AutoHotKeys or the app that came with the keyboard (e.g. Logitech's Options) if available.
 
 ## Hope for GitHub contributions:
 * A more complete list to support more international keyboards
