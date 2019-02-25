@@ -34,22 +34,22 @@ Click the Releases button in the header above or go to https://github.com/randyr
 * Protect you from yourself - if you disable your DEL key and can’t login because Ctrl+Alt+Del doesn’t work now, you’ll have to reformat
 
 ## Additional FAQ and answers ##
-Q: Can I remap a combination of keys to one key?  
+**Q: Can I remap a combination of keys to one key?**
 A: Sadly, no. SharpKeys only remaps whole keys rather than a modified key. For example, you can remap Ctrl or C but you can't remap Ctrl+C to another key.
 
-Q: Can I remap a mouse click to a new key?  
+**Q: Can I remap a mouse click to a new key?**
 A: Sorry, but no. The remapping technology that Windows uses to remap your keys isn't aware of your mouse.
 
-Q: Why can't I remap my Fn key on my [notebook or Apple] keyboard?  
+**Q: Why can't I remap my Fn key on my [notebook or Apple] keyboard?**
 A: Some keys simply just never get to Windows. In the case of most Fn keys, they are interpretted by the hardware and never get passed onto the OS, no matter how they appear to work... if Windows doesn't see the key, there's no way for the key to be remapped by Windows.
 
-Q: Type a Key shows 00_100 - can I remap this key?  
+**Q: Type a Key shows 00_100 - can I remap this key?**
 A: 00_100 is a catch all code that Windows reports when a key is captured by hardware or some other driver so there's no way to successfully remap that key, especially since multiple keys can return the same 00_100 code.
 
-Q: Type a Key shows Unknown Key - can I remap this key?  
+**Q: Type a Key shows Unknown Key - can I remap this key?**  
 A: Odds are this is just a key that has never been seen by SharpKeys before so it doesn't know what to do with it.  Open an issue on this site for the this project and someone from the Open Source community can look into adding it.
 
-Q: Type a Key shows a code that is E0_nnnn - can I remap this key?  
+**Q: Type a Key shows a code that is E0_nnnn - can I remap this key?**
 A: If a scancode has 6 numbers, then it is what is known as a triple byte scancode which is something that cannot be remapped by the Windows Registry.  To remap a key like this, you'll need an active remapper like AutoHotKeys or the app that came with the keyboard (e.g. Logitech's Options) if available.
 
 ## Hope for GitHub contributions:
