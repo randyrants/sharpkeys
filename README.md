@@ -52,6 +52,9 @@ A: Odds are this is just a key that has never been seen by SharpKeys before so i
 **Q: Type a Key shows a code that is E0_nnnn - can I remap this key?**  
 A: If a scancode has 6 numbers, then it is what is known as a triple byte scancode which is something that cannot be remapped by the Windows Registry.  To remap a key like this, you'll need an active remapper like AutoHotKeys or the app that came with the keyboard (e.g. Logitech's Options) if available.
 
+**Q: Type a Key doesn't recognize the Alt key when I type it - how do I remap this key?**  
+A: The Alt key scancode doesn't make it through the system, to get to the Type a Key window.  Basically, when you type Alt, Windows sends it to the system menu and activate it, rather than sending the scancode to the window.  You can still remap this key, but you'll see to select it from the list manually; you'll find it in the grouping of keys marked as "Special".
+
 ## Hope for GitHub contributions:
 * A more complete list to support more international keyboards
 * An import/export functionality that allows people to swap keymappings easier
