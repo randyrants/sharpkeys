@@ -55,6 +55,9 @@ A: If a scancode has 6 numbers, then it is what is known as a triple byte scanco
 **Q: Type a Key doesn't recognize the Alt key when I type it - how do I remap this key?**  
 A: The Alt key scancode doesn't make it through the system, to get to the Type a Key window.  Basically, when you type Alt, Windows sends it to the system menu and activate it, rather than sending the scancode to the window.  You can still remap this key, but you'll see to select it from the list manually; you'll find it in the grouping of keys marked as "Special".
 
+**Q: What is the craziest remapping you've ever done?**
+A: I think it's my active remapping on Surface products, where some of the cursor navigation keys share space with F9-F12. Since I use F1-F8 for a lot for Office or Visual Studio, I don't want to have to remember to hit Fn but I also don't want to leave Fn-Lock on because I also need Home, End, PgUp, and PgDn as well.  Soooooo, I leave Fn-Lock on and then remapped F8-F12 to Home/End/PgUp/PgDn and then Home/End/PgUp/PgDn to F8-F12.  I also disabled Caps Lock and remapped the Right Alt to Left Windows because that's just happy for a laptop.  Since other people might make use of this, I put [the SLK file in the depot here](https://github.com/randyrants/sharpkeys/blob/master/HandyRemapForSurfaceKeyboard.skl).
+
 ## Hope for GitHub contributions:
 * A more complete list to support more international keyboards
 * An import/export functionality that allows people to swap keymappings easier
