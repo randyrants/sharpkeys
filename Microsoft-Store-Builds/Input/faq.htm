@@ -1,0 +1,266 @@
+<html>
+<head>
+<title>SharpKeys: FAQ</title>
+<style>
+body  { margin:0px 0px 20px 0px; background:#FFFFFF; font-family: tahoma,verdana,arial,sans-serif; font-size: 80%; color:#000000; }p     { font-family: tahoma,verdana,arial,sans-serif; color:#000000;}dd    { font-family: tahoma,verdana,arial,sans-serif; color:#000000;}dt    { font-family: tahoma,verdana,arial,sans-serif; color:#000000;}ul    { margin: 0 0 0 0; padding: 0 0 0 0; list-style: inside;}td    { font-family: tahoma,verdana,arial,sans-serif; color:#000000;} tr    { font-family: tahoma,verdana,arial,sans-serif; color:#000000;}table { font-family: tahoma,verdana,arial,sans-serif;}#headline 	{font-family: tahoma,verdana,arial,sans-serif; font-size: 175%; color:#000080; text-decoration:underline;}#subheadline 	{font-family: tahoma,verdana,arial,sans-serif; font-size: 100%; color:#000080; text-decoration:underline;}#copyright 	{font-family: tahoma,verdana,arial,sans-serif; font-size: 85%; color:#000000;}#welcome 	{font-family: tahoma,verdana,arial,sans-serif; font-size: 140%; color:#000080; text-decoration: underline overline;}</style>
+</head>
+
+<body>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><!--Margin-->&nbsp;&nbsp;&nbsp;</td>
+<td><!-- Whole Section -->
+
+<div id="headline">Welcome to SharpKeys</div>
+<i>"This Sharp-naming thing is getting out of control" [RandyRants.com]</i>
+<br><br>
+
+This is something that I've thrown together to help people out with their keyboard mappings. What's a keyboard mapping?  
+How many times a day do you accidentally hit cAPS lOCK BY MISTAKE AND END UP HAVING TO GO BAck and retype stuff?  For me 
+it was at least once an hour - in fact, I used to pop off the Caps Lock key so I wouldn't hit it anymore, but I found 
+something better in Windows XP, as well as 2000, Server 2003, and Vista.  There's a little used registry hack that allows 
+you to remap keys across a keyboard.  For me, this meant that I told my computer to treat Caps Lock as if it was a shift 
+key, which it now does.
+<br><br>
+The more I started working with other keyboard, the more I wanted to have this ability to map other keys across my 
+keyboard, but working with the Hex numbers and having too look up scan codes could be painful... hence SharpKeys.
+<br><br>
+
+<div id="subheadline">Product Features</div>
+<ul>
+<li>Map up to 104 different keys to other key or disable them altogether</li>
+<li>Use your keyboard to select keys to map or select from an exhaustive list of supported keys</li>
+<li>No drivers are every loaded as it's a part of Windows</li>
+<li>Includes options for extended keys including Windows, Application, Internet keys and more</li>
+</ul>
+<br><br>
+
+<div id="subheadline">Getting Started</div>
+<ul>
+<li>Launch SharpKeys, by selecting it's icon from the Start menu.  If there are any errors reported, please check 
+the Troubleshooting section below</li>
+<li>Add a new key mapping or edit an existing one</li>
+<li>Click "Write to registry" and wait for a confirmation that the registry was successfully updated</li>
+<li>Close SharpKeys and either log out (and back in) or reboot to enforce the new mappings</li>
+</ul>
+<br><br>
+
+<div id="subheadline">Troubleshooting</div>
+
+<ol>
+
+<li>Q: I tried to run your application, but I'm getting a huge message box, with an error that tells me it can't
+find some DLL files.  What's wrong?<br>
+Q: I installed SharpKeys on my computer and when I start the program up it says it can't find MSCOREE.DLL.<br><br>
+
+
+A: Your PC doesn't have the 2.0 version of the .NET Framework installed on it yet!  You can get this from the 
+Windows Update website for Windows 2000, Windows XP (Professional or Home), Windows Server 2003, or Windows Vista.<br><br></li>
+
+<li>Q: When I run SharpKeys 2.1.1 using Vista, I'm prompted to give SharpKeys Administrator permissions - why?<br>
+
+
+A: The registry key that SharpKeys is setting for you is located a newly protected part of the Registry; the only way that SharpKeys can edit that key is to be given Administrator rights temporarily.<br><br></li>
+
+<li>Q: When I run SharpKeys 2.1, 2.0 or 1.x using Vista, I get an error when I clieck the "Write to Registry" - why?<br>
+
+
+A: This is expected behavior for these releases; either run SharpKeys as an Administrator or download the latest version of Sharpkeys (2.1.1 or higher).<br><br></li>
+
+<li>Q: I did what you said and none of my keys are remapped?  By the way I'm running an older version of Windows...<br><br>
+
+A: Sorry, but this particular registry hack required Windows 2000, Windows XP, Windows Server 2003, or Windows Vista to run.<br><br></li>
+
+<li>Q: I AM running the right version of windows but a particular key is still not mapped!<br><br>
+
+
+A: Frankly, I tried to get every know scan code that I could find, but some may not be correct OR your particular 
+keyboard is doing something weird.  For example, I could make my Right Ctrl key be a Left Windows key but I couldn't 
+make the mute button be a Windows key.<br><br></li>
+
+<li>Q: What are all these F-Lock keys?<br><br>
+
+
+A: Many of the newer keyboard on the market have dual functions for their F-keys that are toggled by an F-Lock key.
+Unlike the Caps Lock or Num Lock keys, the F-Lock key cannot be turned on by default - it requires someone to press it 
+before it's turned on.  By default, when a computer boots, instead of the Function keys being F1 through F12, they have 
+a completely different function: Help, Print, Save, etc.  Once F-Lock is turned on, these keys behave like function keys, 
+F1 to F12.  What SharpKeys will allow you to do is map the default nature of the key to a standard fucntion key.  For 
+example, if you want the F5 to act like F5 when F-Lock is OFF, map F-Lock: Open to F5.  If you map all of your F-Lock keys 
+to their F-key counterparts, the computer will start with all of the Functions keys active.<br><br></li>
+
+<li>Q: I've got an Office keyboard - can I remap the function keys to be F1-F12?<br><br>
+
+
+A: Yes!  Use the F-Lock keys for your functions and map them to the correct F1-F12 keys.<br><br></li>
+
+<li>Q: What's all this stuff about "scan codes"?<br><br>
+
+
+A: Whenever you press a key on your keyboard, it sends a binary code to the keyboard controller in you PC.  That code 
+is passed on into Windows (in most cases) and Windows interprets it as "they pressed code 0x3A so that's Caps Lock - 
+turn that on!"  What modern versions of Windows also does is it checks a registry key when the machine boots.  What that 
+registry key does is tell windows "even though they pressed 0x3A, treat it as 0x2A" (which is left shift).  What SharpKeys 
+does is edits this registry key using a simple UI and sidestepping the registry editor.<br><br></li>
+
+<li>Q: What is an "Unknown" key?<br><br>
+
+
+A: There's no way I could get a lab of keyboards to test, especially when almost every modern keyboard comes with 
+extra keys or language specific keys - some companies are even making keyboards with special buttons for their own 
+software or product line up.  Consequently, when you use Type Key and it hit a key that SharpKeys may not know about, 
+it can still be mapped, even if the label says unknown.  If there's a key that you have on your keyboard that is listed 
+as Unknown but you have a used for it, email me and I'll see about adding a better label for it.<br><br></li>
+
+<li>Q: Neat little utility - how much is it?<br><br>
+
+
+A: It's free.<br><br></li>
+
+<li>Q: What happens if I use your utility and I add a bunch of key mapping and I can't use my computer anymore?<br><br>
+
+A: Well, more or less, you're screwed.  I've tested this application a good deal, but there's always an element of risk 
+when modifying the registry, especially when it's done with a non-standard utility.  I would think you could get into Safe 
+Mode and remove the Scancode Map registry key, but you'll be on your own.  Having said this, please be careful and you're 
+using SharpKeys at your own risk!<br><br></li>
+
+<li>Q: I used Type Key to map a key and it's telling me a) key is disabled or b) Key is not supported - why?<br><br>
+
+A: One of two things can cause this message.  First is that you are trying to make a key that you've already told to be disabled.  If you disabled your Caps Lock key and rebooted, it's now disabled - you have to unmap and reboot again, before you can remap it.  A similar situation would happen if you try to map an already remapped key; Window will report the "wrong" value for Type Key.  If you're told it's "unsupport" or not found, then odds are you are on a non-US keyboard and the key cannot be found in the list of keys that are currently supported - please email us the key and code in question and we'll add it to the list!<br><br></li>
+
+<li>Q: Can I remap a combination of keys to one key?<br><br>
+A: Sadly, no.  SharpKeys only remaps <em>whole</em> keys rather than a modified key.  For example, you can remap Ctrl or C but you can't remap Ctrl+C to another key.<br><br></li>
+    
+<li>Q: Can I remap a mouse click to a new key?<br><br>
+A: Sorry, but no.  The remapping technology that Windows uses to remap your keys isn't aware of your mouse.<br><br></li>
+
+<li>Q: Why can't I remap my Fn key on my [notebook or Apple] keyboard?<br><br>
+A: Some keys simply just never get to Windows.  In the case of most Fn keys, they are interpretted by the hardware and never get passed onto the OS, no matter how they appear to work... if Windows doesn't see the key, there's no way for the key to be remapped by Windows.<br><br></li>
+
+</ol>
+
+<div id="subheadline">Donation Information</div>
+This application started as Donation-ware but has since moved to an open source project.  That said, donations are alway welcome! 
+Visit my donation page at <a href="http://www.randyrants.com/sharpkeys">http://www.randyrants.com/sharpkeys</a>.
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="randyrants@hotmail.com">
+<input type="hidden" name="item_name" value="SharpMT">
+<input type="hidden" name="no_shipping" value="1">
+<input type="hidden" name="no_note" value="1">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="tax" value="0">
+<input type="submit" name="submit" value="Donate Now!">
+</form>
+
+<div id="subheadline">Support Information</div>
+Should you encounter any problems that are not addressed by this FAQ, please file a bug at <a href="http://www.github.com/randyrants/sharpkeys">
+http://www.github.com/randyrants/sharpkeys</a>.  As this is now open source, 
+support requests will be answered as quickly as the community moves to fix it.<br><br>
+
+<div id="subheadline">Version History</div>
+<b><font color="red">Most recent:</font></b>
+<ul><b>3.9 - 8-Jan-2019/3.9.0.0</b>
+<li>Incorporated changes from GitHub repository</li>
+<li>Removes all reference to triple-byte keys as they are not supported by Windows remapping (including HP and Lenovo hardware buttons)</li>
+</ul>
+<br>
+<ul><b>3.8 - 30-Oct-2018/3.8.0.0</b>
+<li>Incorporated changes from GitHub repository</li>
+<li>Adds support for some HP and Lenovo hardware buttons</li>
+<li>Adds support for high DPI displays</li>
+</ul>
+<br>
+<ul><b>3.7 - 26-Dec-2018/3.7.0.0</b>
+<li>Incorporated changes from GitHub repository</li>
+<li>Added support to save and load lists of remapped keys to a binary file</li>
+<li>Added support for Alt+Gr</li>
+</ul>
+<br>
+<ul><b>3.6 - 4-Dec-2017/3.6.0.0</b>
+<li>Incorporated changes from GitHub repository</li>
+</ul>
+<br>
+<ul><b>3.5 - 28-Dec-2011/3.5.0.0</b>
+<li>Upgraded to support .NET 4.0</li>
+</ul>
+<br>
+<ul><b>3.0 - 15-Dec-2008/3.0.0.0</b>
+<li>Registered source code with CodePlex</li>
+</ul>
+<br>
+<ul><b>2.1.1 - 08-Jul-2006/2.1.1.0</b>
+<li>Bug fix for Vista: you no longer have to run it as an Administrator</li>
+</ul>
+<br>
+<ul><b>2.1 - 19-Apr-2006/2.1.0.0</b>
+<li>Bug fix for the "Type a Key" forms</li>
+</ul>
+<br>
+<ul><b>2.0 - 26-Mar-2006/2.0.0.0</b>
+<li>New UI and support for the 2.0 release of the .NET Framework</li>
+</ul>
+<br>
+<ul><b>1.1 - 8-Mar-2004/1.1.0.0</b>
+<li>Minor updates and version number bump</li>
+</ul>
+<br>
+<ul>1.1 Beta 3 - 16-Feb-2004/1.0.3.0
+<li>Added keys for F13, F14, and F15</li>
+<li>Added over 25 new "Unknown" keys</li>
+</ul>
+<br>
+<ul>1.1 Beta 2 - 13-Feb-2004/1.0.2.0
+<li>Removed the install enhancement to improve start up times</li>
+</ul>
+<br>
+<ul>1.1 Beta 1 - 12-Feb-2004/1.0.1.0
+<li>Added 5 new keys</li>
+<li>Installation enhancement to improve start up times</li>
+</ul>
+<br>
+<ul><b>1.0 - 10-Feb-2004/1.0.0.0</b>
+<li>Added Euro Key</li>
+<li>Couple of bug fixes</li>
+</ul>
+<br>
+<ul>1.0 Beta 4/Release Candidate 2 - 3-Feb-2004/0.9.4.0
+<li>Added Type Key dialog for the Add/Edit mapping form</li>
+<li>Added Fn support (same code as "wake)</li>
+</ul>
+<br>
+<ul>1.0 Beta 3/Release Candidate 1 - 31-Jan-2004/0.9.3.0
+<li>Switched combo boxes to list boxes (easier to use)</li>
+<li>Added context menu for the list of keys</li>
+</ul>
+<br>
+<ul>1.0 Beta 2 - 30-Jan-2004/0.9.2.0
+<li>Upped the mapping limit to 104</li>
+<li>Added support for the Office and Natural keyboards</li>
+<li>Added support for PrtSc</li>
+</ul>
+<br>
+<ul>1.0 Beta 1 - 27-Jan-2004/0.9.1.0
+<li>Initial Release</li>
+</ul>
+<br>
+<hr>
+Thanks for the interest in SharpKeys!
+<br><br>
+
+<div id="copyright">Copyright 2004 - 2006 RandyRants.com</div>
+<div align="right"><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="randyrants@hotmail.com">
+<input type="hidden" name="item_name" value="SharpMT">
+<input type="hidden" name="no_shipping" value="1">
+<input type="hidden" name="no_note" value="1">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="tax" value="0">
+<input type="image" src="https://www.paypal.com/images/x-click-but04.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form></div>
+
+<td><!--Margin-->&nbsp;&nbsp;&nbsp;</td></tr></table>
+</body>
+</html>
