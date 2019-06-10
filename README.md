@@ -60,5 +60,5 @@ A: I think it's my active remapping on Surface products, where some of the curso
 
 ## Hope for GitHub contributions:
 * A more complete list to support more international keyboards
-* An import/export functionality that allows people to swap keymappings easier
+* ~~An import/export functionality that allows people to swap keymappings easier~~
 * Continued support for new .NET Frameworks
