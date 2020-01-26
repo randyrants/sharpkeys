@@ -277,7 +277,7 @@ namespace SharpKeys
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(379, 17);
             this.label1.TabIndex = 9;
-            this.label1.Text = "SharpKeys 3.9.0 - Copyright 2004 - 2019 RandyRants.com";
+            this.label1.Text = $"SharpKeys 3.9.0 - Copyright 2004 - {DateTime.Today.Year} RandyRants.com";
             // 
             // label2
             // 
