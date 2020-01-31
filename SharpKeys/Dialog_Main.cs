@@ -1109,8 +1109,49 @@ namespace SharpKeys
             
             m_hashKeys.Add("E0_F1", "Special: Hanja Key");
             m_hashKeys.Add("E0_F2", "Special: Hangul Key");
+			
+			m_hashKeys.Add("E0_A4", "Left MENU key");
+			m_hashKeys.Add("E0_A5", "Right MENU key");
+			m_hashKeys.Add("E0_A6", "Browser Back key");
+			m_hashKeys.Add("E0_A7", "Browser Forward key");
+			m_hashKeys.Add("E0_A8", "Browser Refresh key");
+			m_hashKeys.Add("E0_A9", "Browser Stop key");
+			m_hashKeys.Add("E0_AA", "Browser Search key");
+			m_hashKeys.Add("E0_AB", "Browser Favorites key");
+			m_hashKeys.Add("E0_AC", "Browser Start and Home key");
+			m_hashKeys.Add("E0_AD", "Volume Mute key");
+			m_hashKeys.Add("E0_AE", "Volume Down key");
+			m_hashKeys.Add("E0_AF", "Volume Up key");
+			m_hashKeys.Add("E0_B0", "Next Track key");
+			m_hashKeys.Add("E0_B1", "Previous Track key");
+			m_hashKeys.Add("E0_B2", "Stop Media key");
+			m_hashKeys.Add("E0_B3", "Play/Pause Media key");
+			m_hashKeys.Add("E0_B4", "Start Mail key");
+			m_hashKeys.Add("E0_B5", "Select Media key");
+			m_hashKeys.Add("E0_B6", "Start Application 1 key");
+			m_hashKeys.Add("E0_B7", "Start Application 2 key");
+			m_hashKeys.Add("E0_B8", "Reserved");
+            m_hashKeys.Add("E0_B9", "Reserved");
+            m_hashKeys.Add("E0_BA", "Used for miscellaneous characters; it can vary by keyboard.");
+			m_hashKeys.Add("E0_BB", "For any country/region, the '+' key");
+			m_hashKeys.Add("E0_BC", "For any country/region, the ',' key");
+			m_hashKeys.Add("E0_BD", "For any country/region, the '-' key");
+			m_hashKeys.Add("E0_BE", "For any country/region, the '.' key");
+			m_hashKeys.Add("E0_BF", "Used for miscellaneous characters; it can vary by keyboard.");
+			m_hashKeys.Add("E0_C0", "Used for miscellaneous characters; it can vary by keyboard.");
+			//m_hashKeys.Add("E0_C1-D7", "Reserved");
+			//m_hashKeys.Add("E0_D8-DA", "Unassigned");
+			m_hashKeys.Add("E0_DB", "Used for miscellaneous characters; it can vary by keyboard.");
+			m_hashKeys.Add("E0_DC", "Used for miscellaneous characters; it can vary by keyboard.");
+			m_hashKeys.Add("E0_DD", "Used for miscellaneous characters; it can vary by keyboard.");
+			m_hashKeys.Add("E0_DE", "Used for miscellaneous characters; it can vary by keyboard.");
+			m_hashKeys.Add("E0_DF", "Used for miscellaneous characters; it can vary by keyboard.");
+			m_hashKeys.Add("E0_E0", "Reserved");
+			m_hashKeys.Add("E0_E1", "OEM specific");
+			m_hashKeys.Add("E0_E2", "Either the angle bracket key or the backslash key on the RT 102-key keyboard");
+			m_hashKeys.Add("E0_E3", "OEM specific");
+            m_hashKeys.Add("E0_E4", "OEM specific");
         }
-
 
         // Dialog related events and overrides
         private void Dialog_Main_Load(object sender, System.EventArgs e)

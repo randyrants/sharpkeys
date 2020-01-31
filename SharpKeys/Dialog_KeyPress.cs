@@ -188,7 +188,7 @@ namespace SharpKeys
         }
         #endregion
 
-        private void ShowKeyCode(int nCode)
+        private void ShowKeyCode(int nCode, int virtualKeyCode)
         {
             // set up UI label
             if (lblPressed.Text.Length == 0)
@@ -210,9 +210,9 @@ namespace SharpKeys
             // get the code from LPARAM
             // if it's more than 256 then it's an extended key and mapped to 0xE0nn
             string strCode = "";
-            if (nCode > 0x0100)
+            if (nCode >= 0x0100)
             {
-                strCode = string.Format("E0_{0,2:X}", (nCode - 0x0100));
+                strCode = string.Format("E0_{0,2:X}", virtualKeyCode);
             }
             else
             {
@@ -239,7 +239,7 @@ namespace SharpKeys
         public bool PreFilterMessage(ref Message m)
         {
             if (m.Msg == 0x100) //0x100 == WM_KEYDOWN
-                ShowKeyCode((int)m.LParam);
+                ShowKeyCode((int)m.LParam, (int)m.WParam);
             // always return false because we're just watching messages; not
             // trapping them - this message comes from IMessageFilter!
             return false;
