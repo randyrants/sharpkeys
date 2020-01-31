@@ -116,11 +116,11 @@ namespace SharpKeys
             this.mainPanel.SuspendLayout();
             this.headerPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // lvKeys
-            // 
-            this.lvKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.lvKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lvKeys.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.lvcFrom,
@@ -141,17 +141,17 @@ namespace SharpKeys
             this.lvKeys.View = System.Windows.Forms.View.Details;
             this.lvKeys.SelectedIndexChanged += new System.EventHandler(this.lvKeys_SelectedIndexChanged);
             this.lvKeys.DoubleClick += new System.EventHandler(this.lvKeys_DoubleClick);
-            // 
+            //
             // lvcFrom
-            // 
+            //
             this.lvcFrom.Text = "Map this key:";
-            // 
+            //
             // lvcTo
-            // 
+            //
             this.lvcTo.Text = "To this key:";
-            // 
+            //
             // mnuPop
-            // 
+            //
             this.mnuPop.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.mniAdd,
             this.mniEdit,
@@ -159,38 +159,38 @@ namespace SharpKeys
             this.menuItem5,
             this.mniDeleteAll});
             this.mnuPop.Popup += new System.EventHandler(this.mnuPop_Popup);
-            // 
+            //
             // mniAdd
-            // 
+            //
             this.mniAdd.Index = 0;
             this.mniAdd.Text = "Add";
             this.mniAdd.Click += new System.EventHandler(this.mniAdd_Click);
-            // 
+            //
             // mniEdit
-            // 
+            //
             this.mniEdit.Index = 1;
             this.mniEdit.Text = "Edit";
             this.mniEdit.Click += new System.EventHandler(this.mniEdit_Click);
-            // 
+            //
             // mniDelete
-            // 
+            //
             this.mniDelete.Index = 2;
             this.mniDelete.Text = "Delete";
             this.mniDelete.Click += new System.EventHandler(this.mniDelete_Click);
-            // 
+            //
             // menuItem5
-            // 
+            //
             this.menuItem5.Index = 3;
             this.menuItem5.Text = "-";
-            // 
+            //
             // mniDeleteAll
-            // 
+            //
             this.mniDeleteAll.Index = 4;
             this.mniDeleteAll.Text = "Delete All";
             this.mniDeleteAll.Click += new System.EventHandler(this.mniDeleteAll_Click);
-            // 
+            //
             // btnSave
-            // 
+            //
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Location = new System.Drawing.Point(545, 381);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -199,9 +199,9 @@ namespace SharpKeys
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "&Write to Registry";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
+            //
             // btnClose
-            // 
+            //
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Location = new System.Drawing.Point(694, 381);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -210,9 +210,9 @@ namespace SharpKeys
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "&Close";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
+            //
             // btnAdd
-            // 
+            //
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAdd.Location = new System.Drawing.Point(18, 382);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -221,9 +221,9 @@ namespace SharpKeys
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "&Add";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
+            //
             // btnDelete
-            // 
+            //
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDelete.Location = new System.Drawing.Point(226, 381);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -232,9 +232,9 @@ namespace SharpKeys
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "&Delete";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
+            //
             // btnEdit
-            // 
+            //
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEdit.Location = new System.Drawing.Point(122, 382);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -243,9 +243,9 @@ namespace SharpKeys
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "&Edit";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
+            //
             // btnDeleteAll
-            // 
+            //
             this.btnDeleteAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDeleteAll.Location = new System.Drawing.Point(330, 381);
             this.btnDeleteAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -254,10 +254,10 @@ namespace SharpKeys
             this.btnDeleteAll.TabIndex = 4;
             this.btnDeleteAll.Text = "De&lete All";
             this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
-            // 
+            //
             // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label11.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -266,9 +266,9 @@ namespace SharpKeys
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(784, 4);
             this.label11.TabIndex = 7;
-            // 
+            //
             // label1
-            // 
+            //
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Enabled = false;
@@ -278,9 +278,9 @@ namespace SharpKeys
             this.label1.Size = new System.Drawing.Size(379, 17);
             this.label1.TabIndex = 9;
             this.label1.Text = "SharpKeys 3.9.0 - Copyright 2004 - 2019 RandyRants.com";
-            // 
+            //
             // label2
-            // 
+            //
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Enabled = false;
@@ -290,9 +290,9 @@ namespace SharpKeys
             this.label2.Size = new System.Drawing.Size(300, 17);
             this.label2.TabIndex = 10;
             this.label2.Text = "Registry hack for remapping keys for Windows";
-            // 
+            //
             // urlMain
-            // 
+            //
             this.urlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.urlMain.AutoSize = true;
             this.urlMain.Location = new System.Drawing.Point(601, 496);
@@ -304,11 +304,11 @@ namespace SharpKeys
             this.urlMain.Text = "http://www.randyrants.com/";
             this.urlMain.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.urlMain.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.urlMain_LinkClicked);
-            // 
+            //
             // mainPanel
-            // 
-            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.BackColor = System.Drawing.Color.Transparent;
             this.mainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -333,10 +333,10 @@ namespace SharpKeys
             this.mainPanel.Size = new System.Drawing.Size(810, 529);
             this.mainPanel.TabIndex = 12;
             this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainPanel_Paint);
-            // 
+            //
             // headerPanel
-            // 
-            this.headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.headerPanel.BackColor = System.Drawing.Color.Transparent;
             this.headerPanel.Controls.Add(this.displayProduct);
@@ -346,10 +346,10 @@ namespace SharpKeys
             this.headerPanel.Size = new System.Drawing.Size(808, 36);
             this.headerPanel.TabIndex = 7;
             this.headerPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.headerPanel_Paint);
-            // 
+            //
             // displayProduct
-            // 
-            this.displayProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.displayProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.displayProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.displayProduct.ForeColor = System.Drawing.Color.White;
@@ -360,9 +360,9 @@ namespace SharpKeys
             this.displayProduct.TabIndex = 1;
             this.displayProduct.Text = "SharpKeys";
             this.displayProduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
+            //
             // urlCode
-            // 
+            //
             this.urlCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.urlCode.AutoSize = true;
             this.urlCode.Location = new System.Drawing.Point(515, 474);
@@ -374,9 +374,9 @@ namespace SharpKeys
             this.urlCode.Text = "https://github.com/randyrants/sharpkeys/";
             this.urlCode.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.urlCode.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.urlMain_LinkClicked);
-            // 
+            //
             // btnLoadKeys
-            // 
+            //
             this.btnLoadKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLoadKeys.Location = new System.Drawing.Point(18, 418);
             this.btnLoadKeys.Margin = new System.Windows.Forms.Padding(4);
@@ -385,9 +385,9 @@ namespace SharpKeys
             this.btnLoadKeys.TabIndex = 7;
             this.btnLoadKeys.Text = "L&oad keys...";
             this.btnLoadKeys.Click += new System.EventHandler(this.btnLoadKeys_Click);
-            // 
+            //
             // btnSaveKeys
-            // 
+            //
             this.btnSaveKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSaveKeys.Location = new System.Drawing.Point(122, 418);
             this.btnSaveKeys.Margin = new System.Windows.Forms.Padding(4);
@@ -396,9 +396,9 @@ namespace SharpKeys
             this.btnSaveKeys.TabIndex = 8;
             this.btnSaveKeys.Text = "&Save keys...";
             this.btnSaveKeys.Click += new System.EventHandler(this.btnSaveKeys_Click);
-            // 
+            //
             // Dialog_Main
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 559);
@@ -831,8 +831,8 @@ namespace SharpKeys
             if (m_hashKeys != null)
                 return;
 
-            // the hash table uses a string in the form of Hi_Lo scan code (in Hex values) 
-            // that most sources say are scan codes.  The 00_00 will disable a key - everything else 
+            // the hash table uses a string in the form of Hi_Lo scan code (in Hex values)
+            // that most sources say are scan codes.  The 00_00 will disable a key - everything else
             // is pretty obvious.  There is a bit of a reverse lookup however, so labels changed here
             // need to be changed in a couple of other places
             m_hashKeys = new Hashtable();
@@ -945,7 +945,7 @@ namespace SharpKeys
             m_hashKeys.Add("00_64", "Function: F13");
             m_hashKeys.Add("00_65", "Function: F14");
             m_hashKeys.Add("00_66", "Function: F15");
-            m_hashKeys.Add("00_67", "Function: F16");   // Mac keyboard 
+            m_hashKeys.Add("00_67", "Function: F16");   // Mac keyboard
             m_hashKeys.Add("00_68", "Function: F17");   // Mac keyboard
             m_hashKeys.Add("00_69", "Function: F18");   // Mac keyboard
             m_hashKeys.Add("00_6A", "Function: F19");   // Mac keyboard
@@ -1033,18 +1033,18 @@ namespace SharpKeys
             m_hashKeys.Add("E0_2038", "Special: Alt Gr");
             m_hashKeys.Add("E0_39", "Unknown: 0xE039");
             m_hashKeys.Add("E0_3A", "Unknown: 0xE03A");
-            m_hashKeys.Add("E0_3B", "F-Lock: Help");        
-            m_hashKeys.Add("E0_3C", "F-Lock: Office Home"); 
-            m_hashKeys.Add("E0_3D", "F-Lock: Task Pane");   
-            m_hashKeys.Add("E0_3E", "F-Lock: New");         
-            m_hashKeys.Add("E0_3F", "F-Lock: Open");        
+            m_hashKeys.Add("E0_3B", "F-Lock: Help");
+            m_hashKeys.Add("E0_3C", "F-Lock: Office Home");
+            m_hashKeys.Add("E0_3D", "F-Lock: Task Pane");
+            m_hashKeys.Add("E0_3E", "F-Lock: New");
+            m_hashKeys.Add("E0_3F", "F-Lock: Open");
 
-            m_hashKeys.Add("E0_40", "F-Lock: Close");       
-            m_hashKeys.Add("E0_41", "F-Lock: Reply");       
-            m_hashKeys.Add("E0_42", "F-Lock: Fwd");         
-            m_hashKeys.Add("E0_43", "F-Lock: Send");        
+            m_hashKeys.Add("E0_40", "F-Lock: Close");
+            m_hashKeys.Add("E0_41", "F-Lock: Reply");
+            m_hashKeys.Add("E0_42", "F-Lock: Fwd");
+            m_hashKeys.Add("E0_43", "F-Lock: Send");
             m_hashKeys.Add("E0_44", "Unknown: 0xE044");
-            m_hashKeys.Add("E0_45", "Special: €"); 
+            m_hashKeys.Add("E0_45", "Special: €");
             m_hashKeys.Add("E0_46", "Special: Break");
             m_hashKeys.Add("E0_47", "Special: Home");
             m_hashKeys.Add("E0_48", "Arrow: Up");
@@ -1089,7 +1089,7 @@ namespace SharpKeys
             m_hashKeys.Add("E0_6D", "App: Media Select");
             m_hashKeys.Add("E0_6E", "Unknown: 0xE06E");
             m_hashKeys.Add("E0_6F", "Unknown: 0xE06F");
-            
+
             m_hashKeys.Add("E0_70", "Unknown: 0xE070");
             m_hashKeys.Add("E0_71", "Unknown: 0xE071");
             m_hashKeys.Add("E0_72", "Unknown: 0xE072");
@@ -1106,50 +1106,50 @@ namespace SharpKeys
             m_hashKeys.Add("E0_7D", "Unknown: 0xE07D");
             m_hashKeys.Add("E0_7E", "Unknown: 0xE07E");
             m_hashKeys.Add("E0_7F", "Unknown: 0xE07F");
-            
+
             m_hashKeys.Add("E0_F1", "Special: Hanja Key");
             m_hashKeys.Add("E0_F2", "Special: Hangul Key");
-			
-			m_hashKeys.Add("E0_A4", "Left MENU key");
-			m_hashKeys.Add("E0_A5", "Right MENU key");
-			m_hashKeys.Add("E0_A6", "Browser Back key");
-			m_hashKeys.Add("E0_A7", "Browser Forward key");
-			m_hashKeys.Add("E0_A8", "Browser Refresh key");
-			m_hashKeys.Add("E0_A9", "Browser Stop key");
-			m_hashKeys.Add("E0_AA", "Browser Search key");
-			m_hashKeys.Add("E0_AB", "Browser Favorites key");
-			m_hashKeys.Add("E0_AC", "Browser Start and Home key");
-			m_hashKeys.Add("E0_AD", "Volume Mute key");
-			m_hashKeys.Add("E0_AE", "Volume Down key");
-			m_hashKeys.Add("E0_AF", "Volume Up key");
-			m_hashKeys.Add("E0_B0", "Next Track key");
-			m_hashKeys.Add("E0_B1", "Previous Track key");
-			m_hashKeys.Add("E0_B2", "Stop Media key");
-			m_hashKeys.Add("E0_B3", "Play/Pause Media key");
-			m_hashKeys.Add("E0_B4", "Start Mail key");
-			m_hashKeys.Add("E0_B5", "Select Media key");
-			m_hashKeys.Add("E0_B6", "Start Application 1 key");
-			m_hashKeys.Add("E0_B7", "Start Application 2 key");
-			m_hashKeys.Add("E0_B8", "Reserved");
+
+            m_hashKeys.Add("E0_A4", "Left MENU key");
+            m_hashKeys.Add("E0_A5", "Right MENU key");
+            m_hashKeys.Add("E0_A6", "Browser Back key");
+            m_hashKeys.Add("E0_A7", "Browser Forward key");
+            m_hashKeys.Add("E0_A8", "Browser Refresh key");
+            m_hashKeys.Add("E0_A9", "Browser Stop key");
+            m_hashKeys.Add("E0_AA", "Browser Search key");
+            m_hashKeys.Add("E0_AB", "Browser Favorites key");
+            m_hashKeys.Add("E0_AC", "Browser Start and Home key");
+            m_hashKeys.Add("E0_AD", "Volume Mute key");
+            m_hashKeys.Add("E0_AE", "Volume Down key");
+            m_hashKeys.Add("E0_AF", "Volume Up key");
+            m_hashKeys.Add("E0_B0", "Next Track key");
+            m_hashKeys.Add("E0_B1", "Previous Track key");
+            m_hashKeys.Add("E0_B2", "Stop Media key");
+            m_hashKeys.Add("E0_B3", "Play/Pause Media key");
+            m_hashKeys.Add("E0_B4", "Start Mail key");
+            m_hashKeys.Add("E0_B5", "Select Media key");
+            m_hashKeys.Add("E0_B6", "Start Application 1 key");
+            m_hashKeys.Add("E0_B7", "Start Application 2 key");
+            m_hashKeys.Add("E0_B8", "Reserved");
             m_hashKeys.Add("E0_B9", "Reserved");
             m_hashKeys.Add("E0_BA", "Used for miscellaneous characters; it can vary by keyboard.");
-			m_hashKeys.Add("E0_BB", "For any country/region, the '+' key");
-			m_hashKeys.Add("E0_BC", "For any country/region, the ',' key");
-			m_hashKeys.Add("E0_BD", "For any country/region, the '-' key");
-			m_hashKeys.Add("E0_BE", "For any country/region, the '.' key");
-			m_hashKeys.Add("E0_BF", "Used for miscellaneous characters; it can vary by keyboard.");
-			m_hashKeys.Add("E0_C0", "Used for miscellaneous characters; it can vary by keyboard.");
-			//m_hashKeys.Add("E0_C1-D7", "Reserved");
-			//m_hashKeys.Add("E0_D8-DA", "Unassigned");
-			m_hashKeys.Add("E0_DB", "Used for miscellaneous characters; it can vary by keyboard.");
-			m_hashKeys.Add("E0_DC", "Used for miscellaneous characters; it can vary by keyboard.");
-			m_hashKeys.Add("E0_DD", "Used for miscellaneous characters; it can vary by keyboard.");
-			m_hashKeys.Add("E0_DE", "Used for miscellaneous characters; it can vary by keyboard.");
-			m_hashKeys.Add("E0_DF", "Used for miscellaneous characters; it can vary by keyboard.");
-			m_hashKeys.Add("E0_E0", "Reserved");
-			m_hashKeys.Add("E0_E1", "OEM specific");
-			m_hashKeys.Add("E0_E2", "Either the angle bracket key or the backslash key on the RT 102-key keyboard");
-			m_hashKeys.Add("E0_E3", "OEM specific");
+            m_hashKeys.Add("E0_BB", "For any country/region, the '+' key");
+            m_hashKeys.Add("E0_BC", "For any country/region, the ',' key");
+            m_hashKeys.Add("E0_BD", "For any country/region, the '-' key");
+            m_hashKeys.Add("E0_BE", "For any country/region, the '.' key");
+            m_hashKeys.Add("E0_BF", "Used for miscellaneous characters; it can vary by keyboard.");
+            m_hashKeys.Add("E0_C0", "Used for miscellaneous characters; it can vary by keyboard.");
+            //m_hashKeys.Add("E0_C1-D7", "Reserved");
+            //m_hashKeys.Add("E0_D8-DA", "Unassigned");
+            m_hashKeys.Add("E0_DB", "Used for miscellaneous characters; it can vary by keyboard.");
+            m_hashKeys.Add("E0_DC", "Used for miscellaneous characters; it can vary by keyboard.");
+            m_hashKeys.Add("E0_DD", "Used for miscellaneous characters; it can vary by keyboard.");
+            m_hashKeys.Add("E0_DE", "Used for miscellaneous characters; it can vary by keyboard.");
+            m_hashKeys.Add("E0_DF", "Used for miscellaneous characters; it can vary by keyboard.");
+            m_hashKeys.Add("E0_E0", "Reserved");
+            m_hashKeys.Add("E0_E1", "OEM specific");
+            m_hashKeys.Add("E0_E2", "Either the angle bracket key or the backslash key on the RT 102-key keyboard");
+            m_hashKeys.Add("E0_E3", "OEM specific");
             m_hashKeys.Add("E0_E4", "OEM specific");
         }
 
@@ -1331,7 +1331,7 @@ namespace SharpKeys
 
             Rectangle rectangle = new Rectangle(0, 0, mainPanel.Width, mainPanel.Height);
             LinearGradientBrush linearGradientBrush = new LinearGradientBrush(rectangle,
-                           Color.FromArgb(209, 221, 228), Color.FromArgb(237, 239, 247), //Color.FromArgb(236, 241, 243), 
+                           Color.FromArgb(209, 221, 228), Color.FromArgb(237, 239, 247), //Color.FromArgb(236, 241, 243),
                            LinearGradientMode.Vertical);
 
             graphics.FillRectangle(linearGradientBrush, rectangle);
