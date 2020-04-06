@@ -1015,6 +1015,7 @@ namespace SharpKeys
             m_hashKeys.Add("E0_27", "Unknown: 0xE027");
             m_hashKeys.Add("E0_28", "Unknown: 0xE028");
             m_hashKeys.Add("E0_29", "Unknown: 0xE029");
+            m_hashKeys.Add("E0_2A", "Unknown: 0xE02A");
             m_hashKeys.Add("E0_2B", "Unknown: 0xE02B");
             m_hashKeys.Add("E0_2C", "Unknown: 0xE02C");
             m_hashKeys.Add("E0_2D", "Unknown: 0xE02D");
