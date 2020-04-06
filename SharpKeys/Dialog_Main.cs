@@ -277,7 +277,7 @@ namespace SharpKeys
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(379, 17);
             this.label1.TabIndex = 9;
-            this.label1.Text = "SharpKeys 3.9.0 - Copyright 2004 - 2019 RandyRants.com";
+            this.label1.Text = "SharpKeys 3.9.0 - Copyright 2004 - 2020 RandyRants.com";
             // 
             // label2
             // 
@@ -453,7 +453,7 @@ namespace SharpKeys
 
             if (nWarning == 0)
             {
-                MessageBox.Show("Welcome to SharpKeys!\n\nThis application will add one key to your registry that allows you\nto change how certain keys on your keyboard will work.\n\nYou must be running Windows 2000 through Windows 10 for this to be supported and\nyou'll be using SharpKeys at your own risk!\n\nEnjoy!\nRandyRants.com", "SharpKeys");
+                MessageBox.Show("Welcome to SharpKeys!\n\nThis application will add one key to your registry that allows you\nto change how certain keys on your keyboard will work.\n\nYou must be running Windows 2000 through Windows 10 for this to be supported and you'll be using SharpKeys at your own risk!\n\nEnjoy!\nRandyRants.com", "SharpKeys");
             }
 
             // Set the WinPos
