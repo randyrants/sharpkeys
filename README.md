@@ -35,7 +35,7 @@ Click the Releases button in the header above or go to https://github.com/randyr
 
 ## Additional FAQ and answers ##
 **Q: Can I remap a combination of keys to one key?**  
-A: Sadly, no. SharpKeys only remaps whole keys rather than a modified key. For example, you can remap Ctrl or C but you can't remap Ctrl+C to another key.
+A: Sadly, no. SharpKeys only remaps whole keys rather than a modified key. For example, you can remap Ctrl or C but you can't remap Ctrl+C to another key.  That said, the Microsoft PowerToys tool does offer this functionality - you can learn more about their tool here: https://github.com/microsoft/PowerToys/releases
 
 **Q: Can I remap a mouse click to a new key?**  
 A: Sorry, but no. The remapping technology that Windows uses to remap your keys isn't aware of your mouse.
