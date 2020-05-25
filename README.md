@@ -61,6 +61,12 @@ A: The Alt key scancode doesn't make it through the system, to get to the Type a
 **Q: What is the craziest remapping you've ever done?**
 A: I think it's my active remapping on Surface products, where some of the cursor navigation keys share space with F9-F12. Since I use F1-F8 for a lot for Office or Visual Studio, I don't want to have to remember to hit Fn but I also don't want to leave Fn-Lock on because I also need Home, End, PgUp, and PgDn as well.  Soooooo, I leave Fn-Lock on and then remapped F9-F12 to Home/End/PgUp/PgDn and then Home/End/PgUp/PgDn to F9-F12.  I also disabled Caps Lock and remapped the Right Alt to Left Windows because that's just happy for a laptop.  Since other people might make use of this, I put [the SKL file in the depot here](https://github.com/randyrants/sharpkeys/blob/master/HandyRemapForSurfaceKeyboard.skl).
 
+**Q: What is an "Unknown" key?**
+A: There's no way I could get a lab of keyboards to test, especially when almost every modern keyboard comes with extra keys or language specific keys - some companies are even making keyboards with special buttons for their own software or product line up. Consequently, when you use Type Key and it hit a key that SharpKeys may not know about, it can still be mapped, even if the label says unknown. If there's a key that you have on your keyboard that is listed as Unknown but you have a used for it, email me and I'll see about adding a better label for it.
+
+**Q: What happens if I use your utility and I add a bunch of key mapping and I can't use my computer anymore?**
+A: Well, more or less, you're screwed. I've tested this application a good deal, and there's very little risk in modifying this Registry entry, but if you turn off a key you need for your password, you're mostly out of luck.  You can try to plug in a USB keyboard if you're on a laptop or you can boot into Safe Mode and remove the Scancode Map Registry key, but you'll be on your own. Having said this, please be careful and you're using SharpKeys at your own risk!
+
 ## Hope for GitHub contributions:
 * A more complete list to support more international keyboards
 * ~~An import/export functionality that allows people to swap keymappings easier~~
