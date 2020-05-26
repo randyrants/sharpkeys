@@ -58,7 +58,7 @@ A: Whenever you press a key on your keyboard, it sends a binary code to the keyb
 **Q: I have a new PC that has a hang up button I want to remap - can I remap this key?**  
 A: A lot of people ask for E0_1F65 but as the above question calls out, triple byte scancodes cannot be remapped with the Windows Registry.  This applies to Lenovo, HP, Dell, and any other PC maker's laptop or desktop.
 
-**Q: Type a Key doesn't recognize the Alt key when I type it - how do I remap this key?*  
+**Q: Type a Key doesn't recognize the Alt key when I type it - how do I remap this key?**  
 A: The Alt key scancode doesn't make it through the system, to get to the Type a Key window.  Basically, when you type Alt, Windows sends it to the system menu and activate it, rather than sending the scancode to the window.  You can still remap this key, but you'll see to select it from the list manually; you'll find it in the grouping of keys marked as "Special".
 
 **Q: What is the craziest remapping you've ever done?**  
