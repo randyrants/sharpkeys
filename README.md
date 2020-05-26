@@ -35,7 +35,7 @@ Click the Releases button in the header above or go to https://github.com/randyr
 
 ## Additional FAQ and answers ##
 **Q: Can I remap a combination of keys to one key?**  
-A: Sadly, no. SharpKeys only remaps whole keys rather than a modified key. For example, you can remap Ctrl or C but you can't remap Ctrl+C to another key.  That said, the Microsoft PowerToys tool does offer this functionality - you can learn more about their tool here: https://github.com/microsoft/PowerToys/releases
+A: Sadly, no. SharpKeys only remaps whole keys rather than a modified key. For example, you can remap Ctrl or C but you can't remap Ctrl+C to another key.  That said, the Microsoft PowerToys tool does offer this functionality - you can learn more about their tool here: [Microsoft PowerToys](https://github.com/microsoft/PowerToys/releases).
 
 **Q: Can I remap a mouse click to a new key?**  
 A: Sorry, but no. The remapping technology that Windows uses to remap your keys isn't aware of your mouse.
@@ -50,7 +50,7 @@ A: 00_100 is a catch all code that Windows reports when a key is captured by har
 A: Odds are this is just a key that has never been seen by SharpKeys before so it doesn't know what to do with it.  Open an issue on this site for the this project and someone from the Open Source community can look into adding it.
 
 **Q: Type a Key shows a code that is E0_nnnn - can I remap this key?**  
-A: If a scancode has 6 characters, then it is what is known as a triple byte scancode which is something that cannot be remapped by the Windows Registry.  To remap a key like this, you'll need an active remapper like AutoHotKeys or the app that came with the keyboard (e.g. Logitech's Options) if available.
+A: If a scancode has 6 characters, then it is what is known as a triple byte scancode which is something that cannot be remapped by the Windows Registry.  To remap a key like this, you'll need an active remapper like Microsoft PowerToys or AutoHotKeys or the app that came with the keyboard (e.g. Logitech's Options) if available.
 
 **Q: What's all this stuff about "scan codes"?**  
 A: Whenever you press a key on your keyboard, it sends a binary code to the keyboard controller in you PC. That code is passed on into Windows (in most cases) and Windows interprets it as "they pressed code 0x3A so that's Caps Lock - turn that on!" What modern versions of Windows also does is it checks a registry key when the machine boots. What that registry key does is tell windows "even though they pressed 0x3A, treat it as 0x2A" (which is left shift). What SharpKeys does is edits this registry key using a simple UI and sidestepping the registry editor.
@@ -69,6 +69,9 @@ A: There's no way I could get a lab of keyboards to test, especially when almost
 
 **Q: What happens if I use your utility and I add a bunch of key mapping and I can't use my computer anymore?**  
 A: Well, more or less, you're screwed. I've tested this application a good deal, and there's very little risk in modifying this Registry entry, but if you turn off a key you need for your password, you're mostly out of luck.  One option is to **try using the onscreen keyboard that's available via Accessibility** options, as that wouldn't be impacted by remapping settings for Windows.  You can also try to plug in a USB keyboard if you're on a laptop or you can boot into Safe Mode and remove the Scancode Map Registry key, but you'll be on your own. Having said this, please be careful and you're using SharpKeys at your own risk!
+
+**Q:I have to have combo key support or triple-byte enabled keys support!  Why won't you make this change?!**  
+A: There is absolutely nothing I can do about it: Windows is remapping the keys and this app is just a UX for the Registry key that controls the remapping.  In fact, I think I answered this already in the FAQ.  That said, if you want a deeper level of remapping support please check out [Microsoft PowerToys](https://github.com/microsoft/PowerToys/releases).
 
 ## Hope for GitHub contributions:
 * A more complete list to support more international keyboards
