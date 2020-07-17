@@ -119,8 +119,8 @@ namespace SharpKeys
             // 
             // lvKeys
             // 
-            this.lvKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.lvKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lvKeys.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.lvcFrom,
@@ -257,7 +257,7 @@ namespace SharpKeys
             // 
             // label11
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label11.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -307,8 +307,8 @@ namespace SharpKeys
             // 
             // mainPanel
             // 
-            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.BackColor = System.Drawing.Color.Transparent;
             this.mainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -336,7 +336,7 @@ namespace SharpKeys
             // 
             // headerPanel
             // 
-            this.headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.headerPanel.BackColor = System.Drawing.Color.Transparent;
             this.headerPanel.Controls.Add(this.displayProduct);
@@ -349,7 +349,7 @@ namespace SharpKeys
             // 
             // displayProduct
             // 
-            this.displayProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.displayProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.displayProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.displayProduct.ForeColor = System.Drawing.Color.White;
@@ -1006,6 +1006,7 @@ namespace SharpKeys
             m_hashKeys.Add("E0_1F", "Unknown: 0xE01F");
 
             m_hashKeys.Add("E0_20", "Media: Mute");
+            m_hashKeys.Add("E0_2038", "Special: Alt Gr");
             m_hashKeys.Add("E0_21", "App: Calculator");
             m_hashKeys.Add("E0_22", "Media: Play/Pause");
             m_hashKeys.Add("E0_23", "F-Lock: Spell");
@@ -1031,21 +1032,20 @@ namespace SharpKeys
             m_hashKeys.Add("E0_36", "Unknown: 0xE036");
             m_hashKeys.Add("E0_37", "Special: PrtSc");
             m_hashKeys.Add("E0_38", "Special: Right Alt");
-            m_hashKeys.Add("E0_2038", "Special: Alt Gr");
             m_hashKeys.Add("E0_39", "Unknown: 0xE039");
             m_hashKeys.Add("E0_3A", "Unknown: 0xE03A");
-            m_hashKeys.Add("E0_3B", "F-Lock: Help");        
-            m_hashKeys.Add("E0_3C", "F-Lock: Office Home"); 
-            m_hashKeys.Add("E0_3D", "F-Lock: Task Pane");   
-            m_hashKeys.Add("E0_3E", "F-Lock: New");         
-            m_hashKeys.Add("E0_3F", "F-Lock: Open");        
+            m_hashKeys.Add("E0_3B", "F-Lock: Help");
+            m_hashKeys.Add("E0_3C", "F-Lock: Office Home");
+            m_hashKeys.Add("E0_3D", "F-Lock: Task Pane");
+            m_hashKeys.Add("E0_3E", "F-Lock: New");
+            m_hashKeys.Add("E0_3F", "F-Lock: Open");
 
-            m_hashKeys.Add("E0_40", "F-Lock: Close");       
-            m_hashKeys.Add("E0_41", "F-Lock: Reply");       
-            m_hashKeys.Add("E0_42", "F-Lock: Fwd");         
-            m_hashKeys.Add("E0_43", "F-Lock: Send");        
+            m_hashKeys.Add("E0_40", "F-Lock: Close");
+            m_hashKeys.Add("E0_41", "F-Lock: Reply");
+            m_hashKeys.Add("E0_42", "F-Lock: Fwd");
+            m_hashKeys.Add("E0_43", "F-Lock: Send");
             m_hashKeys.Add("E0_44", "Unknown: 0xE044");
-            m_hashKeys.Add("E0_45", "Special: €"); 
+            m_hashKeys.Add("E0_45", "Special: €");
             m_hashKeys.Add("E0_46", "Special: Break");
             m_hashKeys.Add("E0_47", "Special: Home");
             m_hashKeys.Add("E0_48", "Arrow: Up");
@@ -1086,11 +1086,11 @@ namespace SharpKeys
             m_hashKeys.Add("E0_69", "Web: Forward");
             m_hashKeys.Add("E0_6A", "Web: Back");
             m_hashKeys.Add("E0_6B", "App: My Computer");
-            m_hashKeys.Add("E0_6C", "App: E-Mail");
+            m_hashKeys.Add("E0_6C", "App: Mail");
             m_hashKeys.Add("E0_6D", "App: Media Select");
             m_hashKeys.Add("E0_6E", "Unknown: 0xE06E");
             m_hashKeys.Add("E0_6F", "Unknown: 0xE06F");
-            
+
             m_hashKeys.Add("E0_70", "Unknown: 0xE070");
             m_hashKeys.Add("E0_71", "Unknown: 0xE071");
             m_hashKeys.Add("E0_72", "Unknown: 0xE072");
@@ -1107,11 +1107,53 @@ namespace SharpKeys
             m_hashKeys.Add("E0_7D", "Unknown: 0xE07D");
             m_hashKeys.Add("E0_7E", "Unknown: 0xE07E");
             m_hashKeys.Add("E0_7F", "Unknown: 0xE07F");
-            
+
+            m_hashKeys.Add("E0_A4", "Unknown: 0xE0A4"); // Possibly Left MENU key
+            m_hashKeys.Add("E0_A5", "Unknown: 0xE0A5"); // Possibly Right MENU key
+            m_hashKeys.Add("E0_A6", "Unknown: 0xE0A6"); // Possibly Browser Back key
+            m_hashKeys.Add("E0_A7", "Unknown: 0xE0A7"); // Possibly Browser Forward key
+            m_hashKeys.Add("E0_A8", "Unknown: 0xE0A8"); // Possibly Browser Refresh key
+            m_hashKeys.Add("E0_A9", "Unknown: 0xE0A9"); // Possibly Browser Stop key
+            m_hashKeys.Add("E0_AA", "Unknown: 0xE0AA"); // Possibly Browser Search key
+            m_hashKeys.Add("E0_AB", "Unknown: 0xE0AB"); // Possibly Browser Favorites key
+            m_hashKeys.Add("E0_AC", "Unknown: 0xE0AC"); // Possibly Browser Start and Home key
+            m_hashKeys.Add("E0_AD", "Unknown: 0xE0AD"); // Possibly Volume Mute key
+            m_hashKeys.Add("E0_AE", "Unknown: 0xE0AE"); // Possibly Volume Down key
+            m_hashKeys.Add("E0_AF", "Unknown: 0xE0AF"); // Possibly Volume Up key
+
+            m_hashKeys.Add("E0_B0", "Unknown: 0xE0B0"); // Media: Next track (alternate)
+            m_hashKeys.Add("E0_B1", "Unknown: 0xE0B1"); // Media: Previous track (alternate)
+            m_hashKeys.Add("E0_B2", "Unknown: 0xE0B2"); // Media: Stop (alternate)
+            m_hashKeys.Add("E0_B3", "Unknown: 0xE0B3"); // Media: Play/Pause (alternate)
+            m_hashKeys.Add("E0_B4", "Unknown: 0xE0B4"); // App: Mail (alternate)
+            m_hashKeys.Add("E0_B5", "Unknown: 0xE0B5"); // App: Select Media key
+            m_hashKeys.Add("E0_B6", "Unknown: 0xE0B6"); // Start Application 1 key
+            m_hashKeys.Add("E0_B7", "Unknown: 0xE0B7"); // Start Application 2 key
+            m_hashKeys.Add("E0_B8", "Unknown: 0xE0B8"); // Reserved
+            m_hashKeys.Add("E0_B9", "Unknown: 0xE0B9"); // Reserved
+            m_hashKeys.Add("E0_BA", "Unknown: 0xE0BA"); // Used for miscellaneous characters; it can vary by keyboard.
+            m_hashKeys.Add("E0_BB", "Unknown: 0xE0BB"); // For any country/region, the '+' key
+            m_hashKeys.Add("E0_BC", "Unknown: 0xE0BC"); // For any country/region, the ',' key
+            m_hashKeys.Add("E0_BD", "Unknown: 0xE0BD"); // For any country/region, the '-' key
+            m_hashKeys.Add("E0_BE", "Unknown: 0xE0BE"); // For any country/region, the '.' key
+            m_hashKeys.Add("E0_BF", "Unknown: 0xE0BF"); // Varies by keyboard
+
+            m_hashKeys.Add("E0_C0", "Unknown: 0xE0C0"); // Unknown key
+
+            m_hashKeys.Add("E0_DB", "Unknown: 0xE0BB"); // Varies by keyboard
+            m_hashKeys.Add("E0_DC", "Unknown: 0xE0BC"); // Varies by keyboard
+            m_hashKeys.Add("E0_DD", "Unknown: 0xE0BD"); // Varies by keyboard
+            m_hashKeys.Add("E0_DE", "Unknown: 0xE0BE"); // Varies by keyboard
+            m_hashKeys.Add("E0_DF", "Unknown: 0xE0BF"); // Varies by keyboard
+
+            m_hashKeys.Add("E0_E1", "Unknown: 0xE0B1"); // Varies by keyboard
+            m_hashKeys.Add("E0_E2", "Unknown: 0xE0B2"); // Varies by keyboard
+            m_hashKeys.Add("E0_E3", "Unknown: 0xE0B3"); // Varies by keyboard
+            m_hashKeys.Add("E0_E4", "Unknown: 0xE0B4"); // Varies by keyboard
+                                                        
             m_hashKeys.Add("E0_F1", "Special: Hanja Key");
             m_hashKeys.Add("E0_F2", "Special: Hangul Key");
         }
-
 
         // Dialog related events and overrides
         private void Dialog_Main_Load(object sender, System.EventArgs e)
