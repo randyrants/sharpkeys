@@ -964,9 +964,9 @@ namespace SharpKeys
             m_hashKeys.Add("00_76", "Unknown: 0x0076");
             m_hashKeys.Add("00_77", "Unknown: 0x0077");
             m_hashKeys.Add("00_78", "Unknown: 0x0078");
-            m_hashKeys.Add("00_79", "Unknown: 0x0079");
+            m_hashKeys.Add("00_79", "Special: Henkan");
             m_hashKeys.Add("00_7A", "Unknown: 0x007A");
-            m_hashKeys.Add("00_7B", "Unknown: 0x007B");
+            m_hashKeys.Add("00_7B", "Special: Muhenkan");
             m_hashKeys.Add("00_7C", "Unknown: 0x007C");
             m_hashKeys.Add("00_7D", "Special: ¥ -");
             m_hashKeys.Add("00_7E", "Unknown: 0x007E");
