@@ -17,10 +17,10 @@ Click the Releases button in the header above or go to https://github.com/randyr
 Also, if you are using [WinGet](https://github.com/microsoft/winget-cli/releases), you can install SharpKeys on x64 by typing: `winget install sharpkeys`
 
 ## How do I use it?  Getting Started
-* Launch SharpKeys, by selecting it's icon from the Start menu. If there are any errors reported, please check the Troubleshooting section below 
-* Add a new key mapping or edit an existing one 
-* Click "Write to registry" and wait for a confirmation that the registry was successfully updated 
-* Close SharpKeys and either log out (and back in) or reboot to enforce the new mappings 
+* Launch SharpKeys, by selecting its icon from the Start menu. If there are any errors reported, please check the Troubleshooting section below 
+* Add a new key mapping or edit an existing one
+* Click "Write to registry" and wait for a confirmation that the registry was successfully updated
+* Close SharpKeys and either log out (and back in) or reboot to enforce the new mappings
 
 ## Things that SharpKeys _will_ do:
 * Map an entire key to any other key - e.g. you could remap Caps Lock to a Shift key
@@ -49,7 +49,7 @@ A: Some keys simply just never get to Windows. In the case of most Fn keys, they
 A: 00_100 is a catch all code that Windows reports when a key is captured by hardware or some other driver so there's no way to successfully remap that key, especially since multiple keys can return the same 00_100 code.
 
 **Q: Type a Key shows Unknown Key - can I remap this key?**  
-A: Odds are this is just a key that has never been seen by SharpKeys before so it doesn't know what to do with it.  Open an issue on this site for the this project and someone from the Open Source community can look into adding it.
+A: Odds are this is just a key that has never been seen by SharpKeys before so it doesn't know what to do with it. Open an issue on this site for this project and someone from the Open Source community can look into adding it.
 
 **Q: Type a Key shows a code that is E0_nnnn - can I remap this key?**  
 A: If a scancode has 6 characters, then it is what is known as a triple byte scancode which is something that cannot be remapped by the Windows Registry.  To remap a key like this, you'll need an active remapper like Microsoft PowerToys or AutoHotKeys or the app that came with the keyboard (e.g. Logitech's Options) if available.
@@ -72,7 +72,7 @@ A: There's no way I could get a lab of keyboards to test, especially when almost
 **Q: What happens if I use your utility and I add a bunch of key mapping and I can't use my computer anymore?**  
 A: Well, more or less, you're screwed. I've tested this application a good deal, and there's very little risk in modifying this Registry entry, but if you turn off a key you need for your password, you're mostly out of luck.  One option is to **try using the onscreen keyboard that's available via Accessibility** options, as that wouldn't be impacted by remapping settings for Windows.  You can also try to plug in a USB keyboard if you're on a laptop or you can boot into Safe Mode and remove the Scancode Map Registry key, but you'll be on your own. Having said this, please be careful and you're using SharpKeys at your own risk!
 
-**Q:I have to have combo key support or triple-byte enabled keys support!  Why won't you make this change?!**  
+**Q: I have to have combo key support or triple-byte enabled keys support! Why won't you make this change?!**  
 A: There is absolutely nothing I can do about it: Windows is remapping the keys and this app is just a UX for the Registry key that controls the remapping.  In fact, I think I answered this already in the FAQ.  That said, if you want a deeper level of remapping support please check out [Microsoft PowerToys](https://github.com/microsoft/PowerToys/releases).
 
 ## Hope for GitHub contributions:
