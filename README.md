@@ -11,10 +11,29 @@ The more I started working with other keyboard, the more I wanted to have this a
 
 SharpKeys is not responsible for any of the keyboard remapping functionality - it simply exposes a Registry key that controls how Windows remaps keys and has been available to us since Windows 2000.  The list of keys that are included in the application are from most of the US-based keyboards that I've used over the years and is not guaranteed to be 100% complete for world keyboards.
 
-## Where can I get the compiled version?
-Click the Releases button in the header above or go to https://github.com/randyrants/sharpkeys/releases directly.  Note, that for ARM versions of Windows, please use the ZIP file to get the EXE: the MSI is looking for x64/x86.
+## Install
 
-Also, if you are using [WinGet](https://github.com/microsoft/winget-cli/releases), you can install SharpKeys on x64 by typing: `winget install sharpkeys`
+### Manual
+
+Click the [Releases](https://github.com/randyrants/sharpkeys/releases) button in the header above
+
+Note: that for ARM versions of Windows, please use the ZIP file to get the EXE: the MSI is looking for x64/x86.
+
+### winget
+
+If you are using [WinGet](https://github.com/microsoft/winget-cli/releases)
+
+```
+winget install sharpkeys
+```
+
+### scoop
+
+If you are using [scoop](https://github.com/microsoft/winget-cli/releases)
+
+```
+scoop install sharpkeys
+```
 
 ## How do I use it?  Getting Started
 * Launch SharpKeys, by selecting its icon from the Start menu. If there are any errors reported, please check the Troubleshooting section below 
