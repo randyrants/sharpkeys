@@ -95,8 +95,7 @@ A: Well, more or less, you're screwed. I've tested this application a good deal,
 A: There is absolutely nothing I can do about it: Windows is remapping the keys and this app is just a UX for the Registry key that controls the remapping.  In fact, I think I answered this already in the FAQ.  That said, if you want a deeper level of remapping support please check out [Microsoft PowerToys](https://github.com/microsoft/PowerToys/releases).
 
 ## Existing saved keyboard layouts
-Colemak - [SKL on Google Drive](https://drive.google.com/file/d/15LljPZAQ6Mw2wVWbdJ02mIVzepEejDq8/view) via @NathanDai5287 
-
+Colemak - [SKL on Google Drive](https://drive.google.com/file/d/15LljPZAQ6Mw2wVWbdJ02mIVzepEejDq8/view) via [@NathanDai5287](https://github.com/NathanDai5287)
 Surface - [SKL file described in the FAQ](https://github.com/randyrants/sharpkeys/blob/master/HandyRemapForSurfaceKeyboard.skl)
 
 ## Hope for GitHub contributions:
