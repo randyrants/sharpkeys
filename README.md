@@ -29,7 +29,7 @@ winget install sharpkeys
 
 ### scoop
 
-If you are using [scoop](https://github.com/microsoft/winget-cli/releases)
+If you are using [scoop](https://github.com/lukesampson/scoop)
 
 ```
 scoop install sharpkeys
