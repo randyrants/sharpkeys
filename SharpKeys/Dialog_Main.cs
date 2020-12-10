@@ -5,6 +5,7 @@ using System.Collections;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.IO;
+using System.Text.RegularExpressions;
 using Microsoft.Win32;
 
 namespace SharpKeys
@@ -853,9 +854,66 @@ namespace SharpKeys
             }
         }
 
+        private string UnquoteString(string s)
+        {
+            // remove the leading & trailing '"'
+            if (s.StartsWith("\"") && s.EndsWith("\""))
+            {
+                s = s.Substring(1, s.Length - 2);
+            }
+            return s;
+        }
+
+        private bool ReadHashKeysFromFile(string pathToKeysFile)
+        {
+            if (!File.Exists(pathToKeysFile))
+                return false; // the file does not exist
+
+            string[] lines = File.ReadAllLines(pathToKeysFile, System.Text.Encoding.Unicode);
+            if (lines.Length == 0)
+                return false; // the file is empty
+
+            m_hashKeys = new Hashtable();
+
+            foreach (string line in lines)
+            {
+                if (line.TrimStart().StartsWith("//"))
+                    continue; // skipping a comment
+
+                string[] items = line.Split(new char[]{','}, 2);
+                if (items.GetLength(0) == 2)
+                {
+                    string param1 = items[0].Trim(); // w/o leading & trailing spaces
+                    string param2 = items[1].Trim(); // w/o leading & trailing spaces
+
+                    int n = param2.LastIndexOf('"');
+                    if (n != -1)
+                    {
+                        // removing the trailing '//' after the last '"', if any
+                        n = param2.IndexOf("//", n);
+                        if (n != -1)
+                        {
+                            param2 = param2.Remove(n).TrimEnd();
+                        }
+                    }
+
+                    param2 = Regex.Unescape(UnquoteString(param2));
+                    param1 = Regex.Unescape(UnquoteString(param1));
+
+                    m_hashKeys.Add(param1, param2);
+                }
+            }
+            return true;
+        }
+
         private void BuildParseTables()
         {
             if (m_hashKeys != null)
+                return;
+
+            string pathToExeDir = Path.GetDirectoryName(Application.ExecutablePath);
+            string pathToKeysFile = Path.Combine(pathToExeDir, "SharpKeys.keys");
+            if (ReadHashKeysFromFile(pathToKeysFile))
                 return;
 
             // the hash table uses a string in the form of Hi_Lo scan code (in Hex values) 
