@@ -850,6 +850,9 @@ namespace SharpKeys
 
             foreach (string line in lines)
             {
+                if (line.TrimStart().StartsWith("//"))
+                    continue; // skipping a comment
+
                 string[] items = line.Split(new char[]{','}, 2);
                 if (items.GetLength(0) == 2)
                 {
