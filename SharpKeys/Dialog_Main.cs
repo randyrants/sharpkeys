@@ -863,16 +863,12 @@ namespace SharpKeys
                         n = param2.IndexOf("//", n);
                         if (n != -1)
                         {
-                            param2 = param2.Remove(n);
-                            param2 = param2.TrimEnd();
+                            param2 = param2.Remove(n).TrimEnd();
                         }
                     }
 
-                    param2 = UnquoteString(param2);
-                    param2 = Regex.Unescape(param2);
-
-                    param1 = UnquoteString(param1);
-                    param1 = Regex.Unescape(param1);
+                    param2 = Regex.Unescape(UnquoteString(param2));
+                    param1 = Regex.Unescape(UnquoteString(param1));
 
                     m_hashKeys.Add(param1, param2);
                 }
