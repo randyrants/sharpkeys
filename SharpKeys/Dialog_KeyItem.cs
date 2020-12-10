@@ -4,6 +4,7 @@ using System.Drawing.Drawing2D;
 using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace SharpKeys
 {
@@ -23,6 +24,17 @@ namespace SharpKeys
         private GroupBox groupBox1;
         private Panel mainPanel;
         private Button btnCancel;
+        private Label stFilterFrom;
+        private TextBox edFilterFrom;
+        private Label stFilterTo;
+        private TextBox edFilterTo;
+
+        private List<string> stringsFrom = new List<string>();
+        private List<string> stringsTo = new List<string>();
+        private string prevFilterFrom = "";
+        private string prevFilterTo = "";
+
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -70,8 +82,12 @@ namespace SharpKeys
             this.btnOK = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.stFilterFrom = new System.Windows.Forms.Label();
+            this.edFilterFrom = new System.Windows.Forms.TextBox();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.stFilterTo = new System.Windows.Forms.Label();
+            this.edFilterTo = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.mainPanel.SuspendLayout();
@@ -96,7 +112,7 @@ namespace SharpKeys
             this.btnFrom.Margin = new System.Windows.Forms.Padding(6);
             this.btnFrom.Name = "btnFrom";
             this.btnFrom.Size = new System.Drawing.Size(138, 42);
-            this.btnFrom.TabIndex = 1;
+            this.btnFrom.TabIndex = 3;
             this.btnFrom.Text = "Type &Key";
             this.btnFrom.UseVisualStyleBackColor = false;
             this.btnFrom.Click += new System.EventHandler(this.btnFrom_Click);
@@ -109,7 +125,7 @@ namespace SharpKeys
             this.btnTo.Margin = new System.Windows.Forms.Padding(6);
             this.btnTo.Name = "btnTo";
             this.btnTo.Size = new System.Drawing.Size(138, 42);
-            this.btnTo.TabIndex = 0;
+            this.btnTo.TabIndex = 7;
             this.btnTo.Text = "Type K&ey";
             this.btnTo.UseVisualStyleBackColor = false;
             this.btnTo.Click += new System.EventHandler(this.btnTo_Click);
@@ -123,7 +139,7 @@ namespace SharpKeys
             this.lbTo.Name = "lbTo";
             this.lbTo.ScrollAlwaysVisible = true;
             this.lbTo.Size = new System.Drawing.Size(418, 506);
-            this.lbTo.TabIndex = 1;
+            this.lbTo.TabIndex = 4;
             // 
             // btnOK
             // 
@@ -134,12 +150,14 @@ namespace SharpKeys
             this.btnOK.Margin = new System.Windows.Forms.Padding(6);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(138, 42);
-            this.btnOK.TabIndex = 2;
+            this.btnOK.TabIndex = 8;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = false;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.edFilterTo);
+            this.groupBox2.Controls.Add(this.stFilterTo);
             this.groupBox2.Controls.Add(this.btnTo);
             this.groupBox2.Controls.Add(this.lbTo);
             this.groupBox2.Location = new System.Drawing.Point(497, 22);
@@ -153,6 +171,8 @@ namespace SharpKeys
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.stFilterFrom);
+            this.groupBox1.Controls.Add(this.edFilterFrom);
             this.groupBox1.Controls.Add(this.lbFrom);
             this.groupBox1.Controls.Add(this.btnFrom);
             this.groupBox1.Location = new System.Drawing.Point(26, 22);
@@ -163,6 +183,25 @@ namespace SharpKeys
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "&Map this key:";
+            // 
+            // stFilterFrom
+            // 
+            this.stFilterFrom.AutoSize = true;
+            this.stFilterFrom.Location = new System.Drawing.Point(12, 554);
+            this.stFilterFrom.Name = "stFilterFrom";
+            this.stFilterFrom.Size = new System.Drawing.Size(50, 13);
+            this.stFilterFrom.TabIndex = 1;
+            this.stFilterFrom.Text = "Filter:";
+            // 
+            // edFilterFrom
+            // 
+            this.edFilterFrom.Location = new System.Drawing.Point(18, 586);
+            this.edFilterFrom.Name = "edFilterFrom";
+            this.edFilterFrom.Size = new System.Drawing.Size(200, 20);
+            this.edFilterFrom.TabIndex = 2;
+            this.edFilterFrom.TextChanged += new System.EventHandler(this.edFilterFrom_TextChanged);
+            this.edFilterFrom.KeyDown += new System.Windows.Forms.KeyEventHandler(this.edFilterFrom_KeyDown);
+            this.edFilterFrom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edFilterFrom_KeyPress);
             // 
             // mainPanel
             // 
@@ -191,9 +230,28 @@ namespace SharpKeys
             this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(138, 42);
-            this.btnCancel.TabIndex = 3;
+            this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            // 
+            // stFilterTo
+            // 
+            this.stFilterTo.AutoSize = true;
+            this.stFilterTo.Location = new System.Drawing.Point(12, 554);
+            this.stFilterTo.Name = "stFilterTo";
+            this.stFilterTo.Size = new System.Drawing.Size(50, 13);
+            this.stFilterTo.TabIndex = 5;
+            this.stFilterTo.Text = "Filter:";
+            // 
+            // edFilterTo
+            // 
+            this.edFilterTo.Location = new System.Drawing.Point(18, 586);
+            this.edFilterTo.Name = "edFilterTo";
+            this.edFilterTo.Size = new System.Drawing.Size(200, 20);
+            this.edFilterTo.TabIndex = 6;
+            this.edFilterTo.TextChanged += new System.EventHandler(this.edFilterTo_TextChanged);
+            this.edFilterTo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.edFilterTo_KeyDown);
+            this.edFilterTo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edFilterTo_KeyPress);
             // 
             // Dialog_KeyItem
             // 
@@ -213,10 +271,13 @@ namespace SharpKeys
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Shown += new System.EventHandler(this.Dialog_KeyItem_Shown);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Dialog_KeyItem_Paint);
             this.Resize += new System.EventHandler(this.Dialog_KeyItem_Resize);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.mainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -295,6 +356,80 @@ namespace SharpKeys
         private void Dialog_KeyItem_Resize(object sender, EventArgs e)
         {
             this.Invalidate();
+        }
+        private void Dialog_KeyItem_Shown(object sender, EventArgs e)
+        {
+            foreach (var item in lbFrom.Items)
+            {
+                stringsFrom.Add(item.ToString());
+            }
+
+            foreach (var item in lbTo.Items)
+            {
+                stringsTo.Add(item.ToString());
+            }
+        }
+
+        private void edFilterFrom_TextChanged(object sender, EventArgs e)
+        {
+            string filter = edFilterFrom.Text.ToUpper();
+            if (filter == prevFilterFrom)
+                return;
+
+            prevFilterFrom = filter;
+            lbFrom.Items.Clear();
+            foreach (var item in stringsFrom)
+            {
+                if (item.ToUpper().Contains(filter))
+                    lbFrom.Items.Add(item);
+            }
+        }
+
+        private void edFilterFrom_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back && e.Control) // Ctrl+BackSpace
+            {
+                edFilterFrom.Text = "";
+            }
+        }
+
+        private void edFilterFrom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\x7F') // 0x7F corresponds to Ctrl+Backspace. Why? Ask Microsoft...
+            {
+                e.KeyChar = '\x00';
+            }
+        }
+
+        private void edFilterTo_TextChanged(object sender, EventArgs e)
+        {
+            string filter = edFilterTo.Text.ToUpper();
+            if (filter == prevFilterTo)
+                return;
+
+            prevFilterTo = filter;
+            lbTo.Items.Clear();
+            foreach (var item in stringsTo)
+            {
+                if (item.ToUpper().Contains(filter))
+                    lbTo.Items.Add(item);
+            }
+        }
+
+        private void edFilterTo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back && e.Control) // Ctrl+BackSpace
+            {
+                edFilterTo.Text = "";
+            }
+        }
+
+        private void edFilterTo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\x7F') // 0x7F corresponds to Ctrl+Backspace. Why? Ask Microsoft...
+            {
+                e.KeyChar = '\x00';
+            }
         }
     }
 }
