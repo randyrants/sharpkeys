@@ -32,6 +32,7 @@ winget install sharpkeys
 If you are using [scoop](https://github.com/lukesampson/scoop)
 
 ```
+scoop bucket add extras
 scoop install sharpkeys
 ```
 
