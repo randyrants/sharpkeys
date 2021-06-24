@@ -56,6 +56,9 @@ scoop install sharpkeys
 * Protect you from yourself - if you disable your DEL key and can’t login because Ctrl+Alt+Del doesn’t work now, you’ll have to reformat
 
 ## Additional FAQ and answers ##
+**Q: Does it run on Windows 11?**  
+A: Yes!
+
 **Q: Can I remap a combination of keys to one key?**  
 A: Sadly, no. SharpKeys only remaps whole keys rather than a modified key. For example, you can remap Ctrl or C but you can't remap Ctrl+C to another key.  That said, the Microsoft PowerToys tool does offer this functionality - you can learn more about their tool here: [Microsoft PowerToys](https://github.com/microsoft/PowerToys/releases).
 
