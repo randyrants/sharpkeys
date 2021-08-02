@@ -106,3 +106,6 @@ A: There is absolutely nothing I can do about it: Windows is remapping the keys 
 * A more complete list to support more international keyboards
 * ~~An import/export functionality that allows people to swap keymappings easier~~
 * Continued support for new .NET Frameworks
+
+## Page for donations:
+I always had a "tip cup" on my blog, but never thought to post it here until someone asked me to!  If you're interested, you can get more information [on my blog](https://www.randyrants.com/donate/).
