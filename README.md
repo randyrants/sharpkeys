@@ -108,4 +108,4 @@ A: There is absolutely nothing I can do about it: Windows is remapping the keys 
 * Continued support for new .NET Frameworks
 
 ## Page for donations:
-I always had a "tip cup" on my blog, but never thought to post it here until someone asked me to!  If you're interested, you can get more information [on my blog](https://www.randyrants.com/donate/).
+Not calling attention to this, but [someone asked me to pop the link here](https://github.com/randyrants/sharpkeys/issues/387).  If you're interested, you can get more information [on my blog](https://www.randyrants.com/donate/).
