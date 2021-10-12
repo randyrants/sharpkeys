@@ -80,58 +80,73 @@ namespace SharpKeys
             // lbFrom
             // 
             this.lbFrom.IntegralHeight = false;
-            this.lbFrom.Location = new System.Drawing.Point(9, 20);
+            this.lbFrom.ItemHeight = 24;
+            this.lbFrom.Location = new System.Drawing.Point(17, 37);
+            this.lbFrom.Margin = new System.Windows.Forms.Padding(6);
             this.lbFrom.Name = "lbFrom";
             this.lbFrom.ScrollAlwaysVisible = true;
-            this.lbFrom.Size = new System.Drawing.Size(230, 276);
+            this.lbFrom.Size = new System.Drawing.Size(418, 506);
             this.lbFrom.TabIndex = 0;
             // 
             // btnFrom
             // 
             this.btnFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFrom.Location = new System.Drawing.Point(164, 311);
+            this.btnFrom.BackColor = System.Drawing.SystemColors.Control;
+            this.btnFrom.Location = new System.Drawing.Point(301, 574);
+            this.btnFrom.Margin = new System.Windows.Forms.Padding(6);
             this.btnFrom.Name = "btnFrom";
-            this.btnFrom.Size = new System.Drawing.Size(75, 23);
+            this.btnFrom.Size = new System.Drawing.Size(138, 42);
             this.btnFrom.TabIndex = 1;
             this.btnFrom.Text = "Type &Key";
+            this.btnFrom.UseVisualStyleBackColor = false;
             this.btnFrom.Click += new System.EventHandler(this.btnFrom_Click);
             // 
             // btnTo
             // 
             this.btnTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTo.Location = new System.Drawing.Point(164, 311);
+            this.btnTo.BackColor = System.Drawing.SystemColors.Control;
+            this.btnTo.Location = new System.Drawing.Point(301, 574);
+            this.btnTo.Margin = new System.Windows.Forms.Padding(6);
             this.btnTo.Name = "btnTo";
-            this.btnTo.Size = new System.Drawing.Size(75, 23);
+            this.btnTo.Size = new System.Drawing.Size(138, 42);
             this.btnTo.TabIndex = 0;
             this.btnTo.Text = "Type K&ey";
+            this.btnTo.UseVisualStyleBackColor = false;
             this.btnTo.Click += new System.EventHandler(this.btnTo_Click);
             // 
             // lbTo
             // 
             this.lbTo.IntegralHeight = false;
-            this.lbTo.Location = new System.Drawing.Point(9, 20);
+            this.lbTo.ItemHeight = 24;
+            this.lbTo.Location = new System.Drawing.Point(17, 37);
+            this.lbTo.Margin = new System.Windows.Forms.Padding(6);
             this.lbTo.Name = "lbTo";
             this.lbTo.ScrollAlwaysVisible = true;
-            this.lbTo.Size = new System.Drawing.Size(230, 276);
+            this.lbTo.Size = new System.Drawing.Size(418, 506);
             this.lbTo.TabIndex = 1;
             // 
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOK.BackColor = System.Drawing.SystemColors.Control;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(367, 373);
+            this.btnOK.Location = new System.Drawing.Point(673, 689);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(6);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.Size = new System.Drawing.Size(138, 42);
             this.btnOK.TabIndex = 2;
             this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = false;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnTo);
             this.groupBox2.Controls.Add(this.lbTo);
-            this.groupBox2.Location = new System.Drawing.Point(271, 12);
+            this.groupBox2.Location = new System.Drawing.Point(497, 22);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(251, 347);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox2.Size = new System.Drawing.Size(460, 641);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "&To this key:";
@@ -140,49 +155,58 @@ namespace SharpKeys
             // 
             this.groupBox1.Controls.Add(this.lbFrom);
             this.groupBox1.Controls.Add(this.btnFrom);
-            this.groupBox1.Location = new System.Drawing.Point(14, 12);
+            this.groupBox1.Location = new System.Drawing.Point(26, 22);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(251, 347);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox1.Size = new System.Drawing.Size(460, 641);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "&Map this key:";
             // 
             // mainPanel
             // 
-            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.BackColor = System.Drawing.Color.Transparent;
             this.mainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mainPanel.Controls.Add(this.groupBox1);
             this.mainPanel.Controls.Add(this.btnOK);
             this.mainPanel.Controls.Add(this.groupBox2);
             this.mainPanel.Controls.Add(this.btnCancel);
-            this.mainPanel.Location = new System.Drawing.Point(12, 12);
+            this.mainPanel.Location = new System.Drawing.Point(22, 22);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(6);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(537, 410);
+            this.mainPanel.Size = new System.Drawing.Size(983, 755);
             this.mainPanel.TabIndex = 4;
             this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainPanel_Paint);
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.BackColor = System.Drawing.SystemColors.Control;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(447, 373);
+            this.btnCancel.Location = new System.Drawing.Point(820, 689);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(138, 42);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // Dialog_KeyItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(561, 434);
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ClientSize = new System.Drawing.Size(1029, 801);
             this.Controls.Add(this.mainPanel);
             this.DoubleBuffered = true;
+            this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Dialog_KeyItem";
@@ -235,6 +259,11 @@ namespace SharpKeys
 
         private void Dialog_KeyItem_Paint(object sender, PaintEventArgs e)
         {
+            if (System.Windows.Forms.SystemInformation.HighContrast)
+            {
+                return;
+            }
+            
             Graphics graphics = e.Graphics;
 
             Rectangle rectangle = new Rectangle(0, 0, this.Width, this.Height);
@@ -245,13 +274,13 @@ namespace SharpKeys
             graphics.FillRectangle(linearGradientBrush, rectangle);
         }
 
-        private void Dialog_KeyItem_Resize(object sender, EventArgs e)
-        {
-            this.Invalidate();
-        }
-
         private void mainPanel_Paint(object sender, PaintEventArgs e)
         {
+            if (System.Windows.Forms.SystemInformation.HighContrast)
+            {
+                return;
+            }
+            
             Graphics graphics = e.Graphics;
 
             Rectangle rectangle = new Rectangle(0, 0, mainPanel.Width, mainPanel.Height);
@@ -261,6 +290,11 @@ namespace SharpKeys
 
             graphics.FillRectangle(linearGradientBrush, rectangle);
 
+        }
+
+        private void Dialog_KeyItem_Resize(object sender, EventArgs e)
+        {
+            this.Invalidate();
         }
     }
 }

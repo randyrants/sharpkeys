@@ -108,19 +108,19 @@ namespace SharpKeys
             this.label2 = new System.Windows.Forms.Label();
             this.urlMain = new System.Windows.Forms.LinkLabel();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.btnLoadKeys = new System.Windows.Forms.Button();
+            this.btnSaveKeys = new System.Windows.Forms.Button();
             this.headerPanel = new System.Windows.Forms.Panel();
             this.displayProduct = new System.Windows.Forms.Label();
             this.urlCode = new System.Windows.Forms.LinkLabel();
-            this.btnLoadKeys = new System.Windows.Forms.Button();
-            this.btnSaveKeys = new System.Windows.Forms.Button();
             this.mainPanel.SuspendLayout();
             this.headerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // lvKeys
             // 
-            this.lvKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.lvKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lvKeys.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.lvcFrom,
@@ -130,11 +130,11 @@ namespace SharpKeys
             this.lvKeys.FullRowSelect = true;
             this.lvKeys.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lvKeys.HideSelection = false;
-            this.lvKeys.Location = new System.Drawing.Point(19, 55);
-            this.lvKeys.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvKeys.Location = new System.Drawing.Point(26, 82);
+            this.lvKeys.Margin = new System.Windows.Forms.Padding(6);
             this.lvKeys.MultiSelect = false;
             this.lvKeys.Name = "lvKeys";
-            this.lvKeys.Size = new System.Drawing.Size(771, 319);
+            this.lvKeys.Size = new System.Drawing.Size(1059, 476);
             this.lvKeys.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.lvKeys.TabIndex = 0;
             this.lvKeys.UseCompatibleStateImageBehavior = false;
@@ -192,102 +192,116 @@ namespace SharpKeys
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(545, 381);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSave.Location = new System.Drawing.Point(749, 572);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(6);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(141, 28);
+            this.btnSave.Size = new System.Drawing.Size(194, 42);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "&Write to Registry";
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(694, 381);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.BackColor = System.Drawing.SystemColors.Control;
+            this.btnClose.Location = new System.Drawing.Point(954, 572);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(6);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(96, 28);
+            this.btnClose.Size = new System.Drawing.Size(132, 42);
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "&Close";
+            this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAdd.Location = new System.Drawing.Point(18, 382);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAdd.Location = new System.Drawing.Point(25, 573);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(6);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(96, 28);
+            this.btnAdd.Size = new System.Drawing.Size(132, 42);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "&Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDelete.Location = new System.Drawing.Point(226, 381);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.BackColor = System.Drawing.SystemColors.Control;
+            this.btnDelete.Location = new System.Drawing.Point(311, 572);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(6);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(96, 28);
+            this.btnDelete.Size = new System.Drawing.Size(132, 42);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "&Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEdit.Location = new System.Drawing.Point(122, 382);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEdit.BackColor = System.Drawing.SystemColors.Control;
+            this.btnEdit.Location = new System.Drawing.Point(168, 573);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(6);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(96, 28);
+            this.btnEdit.Size = new System.Drawing.Size(132, 42);
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "&Edit";
+            this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDeleteAll
             // 
             this.btnDeleteAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDeleteAll.Location = new System.Drawing.Point(330, 381);
-            this.btnDeleteAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteAll.BackColor = System.Drawing.SystemColors.Control;
+            this.btnDeleteAll.Location = new System.Drawing.Point(454, 572);
+            this.btnDeleteAll.Margin = new System.Windows.Forms.Padding(6);
             this.btnDeleteAll.Name = "btnDeleteAll";
-            this.btnDeleteAll.Size = new System.Drawing.Size(96, 28);
+            this.btnDeleteAll.Size = new System.Drawing.Size(132, 42);
             this.btnDeleteAll.TabIndex = 4;
             this.btnDeleteAll.Text = "De&lete All";
+            this.btnDeleteAll.UseVisualStyleBackColor = false;
             this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
             // 
             // label11
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label11.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label11.Location = new System.Drawing.Point(12, 459);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(16, 688);
+            this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(784, 4);
+            this.label11.Size = new System.Drawing.Size(1078, 6);
             this.label11.TabIndex = 7;
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Enabled = false;
-            this.label1.Location = new System.Drawing.Point(20, 474);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label1.Location = new System.Drawing.Point(28, 711);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(379, 17);
+            this.label1.Size = new System.Drawing.Size(522, 25);
             this.label1.TabIndex = 9;
-            this.label1.Text = "SharpKeys 3.9.2 - Copyright 2004 - 2020 RandyRants.com";
+            this.label1.Text = "SharpKeys 3.9.3 - Copyright 2004 - 2022 RandyRants.com";
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Enabled = false;
-            this.label2.Location = new System.Drawing.Point(20, 496);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label2.Location = new System.Drawing.Point(28, 744);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(300, 17);
+            this.label2.Size = new System.Drawing.Size(412, 25);
             this.label2.TabIndex = 10;
             this.label2.Text = "Registry hack for remapping keys for Windows";
             // 
@@ -295,22 +309,25 @@ namespace SharpKeys
             // 
             this.urlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.urlMain.AutoSize = true;
-            this.urlMain.Location = new System.Drawing.Point(601, 496);
-            this.urlMain.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.urlMain.BackColor = System.Drawing.Color.Transparent;
+            this.urlMain.LinkColor = System.Drawing.SystemColors.HotTrack;
+            this.urlMain.Location = new System.Drawing.Point(826, 744);
+            this.urlMain.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.urlMain.Name = "urlMain";
-            this.urlMain.Size = new System.Drawing.Size(177, 17);
+            this.urlMain.Size = new System.Drawing.Size(249, 25);
             this.urlMain.TabIndex = 12;
             this.urlMain.TabStop = true;
             this.urlMain.Text = "http://www.randyrants.com/";
             this.urlMain.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.urlMain.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
             this.urlMain.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.urlMain_LinkClicked);
             // 
             // mainPanel
             // 
-            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.mainPanel.BackColor = System.Drawing.Color.Transparent;
+            this.mainPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.mainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mainPanel.Controls.Add(this.btnLoadKeys);
             this.mainPanel.Controls.Add(this.btnSaveKeys);
@@ -327,36 +344,63 @@ namespace SharpKeys
             this.mainPanel.Controls.Add(this.btnDeleteAll);
             this.mainPanel.Controls.Add(this.btnSave);
             this.mainPanel.Controls.Add(this.btnClose);
-            this.mainPanel.Location = new System.Drawing.Point(16, 15);
-            this.mainPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mainPanel.Location = new System.Drawing.Point(22, 22);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(6);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(810, 529);
+            this.mainPanel.Size = new System.Drawing.Size(1113, 792);
             this.mainPanel.TabIndex = 12;
             this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainPanel_Paint);
             // 
+            // btnLoadKeys
+            // 
+            this.btnLoadKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLoadKeys.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLoadKeys.Location = new System.Drawing.Point(25, 627);
+            this.btnLoadKeys.Margin = new System.Windows.Forms.Padding(6);
+            this.btnLoadKeys.Name = "btnLoadKeys";
+            this.btnLoadKeys.Size = new System.Drawing.Size(132, 42);
+            this.btnLoadKeys.TabIndex = 7;
+            this.btnLoadKeys.Text = "L&oad keys...";
+            this.btnLoadKeys.UseVisualStyleBackColor = false;
+            this.btnLoadKeys.Click += new System.EventHandler(this.btnLoadKeys_Click);
+            // 
+            // btnSaveKeys
+            // 
+            this.btnSaveKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSaveKeys.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSaveKeys.Location = new System.Drawing.Point(168, 627);
+            this.btnSaveKeys.Margin = new System.Windows.Forms.Padding(6);
+            this.btnSaveKeys.Name = "btnSaveKeys";
+            this.btnSaveKeys.Size = new System.Drawing.Size(132, 42);
+            this.btnSaveKeys.TabIndex = 8;
+            this.btnSaveKeys.Text = "&Save keys...";
+            this.btnSaveKeys.UseVisualStyleBackColor = false;
+            this.btnSaveKeys.Click += new System.EventHandler(this.btnSaveKeys_Click);
+            // 
             // headerPanel
             // 
-            this.headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.headerPanel.BackColor = System.Drawing.Color.Transparent;
+            this.headerPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.headerPanel.Controls.Add(this.displayProduct);
-            this.headerPanel.Location = new System.Drawing.Point(0, 0);
-            this.headerPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headerPanel.Location = new System.Drawing.Point(-2, -1);
+            this.headerPanel.Margin = new System.Windows.Forms.Padding(6);
             this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(808, 36);
+            this.headerPanel.Size = new System.Drawing.Size(1114, 54);
             this.headerPanel.TabIndex = 7;
             this.headerPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.headerPanel_Paint);
             // 
             // displayProduct
             // 
-            this.displayProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.displayProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.displayProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayProduct.ForeColor = System.Drawing.Color.White;
-            this.displayProduct.Location = new System.Drawing.Point(13, 2);
-            this.displayProduct.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.displayProduct.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.displayProduct.Location = new System.Drawing.Point(18, 3);
+            this.displayProduct.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.displayProduct.Name = "displayProduct";
-            this.displayProduct.Size = new System.Drawing.Size(781, 28);
+            this.displayProduct.Size = new System.Drawing.Size(1075, 42);
             this.displayProduct.TabIndex = 1;
             this.displayProduct.Text = "SharpKeys";
             this.displayProduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -365,48 +409,31 @@ namespace SharpKeys
             // 
             this.urlCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.urlCode.AutoSize = true;
-            this.urlCode.Location = new System.Drawing.Point(515, 474);
-            this.urlCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.urlCode.BackColor = System.Drawing.Color.Transparent;
+            this.urlCode.LinkColor = System.Drawing.SystemColors.HotTrack;
+            this.urlCode.Location = new System.Drawing.Point(708, 711);
+            this.urlCode.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.urlCode.Name = "urlCode";
-            this.urlCode.Size = new System.Drawing.Size(265, 17);
+            this.urlCode.Size = new System.Drawing.Size(367, 25);
             this.urlCode.TabIndex = 11;
             this.urlCode.TabStop = true;
             this.urlCode.Text = "https://github.com/randyrants/sharpkeys/";
             this.urlCode.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.urlCode.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
             this.urlCode.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.urlMain_LinkClicked);
-            // 
-            // btnLoadKeys
-            // 
-            this.btnLoadKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLoadKeys.Location = new System.Drawing.Point(18, 418);
-            this.btnLoadKeys.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLoadKeys.Name = "btnLoadKeys";
-            this.btnLoadKeys.Size = new System.Drawing.Size(96, 28);
-            this.btnLoadKeys.TabIndex = 7;
-            this.btnLoadKeys.Text = "L&oad keys...";
-            this.btnLoadKeys.Click += new System.EventHandler(this.btnLoadKeys_Click);
-            // 
-            // btnSaveKeys
-            // 
-            this.btnSaveKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSaveKeys.Location = new System.Drawing.Point(122, 418);
-            this.btnSaveKeys.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSaveKeys.Name = "btnSaveKeys";
-            this.btnSaveKeys.Size = new System.Drawing.Size(96, 28);
-            this.btnSaveKeys.TabIndex = 8;
-            this.btnSaveKeys.Text = "&Save keys...";
-            this.btnSaveKeys.Click += new System.EventHandler(this.btnSaveKeys_Click);
             // 
             // Dialog_Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(843, 559);
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ClientSize = new System.Drawing.Size(1159, 838);
             this.Controls.Add(this.mainPanel);
             this.DoubleBuffered = true;
+            this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MinimumSize = new System.Drawing.Size(847, 580);
+            this.Margin = new System.Windows.Forms.Padding(6);
+            this.MinimumSize = new System.Drawing.Size(1156, 838);
             this.Name = "Dialog_Main";
             this.Text = "SharpKeys";
             this.Closing += new System.ComponentModel.CancelEventHandler(this.Dialog_Main_Closing);
@@ -1310,13 +1337,13 @@ namespace SharpKeys
             System.Diagnostics.Process.Start(((LinkLabel)sender).Text);
         }
 
-        private void Dialog_Main_Resize(object sender, EventArgs e)
-        {
-            this.Invalidate();
-        }
-
         private void Dialog_Main_Paint(object sender, PaintEventArgs e)
         {
+            if (System.Windows.Forms.SystemInformation.HighContrast)
+            { 
+                return;
+            }
+
             Graphics graphics = e.Graphics;
 
             Rectangle rectangle = new Rectangle(0, 0, this.Width, this.Height);
@@ -1329,6 +1356,11 @@ namespace SharpKeys
 
         private void mainPanel_Paint(object sender, PaintEventArgs e)
         {
+            if (System.Windows.Forms.SystemInformation.HighContrast)
+            {
+                return;
+            }
+
             Graphics graphics = e.Graphics;
 
             Rectangle rectangle = new Rectangle(0, 0, mainPanel.Width, mainPanel.Height);
@@ -1341,6 +1373,11 @@ namespace SharpKeys
 
         private void headerPanel_Paint(object sender, PaintEventArgs e)
         {
+            if (System.Windows.Forms.SystemInformation.HighContrast)
+            {
+                return;
+            }
+
             Graphics graphics = e.Graphics;
 
             Rectangle topRectangle = new Rectangle(0, 0, headerPanel.Width, headerPanel.Height / 2);
@@ -1356,6 +1393,12 @@ namespace SharpKeys
             graphics.FillRectangle(topGradientBrush, topRectangle);
             graphics.FillRectangle(bottomGradientBrush, bottomRectangle);
 
+            displayProduct.ForeColor = Color.White;
+        }
+
+        private void Dialog_Main_Resize(object sender, EventArgs e)
+        {
+            this.Invalidate();
         }
     }
 }
