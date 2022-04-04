@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.IO;
 using Microsoft.Win32;
+using System.Runtime.CompilerServices;
 
 namespace SharpKeys
 {
@@ -290,7 +291,7 @@ namespace SharpKeys
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(522, 25);
             this.label1.TabIndex = 9;
-            this.label1.Text = "SharpKeys 3.9.3 - Copyright 2004 - 2022 RandyRants.com";
+            this.label1.Text = "SharpKeys 3.9.4 - Copyright 2004 - 2022 RandyRants.com";
             // 
             // label2
             // 
@@ -1033,7 +1034,6 @@ namespace SharpKeys
             m_hashKeys.Add("E0_1F", "Unknown: 0xE01F");
 
             m_hashKeys.Add("E0_20", "Media: Mute");
-            m_hashKeys.Add("E0_2038", "Special: Alt Gr");
             m_hashKeys.Add("E0_21", "App: Calculator");
             m_hashKeys.Add("E0_22", "Media: Play/Pause");
             m_hashKeys.Add("E0_23", "F-Lock: Spell");
@@ -1344,9 +1344,14 @@ namespace SharpKeys
                 return;
             }
 
-            Graphics graphics = e.Graphics;
-
             Rectangle rectangle = new Rectangle(0, 0, this.Width, this.Height);
+
+            if ((rectangle.Width <= 0) && (rectangle.Height <= 0))
+            {
+                return;
+            }
+
+            Graphics graphics = e.Graphics;
             LinearGradientBrush linearGradientBrush = new LinearGradientBrush(rectangle,
                            Color.FromArgb(188, 188, 188), Color.FromArgb(225, 225, 225),
                            LinearGradientMode.ForwardDiagonal);
@@ -1361,9 +1366,14 @@ namespace SharpKeys
                 return;
             }
 
-            Graphics graphics = e.Graphics;
 
             Rectangle rectangle = new Rectangle(0, 0, mainPanel.Width, mainPanel.Height);
+            if ((rectangle.Width <= 0) && (rectangle.Height <= 0))
+            {
+                return;
+            }
+
+            Graphics graphics = e.Graphics;
             LinearGradientBrush linearGradientBrush = new LinearGradientBrush(rectangle,
                            Color.FromArgb(209, 221, 228), Color.FromArgb(237, 239, 247), //Color.FromArgb(236, 241, 243), 
                            LinearGradientMode.Vertical);
