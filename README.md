@@ -10,9 +10,9 @@ SharpKeys is not responsible for any of the keyboard remapping functionality - i
 
 ## Install
 
-### Manual
+### Manual via web or Microsoft Store
 
-Click the [Releases](https://github.com/randyrants/sharpkeys/releases) button in the header above
+Click the [Releases](https://github.com/randyrants/sharpkeys/releases) button in the header above or get the same MSI from the [Microsoft Store](https://apps.microsoft.com/store/detail/XPFFCG7M673D4F).
 
 Note: that for ARM versions of Windows, please use the ZIP file to get the EXE: the MSI is looking for x64/x86.
 
