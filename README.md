@@ -21,7 +21,7 @@ Note: that for ARM versions of Windows, please use the ZIP file to get the EXE: 
 If you are using [WinGet](https://github.com/microsoft/winget-cli/releases)
 
 ```
-winget install sharpkeys
+winget install RandyRants.SharpKeys
 ```
 
 ### scoop
