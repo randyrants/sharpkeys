@@ -18,10 +18,16 @@ Note: that for ARM versions of Windows, please use the ZIP file to get the EXE: 
 
 ### winget
 
-If you are using [WinGet](https://github.com/microsoft/winget-cli/releases)
+If you are using [WinGet](https://github.com/microsoft/winget-cli/releases) and want to install the MSI from GitHub
 
 ```
-winget install sharpkeys
+winget install -e RandyRants.SharpKeys
+```
+
+Likewise you can also install the Microsoft Store version of the app via WinGet by
+
+```
+winget install -e XPFFCG7M673D4F
 ```
 
 ### scoop
