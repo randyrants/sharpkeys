@@ -80,6 +80,9 @@ A: Odds are this is just a key that has never been seen by SharpKeys before so i
 **Q: Type a Key shows a code that is E0_nnnn - can I remap this key?**  
 A: If a scancode has 6 characters, then it is what is known as a triple byte scancode which is something that cannot be remapped by the Windows Registry.  To remap a key like this, you'll need an active remapper like Microsoft PowerToys or AutoHotKeys or the app that came with the keyboard (e.g. Logitech's Options) if available.
 
+**Q: I have a new Microsoft keyboard with dedicated keys for Office and Emoji - can I remap those?**  
+A: Not with SharpKeys, as these are both triple-byte codes, but the Microsoft offers keyboard software that can change the function of these keys.  Specifically for the Office key, there is also this additional workaround via [HowToGeek](https://www.howtogeek.com/445318/how-to-remap-the-office-key-on-your-keyboard/).
+
 **Q: What's all this stuff about "scan codes"?**  
 A: Whenever you press a key on your keyboard, it sends a binary code to the keyboard controller in you PC. That code is passed on into Windows (in most cases) and Windows interprets it as "they pressed code 0x3A so that's Caps Lock - turn that on!" What modern versions of Windows also does is it checks a registry key when the machine boots. What that registry key does is tell windows "even though they pressed 0x3A, treat it as 0x2A" (which is left shift). What SharpKeys does is edits this registry key using a simple UI and sidestepping the registry editor.
 
