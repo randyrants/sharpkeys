@@ -107,7 +107,7 @@ A: There is absolutely nothing I can do about it: Windows is remapping the keys 
 **Q: I have accidentally remapped a key I need to sign in with but I can reboot to safe mode or WinPE and get to a CMD prompt. Can I reset the mappings?**
 A: If you can get to a CMD window. you should be able to open regedit, which will prompt for Administrator rights.  Navigate to `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout`, delete the `Scancode Map` value; likewise, if you have an admin CMD prompt open already, you can remove the Registry value by running: 
 `reg delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout" /v "Scancode Map"` 
-Reboot after reseting the Registry value.
+Reboot after resetting the Registry value.
 
 ## Existing saved keyboard layouts
 * Colemak - [SKL via GitHub](https://github.com/NathanDai5287/Keyboard-Layouts-for-SharpKeys) via [@NathanDai5287](https://github.com/NathanDai5287)
