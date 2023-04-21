@@ -78,7 +78,8 @@ A: 00_100 is a catch all code that Windows reports when a key is captured by har
 A: Odds are this is just a key that has never been seen by SharpKeys before so it doesn't know what to do with it. Open an issue on this site for this project and someone from the Open Source community can look into adding it.
 
 **Q: Type a Key shows a code that is E0_nnnn - can I remap this key?**  
-A: If a scancode has 6 characters, then it is what is known as a triple byte scancode which is something that cannot be remapped by the Windows Registry.  To remap a key like this, you'll need an active remapper like Microsoft PowerToys or AutoHotKeys or the app that came with the keyboard (e.g. Logitech's Options) if available.
+**Q: Type a Key for AltGr shows a code that is E0_2038 - can I remap this key?**  
+A: If a scancode has 6 characters, then it is what is known as a triple-byte scancode which is something that cannot be remapped by the Windows Registry.  To remap a key like this, you'll need an active remapper like Microsoft PowerToys or AutoHotKeys or the app that came with the keyboard (e.g. Logitech's Options) if available.
 
 **Q: I have a new Microsoft keyboard with dedicated keys for Office and Emoji - can I remap those?**  
 A: Not with SharpKeys, as these are both triple-byte codes, but the Microsoft offers keyboard software that can change the function of these keys.  Specifically for the Office key, there is also this additional workaround via [HowToGeek](https://www.howtogeek.com/445318/how-to-remap-the-office-key-on-your-keyboard/).
