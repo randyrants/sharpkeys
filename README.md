@@ -65,6 +65,9 @@ A: Yes!
 **Q: Can I remap a combination of keys to one key?**  
 A: Sadly, no. SharpKeys only remaps whole keys rather than a modified key. For example, you can remap Ctrl or C but you can't remap Ctrl+C to another key.  That said, the Microsoft PowerToys tool does offer this functionality - you can learn more about their tool here: [Microsoft PowerToys](https://github.com/microsoft/PowerToys/releases).
 
+**Q: Can I remap the Copilot key with SharpKeys?**
+A: No.  The Copilot key's scancode is a combination of Ctrl + Windows + F23 and the Windows technology the SharpKeys exposes only supports remapping an entire key and not a modified combination of the key.
+
 **Q: Can I remap a mouse click to a new key?**  
 A: Sorry, but no. The remapping technology that Windows uses to remap your keys isn't aware of your mouse.
 
