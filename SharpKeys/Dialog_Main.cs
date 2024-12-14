@@ -1,12 +1,11 @@
+using Microsoft.Win32;
 using System;
+using System.Collections;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections;
-using System.Windows.Forms;
-using System.ComponentModel;
 using System.IO;
-using Microsoft.Win32;
-using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
 namespace SharpKeys
 {
@@ -120,8 +119,8 @@ namespace SharpKeys
             // 
             // lvKeys
             // 
-            this.lvKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.lvKeys.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lvKeys.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.lvcFrom,
@@ -270,7 +269,7 @@ namespace SharpKeys
             // 
             // label11
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label11.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -325,8 +324,8 @@ namespace SharpKeys
             // 
             // mainPanel
             // 
-            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.mainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -380,7 +379,7 @@ namespace SharpKeys
             // 
             // headerPanel
             // 
-            this.headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.headerPanel.BackColor = System.Drawing.Color.Transparent;
             this.headerPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -394,7 +393,7 @@ namespace SharpKeys
             // 
             // displayProduct
             // 
-            this.displayProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.displayProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.displayProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.displayProduct.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -1074,6 +1073,7 @@ namespace SharpKeys
             m_hashKeys.Add("E0_44", "Unknown: 0xE044");
             m_hashKeys.Add("E0_45", "Special: €");
             m_hashKeys.Add("E0_46", "Special: Break");
+            m_hashKeys.Add("E1_1D", "Special: Pause");
             m_hashKeys.Add("E0_47", "Special: Home");
             m_hashKeys.Add("E0_48", "Arrow: Up");
             m_hashKeys.Add("E0_49", "Special: Page Up");
@@ -1177,7 +1177,7 @@ namespace SharpKeys
             m_hashKeys.Add("E0_E2", "Unknown: 0xE0B2"); // Varies by keyboard
             m_hashKeys.Add("E0_E3", "Unknown: 0xE0B3"); // Varies by keyboard
             m_hashKeys.Add("E0_E4", "Unknown: 0xE0B4"); // Varies by keyboard
-                                                        
+
             m_hashKeys.Add("E0_F1", "Special: Hanja Key");
             m_hashKeys.Add("E0_F2", "Special: Hangul Key");
         }
@@ -1340,7 +1340,7 @@ namespace SharpKeys
         private void Dialog_Main_Paint(object sender, PaintEventArgs e)
         {
             if (System.Windows.Forms.SystemInformation.HighContrast)
-            { 
+            {
                 return;
             }
 
